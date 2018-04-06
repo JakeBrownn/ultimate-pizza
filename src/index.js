@@ -4,8 +4,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 import Header from './components/Header';
-import PizzaScreen from './components/screens/pizza-game/PizzaScreen';
-import './index.css';
+import App from './components/App';
 
 const Homepage = () => (
   <div>This is my Homepage</div>
@@ -13,13 +12,12 @@ const Homepage = () => (
 
 const routes = (
   <BrowserRouter>
-    <div>
+    <div className="browser-router">
       {/* <Header /> */}
-      <Route exact path="/" component={Homepage} />
-      <Route path="/pizza" component={PizzaScreen} />
+      <Route exact path="/" component={App} />
     </div>
   </BrowserRouter>
-)
+);
 
-ReactDOM.render(routes, document.getElementById('root'));
+ReactDOM.render(routes, document.getElementById('root-app'));
 registerServiceWorker();

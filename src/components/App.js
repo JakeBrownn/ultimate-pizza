@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import pizza from '../../../assets/images/image-pizza.jpg';
-import '../../../assets/styles/main.min.css';
+import pizza from '../assets/images/image-pizza.jpg';
+import '../assets/styles/main.min.css';
 
-class PizzaScreen extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -60,7 +60,7 @@ class PizzaScreen extends Component {
       <div className="site-content">
         <div className="game-screen">
           <div className="action-button">
-            <img className="action-button__image" onClick={this.buttonClicked} src={pizza} />
+            <img className="action-button__image" onClick={this.buttonClicked} src={pizza} alt="Pizza Image" />
           </div>
           <div className="user-score">
             <span className="user-score__value">{this.state.clicks}</span>
@@ -90,4 +90,4 @@ class PizzaScreen extends Component {
   }
 }
 
-export default PizzaScreen;
+export default App;
