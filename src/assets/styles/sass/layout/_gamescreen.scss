@@ -1,0 +1,33 @@
+.game-screen {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+}
+
+.action-button {
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  &__image {
+    height: 300px;
+  }
+}
+
+.user-score {
+  display: flex;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  &__value {
+    font-size: 100px;
+  }
+}

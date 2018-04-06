@@ -1,0 +1,10 @@
+// Body
+
+.site-content {
+  display: flex;
+  height: 100vh;
+}
+
+// Imports
+@import 'layout/sidebar';
+@import 'layout/gamescreen';

@@ -1,0 +1,2 @@
+.site-content{display:flex;height:100vh}.shop{width:25%;height:100%}.game-screen{position:relative;display:flex;align-items:center;justify-content:center;width:75%}.action-button{cursor:pointer}.action-button:active{transform:scale(0.95)}.action-button__image{height:300px}.user-score{display:flex;justify-content:center;width:250px;height:250px;position:absolute;right:0;top:0}.user-score__value{font-size:100px}
+/*# sourceMappingURL=main.min.css.map */
