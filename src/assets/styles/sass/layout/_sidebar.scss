@@ -1,4 +1,56 @@
 .shop {
   width: 25%;
   height: 100%;
+  padding: 25px 20px;
+
+  &__title {
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+}
+
+.shop-item {
+  margin: 40px 0;
+  position: relative;
+  cursor: default;
+
+  &:hover {
+    .shop-item__popup {
+      display: block;
+    }
+  }
+
+  &__title {
+    margin-bottom: 5px;
+  }
+
+  &__popup {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: -300px;
+    width: 250px;
+    background: red;
+    padding: 15px;
+  }
+
+  &__owned {
+    text-align: right;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  &__upgrade-list {
+    
+  }
+
+  &__upgrade-text {
+    font-size: 13px;
+  }
+
+  &__button {
+    margin-top: 10px;
+    cursor: pointer;
+  }
 }
