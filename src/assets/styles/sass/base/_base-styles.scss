@@ -1,0 +1,19 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  background: linear-gradient( to bottom right, #353535, #4c4c4c );
+  font-family: 'Karmatic Arcade', sans-serif;
+  margin: 0;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+}

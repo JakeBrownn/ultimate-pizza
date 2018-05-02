@@ -1,33 +1,9 @@
-// Global Styles
-body {
-  font-family: sans-serif;
-  -webkit-font-smoothing: antialiased;
-  margin: 0;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  p {
-    margin: 0;
-  }
-
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-
-  li {
-    margin-left: 20px;
-  }
-}
-
-
-.site-content {
-  display: flex;
-  height: 100vh;
-}
-
 // Imports
-@import 'layout/sidebar';
-@import 'layout/gamescreen';
+@import 
+  'base/fonts',
+  'base/animations',
+  'base/base-styles';
+
+@import 
+  'layout/sidebar',
+  'layout/gamescreen';

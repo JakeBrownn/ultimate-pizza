@@ -1,0 +1,12 @@
+// Sidescroll Background
+@keyframes sidescroll {
+  0% { background-position: 0 0; }
+  100% { background-position: -800px 0; }
+}
+
+// Pizza Bobbing
+@keyframes bobbing {
+  0% { padding-bottom: 0; }
+  50% { padding-bottom: 20px; }
+  100% { padding-bottom: 0; }
+}

@@ -3,7 +3,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 75%;
+  height: 100vh;
+  margin-right: 465px;
+}
+
+.action-window {
+  position: relative;
+  height: 800px;
+  width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../images/background-level-one.png');
+  background-size: 100%;
+  background-repeat: repeat-x;
+  border: 5px solid;
+  border-color: rgb(33,33,33) rgb(79,79,79) rgb(79,79,79) rgb(33,33,33);
+  animation: sidescroll 5s linear infinite;
 }
 
 .action-button {
@@ -15,18 +31,29 @@
   
   &__image {
     height: 300px;
+    animation: bobbing 1s linear infinite;
   }
 }
 
 .user-score {
   display: flex;
   justify-content: center;
-  width: 410px;
+  min-width: 300px;
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 20px;
+  top: 20px;
 
   &__value {
-    font-size: 100px;
+    font-size: 50px;
+  }
+}
+
+.user-level {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  &__value {
+    font-size: 17px;
   }
 }
