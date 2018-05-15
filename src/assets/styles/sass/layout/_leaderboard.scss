@@ -1,0 +1,45 @@
+.leaderboard {
+  position: absolute;
+  top: 15%;
+  width: 60%;
+  height: 620px;
+  background-color: rgba(79,144,204,0.96);
+  overflow: hidden;
+  border: 10px ridge orange;
+
+  &.visible {
+    display: block;
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  &__title {
+    font-size: 36px;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  &__wrapper {
+    position: relative;
+    margin: 30px;
+    height: 100%;
+    // background: blue;
+  }
+}
+
+.leaderboard-list {
+  width: 100%;
+  margin: auto;
+  
+  &__entry {
+    list-style-type: decimal-leading-zero;
+    margin-bottom: 3px;
+    margin-left: 40px;
+  }
+
+  &__score {
+    float: right;
+  }
+}
