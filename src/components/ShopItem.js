@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const ShopItem = (props) => {
   const { triggerAction, icon, title, purchased, description, itemCost } = props;

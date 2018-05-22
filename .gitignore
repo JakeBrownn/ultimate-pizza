@@ -3,6 +3,7 @@
 /coverage
 /build
 /src/assets/styles/.sass-cache
+/public/keys.js
 .sass-cache
 .DS_Store
 .env.local
