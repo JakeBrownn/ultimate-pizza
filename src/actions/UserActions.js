@@ -2,11 +2,12 @@ import {
   INCREMENT_CLICK,
   INCREMENT_SOUND_COUNTER,
   RESET_SOUND_COUNTER,
-  LEVEL_UP,
   PLAY_SOUNDTRACK,
   STOP_SOUNDTRACK,
   OPEN_LEADERBOARD,
-  CLOSE_LEADERBOARD
+  CLOSE_LEADERBOARD,
+  OPEN_SUBMIT_POPUP,
+  CLOSE_SUBMIT_POPUP
 } from './types';
 
 export const incrementClicks = (click) => {
@@ -30,13 +31,6 @@ export const resetSoundCounter = (val) => {
   }
 }; 
 
-export const levelUp = (e) => {
-  return {
-    type: LEVEL_UP,
-    payload: e
-  }
-};
-
 export const openLeaderboard = (toggle) => {
   return {
     type: OPEN_LEADERBOARD,
@@ -47,6 +41,20 @@ export const openLeaderboard = (toggle) => {
 export const closeLeaderboard = (toggle) => {
   return {
     type: CLOSE_LEADERBOARD,
+    payload: toggle
+  }
+};
+
+export const openSubmitPopup = (toggle) => {
+  return {
+    type: OPEN_SUBMIT_POPUP,
+    payload: toggle
+  }
+};
+
+export const closeSubmitPopup = (toggle) => {
+  return {
+    type: CLOSE_SUBMIT_POPUP,
     payload: toggle
   }
 };

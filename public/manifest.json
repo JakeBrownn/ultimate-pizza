@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Ultimate Pizza",
+  "name": "Ultimate Pizza: Cheesey Revenge II",
+  "description": "An awesome game you should play.",
   "icons": [
     {
       "src": "favicon.ico",

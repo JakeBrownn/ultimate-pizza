@@ -3,9 +3,9 @@
   top: 15%;
   width: 60%;
   height: 620px;
-  background-color: rgba(79,144,204,0.96);
+  background-color: $color-blue;
+  border: $gold-border;
   overflow: hidden;
-  border: 10px ridge orange;
 
   &.visible {
     display: block;
@@ -25,7 +25,6 @@
     position: relative;
     margin: 30px;
     height: 100%;
-    // background: blue;
   }
 }
 

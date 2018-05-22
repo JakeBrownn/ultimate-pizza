@@ -16,4 +16,11 @@ body {
     margin: 0;
     padding: 0;
   }
+
+  button,
+  input {
+    &:focus {
+      outline: 0;
+    }
+  }
 }

@@ -11,15 +11,13 @@
   position: relative;
   height: 800px;
   width: 800px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-image: url('../images/background-level-one.png');
   background-size: 100%;
   background-repeat: repeat-x;
   border: 10px solid;
   border-color: rgb(33,33,33) rgb(79,79,79) rgb(79,79,79) rgb(33,33,33);
   animation: sidescroll 5s linear infinite;
+  @include flex(column);
 }
 
 .action-button {
@@ -36,12 +34,11 @@
 }
 
 .user-score {
-  display: flex;
-  justify-content: center;
   min-width: 300px;
   position: absolute;
   left: 20px;
   top: 20px;
+  @include flex(column);
 
   &__value {
     font-size: 50px;

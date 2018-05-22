@@ -8,12 +8,12 @@ import {
 } from '../actions';
 
 import Sidebar from './Sidebar';
+import SubmitScore from './SubmitScore';
 import Leaderboard from './Leaderboard';
 
 import pizza from '../assets/images/image-pixel-pizza.png';
 import soundChompOne from '../assets/audio/sound-chomp-1.mp3';
 import soundChompTwo from '../assets/audio/sound-chomp-2.mp3';
-
 
 class App extends Component {  
   playSound() {
@@ -40,20 +40,21 @@ class App extends Component {
     this.playSound();
   };
 
-  render() {     
+  render() {        
     return (    
       <div className="app-content">
         <div className="game-screen">
           <div className="action-window">
             <Leaderboard />
+            <SubmitScore />
             <div className="action-button">
               <img className="action-button__image" onClick={this.handleClick} src={pizza} alt="Pizza" />
             </div>
             <div className="user-score">
-              <span className="user-score__value">{this.props.clicks.total} Slices</span>
+              <span className="user-score__value">{this.props.counter.total} Slices</span>
             </div>
             <div className="user-level">
-              <span className="user-level__value">Level {this.props.playerLevel.level}</span>
+              <span className="user-level__value">Level 1</span>
             </div>
           </div>
         </div>
@@ -65,9 +66,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    clicks: state.counter,
+    counter: state.counter,
     soundCount: state.soundCount,
-    playerLevel: state.level
   };
 };
 

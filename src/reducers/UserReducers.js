@@ -2,22 +2,23 @@ import {
   INCREMENT_CLICK,
   INCREMENT_SOUND_COUNTER,
   RESET_SOUND_COUNTER,
-  LEVEL_UP,
   ACTIVATE_DELIVERY_MAN,
   ACTIVATE_EXTRA_CHEESE,
   INTERVAL_EXTRA_CHEESE,
   PLAY_SOUNDTRACK,
   STOP_SOUNDTRACK,
   OPEN_LEADERBOARD,
-  CLOSE_LEADERBOARD
+  CLOSE_LEADERBOARD,
+  OPEN_SUBMIT_POPUP,
+  CLOSE_SUBMIT_POPUP
 } from '../actions/types';
 
 const INITIAL_STATE = {
   total: 500,
   val: 1,
-  level: 1,
   playSoundtrack: true,
-  showLeaderboard: 'hidden'
+  showLeaderboard: 'hidden',
+  showSubmitPopup: 'hidden'
 };
 
 const itemBonus = {
@@ -66,15 +67,6 @@ export const SoundCountReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export const LevelUpReducer = (state = INITIAL_STATE, action) => {
-  switch (action.type) {
-    case LEVEL_UP:
-      return { level: state.level + 1 }
-    default:
-      return state;
-  }
-};
-
 export const SoundtrackReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case PLAY_SOUNDTRACK:
@@ -92,6 +84,17 @@ export const LeaderboardReducer = (state = INITIAL_STATE, action) => {
       return { showLeaderboard: 'visibile'  };
     case CLOSE_LEADERBOARD:
       return { showLeaderboard: 'hidden' };
+    default:
+      return state;
+  }
+};
+
+export const SubmitPopupReducer = (state = INITIAL_STATE, action) => {
+  switch(action.type) {
+    case OPEN_SUBMIT_POPUP:
+      return { showSubmitPopup: 'visibile'  };
+    case CLOSE_SUBMIT_POPUP:
+      return { showSubmitPopup: 'hidden' };
     default:
       return state;
   }

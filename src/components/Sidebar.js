@@ -29,7 +29,7 @@ class Sidebar extends Component {
   };
 
   render() {
-    const { dispatch, upgradesOwned, clicks } = this.props;
+    const { dispatch, purchased, counter } = this.props;
       
     return (
       <div className="sidebar">
@@ -40,10 +40,10 @@ class Sidebar extends Component {
             description={"Double your pizza slices."}
             icon={IconDeliveryMan}
             itemCost={"250"}
-            purchased={upgradesOwned.deliveryMan + "/ 3"}
+            purchased={purchased.deliveryMan + "/ 3"}
             triggerAction={
               () => {
-                if (250 < clicks.total && upgradesOwned.deliveryMan < 3) {
+                if (250 < counter.total && purchased.deliveryMan < 3) {
                   dispatch(buyDeliveryMan())
                   dispatch(activateDeliveryMan())
                   this.purchaseSound()
@@ -56,10 +56,10 @@ class Sidebar extends Component {
             description={"Adds 1 slice every 10 seconds."}
             icon={IconExtraCheese}
             itemCost={"150"}
-            purchased={upgradesOwned.extraCheese + "/ 3"}
+            purchased={purchased.extraCheese + "/ 3"}
             triggerAction={
               () => {
-                if (upgradesOwned.extraCheese < 3) {
+                if (purchased.extraCheese < 3) {
                   dispatch(buyExtraCheese())
                   dispatch(activateExtraCheese())
                   this.handleIntervalSlices()
@@ -77,8 +77,8 @@ class Sidebar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    clicks: state.counter,
-    upgradesOwned: state.purchased,
+    counter: state.counter,
+    purchased: state.purchased,
   };
 };
 

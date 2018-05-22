@@ -1,3 +1,3 @@
 ## Ulimate Pizza
 
-Messing around with states in React, built in a lunchbreak and evening at work.
+Inspired by [Cookie Clicker](http://orteil.dashnet.org/cookieclicker/), my first React project using Redux.

@@ -1,6 +1,5 @@
 // User Types
 export const INCREMENT_CLICK = 'increment_click';
-export const LEVEL_UP = 'level_up';
 
 export const INCREMENT_SOUND_COUNTER = 'increment_sound_counter';
 export const RESET_SOUND_COUNTER = 'reset_sound_counter';
@@ -9,6 +8,9 @@ export const STOP_SOUNDTRACK = 'stop_soundtrack';
 
 export const OPEN_LEADERBOARD = 'open_leaderboard';
 export const CLOSE_LEADERBOARD = 'close_leaderboard';
+
+export const OPEN_SUBMIT_POPUP = 'open_submit_popup';
+export const CLOSE_SUBMIT_POPUP = 'close_submit_popup';
 
 
 // Shop Types

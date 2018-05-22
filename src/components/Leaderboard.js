@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import firebase from 'firebase';
 
+
 class Leaderboard extends Component {
   // componentDidMount() {
   //   const config = {
@@ -31,10 +32,6 @@ class Leaderboard extends Component {
   //     score: 100
   //   };
   // };
-
-  showLeaderboard() {
-
-  };
 
   render() {
     const { leaderboard } = this.props;

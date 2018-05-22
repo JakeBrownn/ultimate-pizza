@@ -3,9 +3,9 @@ import { combineReducers } from 'redux';
 import {
   ClickReducer,
   SoundCountReducer,
-  LevelUpReducer,
   SoundtrackReducer,
-  LeaderboardReducer
+  LeaderboardReducer,
+  SubmitPopupReducer
 } from './UserReducers';
 
 import {
@@ -15,10 +15,10 @@ import {
 const reducers = combineReducers({
   counter: ClickReducer,
   soundCount: SoundCountReducer,
-  level: LevelUpReducer,
   purchased: BuyUpgradeReducer,
   music: SoundtrackReducer,
-  leaderboard: LeaderboardReducer
+  leaderboard: LeaderboardReducer,
+  submitPopup: SubmitPopupReducer
 });
 
 export default reducers;
