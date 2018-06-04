@@ -12,6 +12,7 @@ import {
   BuyUpgradeReducer,
 } from './ShopReducers';
 
+// Combine all Reducers in to one
 const reducers = combineReducers({
   counter: ClickReducer,
   soundCount: SoundCountReducer,

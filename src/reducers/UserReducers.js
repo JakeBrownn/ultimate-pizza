@@ -14,7 +14,7 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  total: 500,
+  total: 0,
   val: 1,
   playSoundtrack: true,
   showLeaderboard: 'hidden',
@@ -45,7 +45,6 @@ export const ClickReducer = (state = INITIAL_STATE, action) => {
         ...state,
         total: state.total - itemPrice.extraCheese
       };
-
     case INTERVAL_EXTRA_CHEESE:
       return {
         ...state,

@@ -18,7 +18,7 @@ import SoundOff from '../assets/images/icon-sound-off.jpg';
 
 class SidebarInfo extends Component {
   componentDidMount() {
-    const soundtrackMusic = document.getElementById("gameSoundtrack");
+    const soundtrackMusic = document.getElementById('gameSoundtrack');
 
     soundtrackMusic.play();
   };
@@ -31,14 +31,19 @@ class SidebarInfo extends Component {
 
   toggleSound() {
     const { music, dispatch } = this.props;
-    const soundtrackMusic = document.getElementById("gameSoundtrack");
+    const soundtrackMusic = document.getElementById('gameSoundtrack');
     const toggleSoundEffect = new Audio(SoundToggle);
 
     toggleSoundEffect.play();
 
+    // If the Soundtrack is playing
     if (music.playSoundtrack === true) {
+
+      // Pause the soundtrack
       soundtrackMusic.pause();
       dispatch(stopSoundtrack());
+
+      // Otherwise play the soundtrack
     } else {
       soundtrackMusic.play();
       dispatch(playSoundtrack());
@@ -49,11 +54,17 @@ class SidebarInfo extends Component {
     const { leaderboard, dispatch } = this.props;
     
     this.clickNoise();
+
+    // If the Leaderboard is not showing
     if ( leaderboard.showLeaderboard === 'hidden' ) {
-      dispatch(openLeaderboard())
-      dispatch(closeSubmitPopup())
+
+      // Open the Leaderboard and close the Submit Score popup
+      dispatch(openLeaderboard());
+      dispatch(closeSubmitPopup());
+
+      // Otherwise close the popup
     } else {
-      dispatch(closeLeaderboard())
+      dispatch(closeLeaderboard());
     };
   };
 
@@ -63,11 +74,16 @@ class SidebarInfo extends Component {
     e.preventDefault();
     this.clickNoise();
 
+    // If the Submit Score popup is not showing
     if ( submitPopup.showSubmitPopup === 'hidden' ) {
-      dispatch(openSubmitPopup())
-      dispatch(closeLeaderboard())
+
+      // Open the Submit Score popup and close the Leaderboard
+      dispatch(openSubmitPopup());
+      dispatch(closeLeaderboard());
+
+      // Otherwise close the Submit Score popup
     } else {
-      dispatch(closeSubmitPopup())
+      dispatch(closeSubmitPopup());
     };
   };
 
@@ -75,22 +91,22 @@ class SidebarInfo extends Component {
     const { music } = this.props;
 
     return (
-      <div className="sidebar-info">
-        <div className="sidebar-info__row">
-          <form className="submit-form">
-            <input className="submit-form__input" placeholder="Username" type="text" value="" />
-            <input className="submit-form__button" type="submit" value="Submit"  onClick={(e) => { this.toggleSubmitScore(e) }} />
+      <div className='sidebar-info'>
+        <div className='sidebar-info__row'>
+          <form className='submit-form'>
+            <input className='submit-form__input' placeholder='Username' type='text' value='' />
+            <input className='submit-form__button' type='submit' value='Submit'  onClick={(e) => { this.toggleSubmitScore(e) }} />
           </form>
         </div>
-        <div className="sidebar-info__row">
-          <div className="sidebar-option sidebar-option--sound" onClick={() => { this.toggleSound() }}>
-            <audio id="gameSoundtrack">
-              <source src={gameSoundtrack} type="audio/mpeg" />
-            </audio>
-            { music.playSoundtrack === true ? <img src={SoundOn} alt="Sound On" /> : <img src={SoundOff} alt="Sound Off" /> }
+        <div className='sidebar-info__row'>
+          <div className='sidebar-option sidebar-option--sound' onClick={() => { this.toggleSound() }}>
+            <audio id='gameSoundtrack'>
+              <source src={gameSoundtrack} type='audio/mpeg' />
+            </audio> 
+            { music.playSoundtrack === true ? <img src={SoundOn} alt='Sound On' /> : <img src={SoundOff} alt='Sound Off' /> }
           </div>
-          <div className="sidebar-option sidebar-option--leaderboard" onClick={() => { this.toggleLeaderboard(); }}>
-            <span className="sidebar-option__text">The Leaderboards</span>
+          <div className='sidebar-option sidebar-option--leaderboard' onClick={() => { this.toggleLeaderboard(); }}>
+            <span className='sidebar-option__text'>The Leaderboards</span>
           </div>
         </div>
       </div>
@@ -98,12 +114,9 @@ class SidebarInfo extends Component {
   }
 };
 
-const mapStateToProps = (state) => {
-  return {
-    music: state.music,
-    leaderboard: state.leaderboard,
-    submitPopup: state.submitPopup
-  }
+// Map State from Store into Props
+const mapStateToProps = ({ music, leaderboard, submitPopup }) => {
+  return { music, leaderboard, submitPopup };
 };
 
 export default connect(mapStateToProps)(SidebarInfo);

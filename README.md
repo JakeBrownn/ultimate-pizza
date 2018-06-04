@@ -1,3 +1,3 @@
 ## Ultimate Pizza
 
-Inspired by [Cookie Clicker](http://orteil.dashnet.org/cookieclicker/), my first React project using Redux.
+My first React & Redux project, attempting to recreate [Cookie Clicker](http://orteil.dashnet.org/cookieclicker/) (just not very well).

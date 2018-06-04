@@ -6,37 +6,37 @@ import {
   INTERVAL_EXTRA_CHEESE
 } from './types';
 
-export const buyDeliveryMan = ( val ) => {
+export const buyDeliveryMan = (toggle) => {
   return {
     type: BUY_DELIVERY_MAN,
-    payload: val 
+    payload: toggle 
   }
 };
 
-export const activateDeliveryMan = ( val ) => {
+export const activateDeliveryMan = (toggle) => {
   return {
     type: ACTIVATE_DELIVERY_MAN,
-    payload: val
+    payload: toggle
   }
 };
 
-export const buyExtraCheese = ( val ) => {
+export const buyExtraCheese = (val) => {
   return {
     type: BUY_EXTRA_CHEESE,
     payload: val 
   }
 };
 
-export const activateExtraCheese = ( val ) => {
+export const activateExtraCheese = (toggle) => {
   return {
     type: ACTIVATE_EXTRA_CHEESE,
-    payload: val
+    payload: toggle
   }
 };
 
-export const intervalExtraCheese = ( val ) => {
+export const intervalExtraCheese = (toggle) => {
   return {
     type: INTERVAL_EXTRA_CHEESE,
-    payload: val
+    payload: toggle
   }
 };
