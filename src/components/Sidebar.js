@@ -46,7 +46,7 @@ class Sidebar extends Component {
             purchased={purchased.deliveryMan + '/ 3'}
             triggerAction={
               () => {
-                if (250 < counter.total && purchased.deliveryMan < 3) {
+                if (249 < counter.total && purchased.deliveryMan < 3) {
                   dispatch(buyDeliveryMan())
                   dispatch(activateDeliveryMan())
                   this.purchaseSound()
@@ -62,7 +62,7 @@ class Sidebar extends Component {
             purchased={purchased.extraCheese + '/ 3'}
             triggerAction={
               () => {
-                if (150 < counter.total && purchased.extraCheese < 3) {
+                if (149 < counter.total && purchased.extraCheese < 3) {
                   dispatch(buyExtraCheese())
                   dispatch(activateExtraCheese())
                   this.handleIntervalSlices()

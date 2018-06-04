@@ -7,7 +7,6 @@
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-redux": "^5.0.7",
-    "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.2",
     "redux": "^4.0.0"
   },
@@ -16,6 +15,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"yarn start\" \"sass --watch src/assets/styles/sass/main.scss:src/assets/styles/main.min.css --style compressed\""
+    "dev": "concurrently \"npm start\" \"sass --watch src/assets/styles/sass/main.scss:src/assets/styles/main.min.css --style compressed\""
   }
 }
