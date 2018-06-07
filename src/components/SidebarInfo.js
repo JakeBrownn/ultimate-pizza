@@ -9,29 +9,28 @@ import {
   openSubmitPopup,
   closeSubmitPopup
 } from '../actions';
+import { soundtrackMusic } from '../sound';
 
 import gameSoundtrack from '../assets/audio/soundtrack-main.mp3';
 import SoundToggle from '../assets/audio/sound-toggle.mp3';
 import SoundOn from '../assets/images/icon-sound-on.jpg';
 import SoundOff from '../assets/images/icon-sound-off.jpg';
 
-
 class SidebarInfo extends Component {
   componentDidMount() {
-    const soundtrackMusic = document.getElementById('gameSoundtrack');
-
     soundtrackMusic.play();
-  };
+  }
 
+  // Handle 'click' sound effect
   clickNoise() {
     const toggleSoundEffect = new Audio(SoundToggle);
 
     toggleSoundEffect.play();
-  };
+  }
 
+  // Toggle the Soundtrack 
   toggleSound() {
     const { music, dispatch } = this.props;
-    const soundtrackMusic = document.getElementById('gameSoundtrack');
     const toggleSoundEffect = new Audio(SoundToggle);
 
     toggleSoundEffect.play();
@@ -39,17 +38,29 @@ class SidebarInfo extends Component {
     // If the Soundtrack is playing
     if (music.playSoundtrack === true) {
 
-      // Pause the soundtrack
-      soundtrackMusic.pause();
+      // Pause the Soundtrack
+      this.context.soundtrackMusic.pause();
       dispatch(stopSoundtrack());
 
-      // Otherwise play the soundtrack
+      // Otherwise play the Soundtrack
     } else {
-      soundtrackMusic.play();
+      this.context.soundtrackMusic.play();
       dispatch(playSoundtrack());
-    };
-  };
+    }
+  }
 
+  // Toggle the Soundtrack button
+  renderSoundButton() {
+    const { music } = this.props;
+
+    if (music.playSoundtrack === true) {
+      return <img src={SoundOn} alt='Sound On' />;
+    } 
+
+    return <img src={SoundOff} alt='Sound Off' />;
+  }
+
+  // Toggle the display of the Leaderboard
   toggleLeaderboard() {
     const { leaderboard, dispatch } = this.props;
     
@@ -65,8 +76,8 @@ class SidebarInfo extends Component {
       // Otherwise close the popup
     } else {
       dispatch(closeLeaderboard());
-    };
-  };
+    }
+  }
 
   toggleSubmitScore(e) {
     const { submitPopup, dispatch } = this.props;
@@ -84,28 +95,26 @@ class SidebarInfo extends Component {
       // Otherwise close the Submit Score popup
     } else {
       dispatch(closeSubmitPopup());
-    };
-  };
+    }
+  }
 
   render() {
-    const { music } = this.props;
-
     return (
       <div className='sidebar-info'>
         <div className='sidebar-info__row'>
           <form className='submit-form'>
             <input className='submit-form__input' placeholder='Username' type='text' value='' />
-            <input className='submit-form__button' type='submit' value='Submit'  onClick={(e) => { this.toggleSubmitScore(e) }} />
+            <input className='submit-form__button' type='submit' value='Submit'  onClick={(e) => this.toggleSubmitScore(e)} />
           </form>
         </div>
         <div className='sidebar-info__row'>
-          <div className='sidebar-option sidebar-option--sound' onClick={() => { this.toggleSound() }}>
+          <div className='sidebar-option sidebar-option--sound' onClick={() => this.toggleSound()}>
             <audio id='gameSoundtrack'>
               <source src={gameSoundtrack} type='audio/mpeg' />
             </audio> 
-            { music.playSoundtrack === true ? <img src={SoundOn} alt='Sound On' /> : <img src={SoundOff} alt='Sound Off' /> }
+            {this.renderSoundButton()}
           </div>
-          <div className='sidebar-option sidebar-option--leaderboard' onClick={() => { this.toggleLeaderboard(); }}>
+          <div className='sidebar-option sidebar-option--leaderboard' onClick={() => this.toggleLeaderboard()}>
             <span className='sidebar-option__text'>The Leaderboards</span>
           </div>
         </div>

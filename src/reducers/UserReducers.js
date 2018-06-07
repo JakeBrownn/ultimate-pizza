@@ -14,7 +14,7 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  total: 149,
+  total: 249,
   val: 1,
   playSoundtrack: true,
   showLeaderboard: 'hidden',

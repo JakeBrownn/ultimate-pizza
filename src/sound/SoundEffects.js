@@ -1,0 +1,1 @@
+export const soundtrackMusic = document.getElementById('gameSoundtrack');

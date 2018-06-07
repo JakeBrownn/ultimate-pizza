@@ -24,15 +24,38 @@ class Sidebar extends Component {
     const soundOne = new Audio(soundPurchase);
 
     soundOne.play();
-  };
+  }
 
   // Add slices on interval when 'Extra Cheese' is purchased
   handleIntervalSlices() {
     setInterval(() => this.props.dispatch(intervalExtraCheese()), 2000)
-  };
+  }
+
+  // Activated when Delivery Man is purchased
+  handleDeliveryMan() {
+    const { dispatch, purchased, counter } = this.props;
+
+    if (249 < counter.total && purchased.deliveryMan < 3) {
+      dispatch(buyDeliveryMan())
+      dispatch(activateDeliveryMan())
+      this.purchaseSound()
+    }
+  }
+
+  // Activated when Extra Cheese is purchased
+  handleExtraCheese() {
+    const { dispatch, purchased, counter } = this.props;
+
+    if (149 < counter.total && purchased.extraCheese < 3) {
+      dispatch(buyExtraCheese())
+      dispatch(activateExtraCheese())
+      this.handleIntervalSlices()
+      this.purchaseSound()
+    }
+  }
 
   render() {
-    const { dispatch, purchased, counter } = this.props;
+    const { purchased } = this.props;
       
     return (
       <div className='sidebar'>
@@ -44,15 +67,7 @@ class Sidebar extends Component {
             icon={IconDeliveryMan}
             itemCost={'250'}
             purchased={purchased.deliveryMan + '/ 3'}
-            triggerAction={
-              () => {
-                if (249 < counter.total && purchased.deliveryMan < 3) {
-                  dispatch(buyDeliveryMan())
-                  dispatch(activateDeliveryMan())
-                  this.purchaseSound()
-                };
-              }
-            }
+            triggerAction={() => this.handleDeliveryMan()}
           />
           <ShopItem
             title='Extra Cheese'
@@ -60,16 +75,7 @@ class Sidebar extends Component {
             icon={IconExtraCheese}
             itemCost={'150'}
             purchased={purchased.extraCheese + '/ 3'}
-            triggerAction={
-              () => {
-                if (149 < counter.total && purchased.extraCheese < 3) {
-                  dispatch(buyExtraCheese())
-                  dispatch(activateExtraCheese())
-                  this.handleIntervalSlices()
-                  this.purchaseSound()
-                };
-              }
-            }
+            triggerAction={() => this.handleExtraCheese()}
           />
         </div>
         <SidebarInfo />
