@@ -9,7 +9,6 @@ import {
   openSubmitPopup,
   closeSubmitPopup
 } from '../actions';
-import { soundtrackMusic } from '../sound';
 
 import gameSoundtrack from '../assets/audio/soundtrack-main.mp3';
 import SoundToggle from '../assets/audio/sound-toggle.mp3';
@@ -18,6 +17,8 @@ import SoundOff from '../assets/images/icon-sound-off.jpg';
 
 class SidebarInfo extends Component {
   componentDidMount() {
+    const soundtrackMusic = document.getElementById('gameSoundtrack');
+
     soundtrackMusic.play();
   }
 
@@ -32,6 +33,7 @@ class SidebarInfo extends Component {
   toggleSound() {
     const { music, dispatch } = this.props;
     const toggleSoundEffect = new Audio(SoundToggle);
+    const soundtrackMusic = document.getElementById('gameSoundtrack');
 
     toggleSoundEffect.play();
 
@@ -39,12 +41,12 @@ class SidebarInfo extends Component {
     if (music.playSoundtrack === true) {
 
       // Pause the Soundtrack
-      this.context.soundtrackMusic.pause();
+      soundtrackMusic.pause();
       dispatch(stopSoundtrack());
 
       // Otherwise play the Soundtrack
     } else {
-      this.context.soundtrackMusic.play();
+      soundtrackMusic.play();
       dispatch(playSoundtrack());
     }
   }
