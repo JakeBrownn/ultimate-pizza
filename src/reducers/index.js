@@ -2,10 +2,7 @@ import { combineReducers } from 'redux';
 
 import {
   ClickReducer,
-  SoundCountReducer,
-  SoundtrackReducer,
-  PopupReducer,
-  SubmitPopupReducer
+  UserToggles,
 } from './UserReducers';
 
 import {
@@ -14,11 +11,8 @@ import {
 
 const reducers = combineReducers({
   counter: ClickReducer,
-  soundCount: SoundCountReducer,
   purchased: BuyUpgradeReducer,
-  music: SoundtrackReducer,
-  popup: PopupReducer,
-  submitPopup: SubmitPopupReducer
+  toggles: UserToggles
 });
 
 export default reducers;

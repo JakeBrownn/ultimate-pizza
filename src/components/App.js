@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 
 import { 
   incrementClicks,
-  soundCounter,
-  resetSoundCounter
+  toggleSoundChomp,
 } from '../actions';
 
 import Sidebar from './Sidebar';
@@ -18,31 +17,18 @@ import soundChompTwo from '../assets/audio/sound-chomp-2.mp3';
 
 class App extends Component {
 
-  // Handle 'click' sound  
-  playSound() {
-    const { soundCount } = this.props;
+  // Handle onClick of Pizza
+  addClick() {
+    const { toggles, toggleSoundChomp, incrementClicks } = this.props;
     const soundOne = new Audio(soundChompOne);
     const soundTwo = new Audio(soundChompTwo);
-
-    ( soundCount.val === 1 ) ? soundOne.play() : soundTwo.play();
-  };
-  
-  // Handle add 'click'
-  addClick() {
-    const { dispatch, soundCount } = this.props;
-
-    dispatch(incrementClicks());
-    dispatch(soundCounter());
     
-    if (soundCount.val > 1) {      
-      dispatch(resetSoundCounter());
-    };
-  };
-  
-  // Handle 'click' functions
-  handleClick = () => {
-    this.addClick();
-    this.playSound();
+    // Call Redux actions
+    toggleSoundChomp();
+    incrementClicks();
+
+    // Toggle Chomp sounds effects
+    ( toggles.chompSound === 1 ) ? soundOne.play() : soundTwo.play();
   };
 
   render() {        
@@ -55,7 +41,7 @@ class App extends Component {
             <Leaderboard />
             <SubmitScore />
             <div className='action-button'>
-              <img className='action-button__image' onClick={this.handleClick} src={pizza} alt='Pizza' />
+              <img className='action-button__image' src={pizza} alt='Pizza' onClick={(e) => {this.addClick()}} />
             </div>
             <div className='user-score'>
               <span className='user-score__value'>{counter.total} Slices</span>
@@ -72,8 +58,11 @@ class App extends Component {
 };
 
 // Map State from Store into Props
-const mapStateToProps = ({ counter, soundCount }) => {
-  return { counter, soundCount };
+const mapStateToProps = ({ counter, toggles }) => {
+  return { counter, toggles };
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {
+  incrementClicks,
+  toggleSoundChomp
+})(App);

@@ -1,65 +1,22 @@
 import {
   INCREMENT_CLICK,
-  INCREMENT_SOUND_COUNTER,
-  RESET_SOUND_COUNTER,
-  PLAY_SOUNDTRACK,
-  STOP_SOUNDTRACK,
+  TOGGLE_SOUND_CHOMP,
   TOGGLE_LEADERBOARD,
-  OPEN_SUBMIT_POPUP,
-  CLOSE_SUBMIT_POPUP
+  TOGGLE_SUBMIT_POPUP,
+  TOGGLE_SOUNDTRACK
 } from './types';
 
-export const incrementClicks = (click) => {
-  return {
-    type: INCREMENT_CLICK,
-    payload: click
-  }
-}
+// Increment Clicks
+export const incrementClicks = () => (dispatch) => dispatch({ type: INCREMENT_CLICK });
 
-export const soundCounter = (count) => {
-  return {
-    type: INCREMENT_SOUND_COUNTER,
-    payload: count
-  }
-}
+// Set counter to toggle between Chomp sounds
+export const toggleSoundChomp = () => (dispatch) => dispatch({ type: TOGGLE_SOUND_CHOMP }); 
 
-export const resetSoundCounter = (val) => {
-  return {
-    type: RESET_SOUND_COUNTER,
-    payload: val
-  }
-};
+// Toggle Leaderboard ClassName
+export const toggleLeaderboard = () => (dispatch) => dispatch({ type: TOGGLE_LEADERBOARD });
 
-export const toggleLeaderboard = (dispatch) => {
-  return (dispatch) => {
-    dispatch({ type: TOGGLE_LEADERBOARD });
-  }
-} 
+// Toggle SubmitPopup ClassName
+export const toggleSubmitPopup = () => (dispatch) => dispatch({ type: TOGGLE_SUBMIT_POPUP });
 
-export const openSubmitPopup = (toggle) => {
-  return {
-    type: OPEN_SUBMIT_POPUP,
-    payload: toggle
-  }
-}
-
-export const closeSubmitPopup = (toggle) => {
-  return {
-    type: CLOSE_SUBMIT_POPUP,
-    payload: toggle
-  }
-}
-
-export const playSoundtrack = (toggle) => {
-  return {
-    type: PLAY_SOUNDTRACK,
-    payload: toggle
-  }
-}
-
-export const stopSoundtrack = (toggle) => {
-  return {
-    type: STOP_SOUNDTRACK,
-    payload: toggle
-  }
-}
+// Play / Pause the Soundtrack
+export const toggleSoundtrack = () => (dispatch) => dispatch({ type: TOGGLE_SOUNDTRACK });
