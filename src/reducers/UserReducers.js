@@ -1,24 +1,20 @@
 import { 
   INCREMENT_CLICK,
-  INCREMENT_SOUND_COUNTER,
-  RESET_SOUND_COUNTER,
   ACTIVATE_DELIVERY_MAN,
   ACTIVATE_EXTRA_CHEESE,
   INTERVAL_EXTRA_CHEESE,
-  PLAY_SOUNDTRACK,
-  STOP_SOUNDTRACK,
-  OPEN_LEADERBOARD,
-  CLOSE_LEADERBOARD,
-  OPEN_SUBMIT_POPUP,
-  CLOSE_SUBMIT_POPUP
+  TOGGLE_SOUND_CHOMP,
+  TOGGLE_LEADERBOARD,
+  TOGGLE_SUBMIT_POPUP,
+  TOGGLE_SOUNDTRACK
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  total: 249,
-  val: 1,
+  total: 0,
+  chompSound: 1,
   playSoundtrack: true,
-  showLeaderboard: 'hidden',
-  showSubmitPopup: 'hidden'
+  leaderboardClass: 'hidden',
+  popupClass: 'hidden'
 };
 
 const itemBonus = {
@@ -36,64 +32,26 @@ export const ClickReducer = (state = INITIAL_STATE, action) => {
     case INCREMENT_CLICK:
       return { total: state.total + 1 };
     case ACTIVATE_DELIVERY_MAN: 
-      return { 
-        ...state, 
-        total: state.total * itemBonus.deliveryMan - itemPrice.deliveryMan,
-      };
+      return { ...state, total: state.total * itemBonus.deliveryMan - itemPrice.deliveryMan };
     case ACTIVATE_EXTRA_CHEESE: 
-      return {
-        ...state,
-        total: state.total - itemPrice.extraCheese
-      };
+      return { ...state, total: state.total - itemPrice.extraCheese };
     case INTERVAL_EXTRA_CHEESE:
-      return {
-        ...state,
-        total: state.total + itemBonus.extraCheese
-      };
+      return { ...state, total: state.total + itemBonus.extraCheese };
     default: 
       return state;
   }
 };
 
-export const SoundCountReducer = (state = INITIAL_STATE, action) => {  
-  switch (action.type) {
-    case INCREMENT_SOUND_COUNTER:
-      return { val: state.val + 1 };
-    case RESET_SOUND_COUNTER: 
-      return { val: 1 };
-    default: 
-      return state;
-  }
-};
-
-export const SoundtrackReducer = (state = INITIAL_STATE, action) => {
+export const UserToggles = (state = INITIAL_STATE, action) => {
   switch(action.type) {
-    case PLAY_SOUNDTRACK:
-      return { playSoundtrack: true };
-    case STOP_SOUNDTRACK: 
-      return { playSoundtrack: false }
-    default:
-      return state;
-  }
-};
-
-export const LeaderboardReducer = (state = INITIAL_STATE, action) => {
-  switch(action.type) {
-    case OPEN_LEADERBOARD:
-      return { showLeaderboard: 'visibile'  };
-    case CLOSE_LEADERBOARD:
-      return { showLeaderboard: 'hidden' };
-    default:
-      return state;
-  }
-};
-
-export const SubmitPopupReducer = (state = INITIAL_STATE, action) => {
-  switch(action.type) {
-    case OPEN_SUBMIT_POPUP:
-      return { showSubmitPopup: 'visibile'  };
-    case CLOSE_SUBMIT_POPUP:
-      return { showSubmitPopup: 'hidden' };
+    case TOGGLE_SOUND_CHOMP: 
+      return { ...state, chompSound: ( state.chompSound === 2) ? 1 : 2 }
+    case TOGGLE_LEADERBOARD:
+      return { ...state, leaderboardClass: ( state.leaderboardClass === 'hidden' ) ? 'visible' : 'hidden' };
+    case TOGGLE_SUBMIT_POPUP:
+      return { ...state, popupClass: ( state.popupClass === 'hidden' ) ? 'visible' : 'hidden' };
+    case TOGGLE_SOUNDTRACK:
+      return { ...state, playSoundtrack: !state.playSoundtrack }
     default:
       return state;
   }

@@ -2,18 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import {
-  playSoundtrack,
-  stopSoundtrack,
-  openLeaderboard,
-  closeLeaderboard,
-  openSubmitPopup,
-  closeSubmitPopup
+  toggleSoundtrack,
+  toggleLeaderboard,
+  toggleSubmitPopup
 } from '../actions';
 
 import gameSoundtrack from '../assets/audio/soundtrack-main.mp3';
 import SoundToggle from '../assets/audio/sound-toggle.mp3';
 import SoundOn from '../assets/images/icon-sound-on.jpg';
 import SoundOff from '../assets/images/icon-sound-off.jpg';
+
 
 class SidebarInfo extends Component {
   componentDidMount() {
@@ -30,77 +28,42 @@ class SidebarInfo extends Component {
   }
 
   // Toggle the Soundtrack 
-  toggleSound() {
-    const { music, dispatch } = this.props;
+  handleSoundClick() {
+    const { toggles } = this.props;
     const toggleSoundEffect = new Audio(SoundToggle);
     const soundtrackMusic = document.getElementById('gameSoundtrack');
 
     toggleSoundEffect.play();
+    this.props.toggleSoundtrack();
 
-    // If the Soundtrack is playing
-    if (music.playSoundtrack === true) {
-
-      // Pause the Soundtrack
-      soundtrackMusic.pause();
-      dispatch(stopSoundtrack());
-
-      // Otherwise play the Soundtrack
-    } else {
-      soundtrackMusic.play();
-      dispatch(playSoundtrack());
-    }
+    // Handle play / pause for the game Soundtrack  
+    (toggles.playSoundtrack === true) ? soundtrackMusic.pause() : soundtrackMusic.play();
   }
 
   // Toggle the Soundtrack button
-  renderSoundButton() {
-    const { music } = this.props;
+  toggleButtonSource() {
+    const { toggles } = this.props;
 
-    if (music.playSoundtrack === true) {
-      return <img src={SoundOn} alt='Sound On' />;
-    } 
-
-    return <img src={SoundOff} alt='Sound Off' />;
-  }
-
-  // Toggle the display of the Leaderboard
-  toggleLeaderboard() {
-    const { leaderboard, dispatch } = this.props;
-    
-    this.clickNoise();
-
-    // If the Leaderboard is not showing
-    if ( leaderboard.showLeaderboard === 'hidden' ) {
-
-      // Open the Leaderboard and close the Submit Score popup
-      dispatch(openLeaderboard());
-      dispatch(closeSubmitPopup());
-
-      // Otherwise close the popup
-    } else {
-      dispatch(closeLeaderboard());
-    }
+    return (toggles.playSoundtrack === true) ? SoundOn : SoundOff;
   }
 
   toggleSubmitScore(e) {
-    const { submitPopup, dispatch } = this.props;
-
+    const { toggleSubmitPopup } = this.props;
     e.preventDefault();
+
     this.clickNoise();
-
-    // If the Submit Score popup is not showing
-    if ( submitPopup.showSubmitPopup === 'hidden' ) {
-
-      // Open the Submit Score popup and close the Leaderboard
-      dispatch(openSubmitPopup());
-      dispatch(closeLeaderboard());
-
-      // Otherwise close the Submit Score popup
-    } else {
-      dispatch(closeSubmitPopup());
-    }
+    toggleSubmitPopup();
   }
 
-  render() {
+  handleLeaderboardClick(e) {
+    const { toggleLeaderboard } = this.props;
+    e.preventDefault();
+
+    this.clickNoise();
+    toggleLeaderboard(e);
+  }
+
+  render() {    
     return (
       <div className='sidebar-info'>
         <div className='sidebar-info__row'>
@@ -110,13 +73,13 @@ class SidebarInfo extends Component {
           </form>
         </div>
         <div className='sidebar-info__row'>
-          <div className='sidebar-option sidebar-option--sound' onClick={() => this.toggleSound()}>
+          <div className='sidebar-option sidebar-option--sound' onClick={() => this.handleSoundClick()}>
             <audio id='gameSoundtrack'>
               <source src={gameSoundtrack} type='audio/mpeg' />
             </audio> 
-            {this.renderSoundButton()}
+            <img src={this.toggleButtonSource()} alt='Toggle Sound' />
           </div>
-          <div className='sidebar-option sidebar-option--leaderboard' onClick={() => this.toggleLeaderboard()}>
+          <div className='sidebar-option sidebar-option--leaderboard' onClick={(e) => this.handleLeaderboardClick(e)}>
             <span className='sidebar-option__text'>The Leaderboards</span>
           </div>
         </div>
@@ -126,8 +89,12 @@ class SidebarInfo extends Component {
 };
 
 // Map State from Store into Props
-const mapStateToProps = ({ music, leaderboard, submitPopup }) => {
-  return { music, leaderboard, submitPopup };
+const mapStateToProps = ({ toggles }) => {
+  return { toggles };
 };
 
-export default connect(mapStateToProps)(SidebarInfo);
+export default connect(mapStateToProps, {
+  toggleSoundtrack,
+  toggleLeaderboard,
+  toggleSubmitPopup
+})(SidebarInfo);

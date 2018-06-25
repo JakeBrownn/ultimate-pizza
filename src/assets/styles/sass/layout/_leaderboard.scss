@@ -7,11 +7,11 @@
   border: $gold-border;
   overflow: hidden;
 
-  &.visible {
+  &--visible {
     display: block;
   }
 
-  &.hidden {
+  &--hidden {
     display: none;
   }
 
