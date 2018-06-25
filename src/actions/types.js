@@ -6,8 +6,8 @@ export const RESET_SOUND_COUNTER = 'reset_sound_counter';
 export const PLAY_SOUNDTRACK = 'play_soundtrack';
 export const STOP_SOUNDTRACK = 'stop_soundtrack';
 
-export const OPEN_LEADERBOARD = 'open_leaderboard';
-export const CLOSE_LEADERBOARD = 'close_leaderboard';
+export const TOGGLE_LEADERBOARD = 'toggle_leaderboard';
+export const TOGGLE_SUBMIT_POPUP = 'toggle_submit_popup';
 
 export const OPEN_SUBMIT_POPUP = 'open_submit_popup';
 export const CLOSE_SUBMIT_POPUP = 'close_submit_popup';

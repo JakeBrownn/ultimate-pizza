@@ -7,8 +7,7 @@ import {
   INTERVAL_EXTRA_CHEESE,
   PLAY_SOUNDTRACK,
   STOP_SOUNDTRACK,
-  OPEN_LEADERBOARD,
-  CLOSE_LEADERBOARD,
+  TOGGLE_LEADERBOARD,
   OPEN_SUBMIT_POPUP,
   CLOSE_SUBMIT_POPUP
 } from '../actions/types';
@@ -17,8 +16,8 @@ const INITIAL_STATE = {
   total: 249,
   val: 1,
   playSoundtrack: true,
-  showLeaderboard: 'hidden',
-  showSubmitPopup: 'hidden'
+  showLeaderboard: false,
+  showSubmitPopup: null
 };
 
 const itemBonus = {
@@ -77,12 +76,10 @@ export const SoundtrackReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export const LeaderboardReducer = (state = INITIAL_STATE, action) => {
+export const PopupReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
-    case OPEN_LEADERBOARD:
-      return { showLeaderboard: 'visibile'  };
-    case CLOSE_LEADERBOARD:
-      return { showLeaderboard: 'hidden' };
+    case TOGGLE_LEADERBOARD:
+      return { showLeaderboard: !state.showLeaderboard  };
     default:
       return state;
   }

@@ -4,7 +4,7 @@ import {
   ClickReducer,
   SoundCountReducer,
   SoundtrackReducer,
-  LeaderboardReducer,
+  PopupReducer,
   SubmitPopupReducer
 } from './UserReducers';
 
@@ -12,13 +12,12 @@ import {
   BuyUpgradeReducer,
 } from './ShopReducers';
 
-// Combine all Reducers in to one
 const reducers = combineReducers({
   counter: ClickReducer,
   soundCount: SoundCountReducer,
   purchased: BuyUpgradeReducer,
   music: SoundtrackReducer,
-  leaderboard: LeaderboardReducer,
+  popup: PopupReducer,
   submitPopup: SubmitPopupReducer
 });
 

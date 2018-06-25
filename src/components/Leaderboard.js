@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import firebase from 'firebase';
 
 
 class Leaderboard extends Component {
@@ -37,7 +36,7 @@ class Leaderboard extends Component {
     const { leaderboard } = this.props;
 
     return (
-      <div className={'leaderboard ' + leaderboard.showLeaderboard}>
+      <div className={'leaderboard'}>
         <div className='leaderboard__wrapper'>
           <h2 className='leaderboard__title'>Total Score Ranking</h2>
           <ul className='leaderboard-list'>
@@ -69,8 +68,8 @@ class Leaderboard extends Component {
 };
 
 // Map State from Store into Props
-const mapStateToProps = ({ leaderboard }) => {
-  return { leaderboard };
+const mapStateToProps = () => {
+  return {  };
 };
 
 export default connect(mapStateToProps)(Leaderboard);

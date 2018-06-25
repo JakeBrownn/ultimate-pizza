@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import {
   playSoundtrack,
   stopSoundtrack,
-  openLeaderboard,
-  closeLeaderboard,
+  toggleLeaderboard,
   openSubmitPopup,
   closeSubmitPopup
 } from '../actions';
@@ -62,25 +61,6 @@ class SidebarInfo extends Component {
     return <img src={SoundOff} alt='Sound Off' />;
   }
 
-  // Toggle the display of the Leaderboard
-  toggleLeaderboard() {
-    const { leaderboard, dispatch } = this.props;
-    
-    this.clickNoise();
-
-    // If the Leaderboard is not showing
-    if ( leaderboard.showLeaderboard === 'hidden' ) {
-
-      // Open the Leaderboard and close the Submit Score popup
-      dispatch(openLeaderboard());
-      dispatch(closeSubmitPopup());
-
-      // Otherwise close the popup
-    } else {
-      dispatch(closeLeaderboard());
-    }
-  }
-
   toggleSubmitScore(e) {
     const { submitPopup, dispatch } = this.props;
 
@@ -92,7 +72,6 @@ class SidebarInfo extends Component {
 
       // Open the Submit Score popup and close the Leaderboard
       dispatch(openSubmitPopup());
-      dispatch(closeLeaderboard());
 
       // Otherwise close the Submit Score popup
     } else {
@@ -100,7 +79,18 @@ class SidebarInfo extends Component {
     }
   }
 
+  // Handle Toggle Leaderboard
+  handleLeaderboardClass() {
+    const { popup } = this.props;
+
+    
+  }
+
   render() {
+    const { toggleLeaderboard } = this.props;
+
+    console.log(this.props.toggleLeaderboard)
+
     return (
       <div className='sidebar-info'>
         <div className='sidebar-info__row'>
@@ -116,7 +106,7 @@ class SidebarInfo extends Component {
             </audio> 
             {this.renderSoundButton()}
           </div>
-          <div className='sidebar-option sidebar-option--leaderboard' onClick={() => this.toggleLeaderboard()}>
+          <div className='sidebar-option sidebar-option--leaderboard' onClick={() => toggleLeaderboard()}>
             <span className='sidebar-option__text'>The Leaderboards</span>
           </div>
         </div>
@@ -126,8 +116,10 @@ class SidebarInfo extends Component {
 };
 
 // Map State from Store into Props
-const mapStateToProps = ({ music, leaderboard, submitPopup }) => {
-  return { music, leaderboard, submitPopup };
+const mapStateToProps = ({ music, popup, submitPopup }) => {
+  return { music, popup, submitPopup };
 };
 
-export default connect(mapStateToProps)(SidebarInfo);
+export default connect(mapStateToProps, {
+  toggleLeaderboard
+})(SidebarInfo);
