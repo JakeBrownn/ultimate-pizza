@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
-class Leaderboard extends Component {
+class PopupLeaderboard extends Component {
   render() {
     const { toggles } = this.props;
     return (
@@ -42,4 +42,4 @@ const mapStateToProps = ({ toggles }) => {
   return { toggles };
 };
 
-export default connect(mapStateToProps)(Leaderboard);
+export default connect(mapStateToProps)(PopupLeaderboard);

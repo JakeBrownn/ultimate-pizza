@@ -10,7 +10,7 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  total: 0,
+  total: 249,
   chompSound: 1,
   playSoundtrack: true,
   leaderboardClass: 'hidden',

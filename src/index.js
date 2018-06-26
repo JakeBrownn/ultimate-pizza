@@ -6,14 +6,14 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
 import reducers from './reducers';
-import App from './components/App';
+import GameScreen from './components/GameScreen';
 import './assets/styles/main.min.css';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <GameScreen />
   </Provider>
 , document.getElementById('root-app'));
 registerServiceWorker();

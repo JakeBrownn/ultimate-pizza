@@ -6,12 +6,12 @@ import {
 } from './UserReducers';
 
 import {
-  BuyUpgradeReducer,
+  PurchasedReducer,
 } from './ShopReducers';
 
 const reducers = combineReducers({
   counter: ClickReducer,
-  purchased: BuyUpgradeReducer,
+  purchased: PurchasedReducer,
   toggles: UserToggles
 });
 

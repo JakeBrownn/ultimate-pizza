@@ -13,14 +13,14 @@ import SoundOn from '../assets/images/icon-sound-on.jpg';
 import SoundOff from '../assets/images/icon-sound-off.jpg';
 
 
-class SidebarInfo extends Component {
+class SidebarOptions extends Component {
   componentDidMount() {
     const soundtrackMusic = document.getElementById('gameSoundtrack');
 
-    soundtrackMusic.play();
+    // soundtrackMusic.play();
   }
 
-  // Handle 'click' sound effect
+  // Setup 'click' sound effect
   clickNoise() {
     const toggleSoundEffect = new Audio(SoundToggle);
 
@@ -29,18 +29,20 @@ class SidebarInfo extends Component {
 
   // Toggle the Soundtrack 
   handleSoundClick() {
-    const { toggles } = this.props;
-    const toggleSoundEffect = new Audio(SoundToggle);
+    const { toggles, toggleSoundtrack } = this.props;
     const soundtrackMusic = document.getElementById('gameSoundtrack');
 
-    toggleSoundEffect.play();
-    this.props.toggleSoundtrack();
+    // Call Redux action
+    toggleSoundtrack();
+
+    // 'Click' sound effect
+    this.clickNoise();
 
     // Handle play / pause for the game Soundtrack  
     (toggles.playSoundtrack === true) ? soundtrackMusic.pause() : soundtrackMusic.play();
   }
 
-  // Toggle the Soundtrack button
+  // Toggle the Button source
   toggleButtonSource() {
     const { toggles } = this.props;
 
@@ -88,7 +90,7 @@ class SidebarInfo extends Component {
   }
 };
 
-// Map State from Store into Props
+// Map State from Redux Store into Props
 const mapStateToProps = ({ toggles }) => {
   return { toggles };
 };
@@ -97,4 +99,4 @@ export default connect(mapStateToProps, {
   toggleSoundtrack,
   toggleLeaderboard,
   toggleSubmitPopup
-})(SidebarInfo);
+})(SidebarOptions);

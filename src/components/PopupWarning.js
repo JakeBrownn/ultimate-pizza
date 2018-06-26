@@ -4,16 +4,21 @@ import { connect } from 'react-redux';
 import { toggleSubmitPopup } from '../actions';
 
 
-class SubmitScore extends Component {
+class PopupWarning extends Component {
+
+  // When 'No' is clicked
   handeNoButton(e) {
+    const { toggleSubmitPopup } = this.props;
     e.preventDefault();
     
-    this.props.toggleSubmitPopup();
-  };
+    // Call Redux action
+    toggleSubmitPopup();
+  }
 
+  // When 'Yes' is clicked
   handleYesButton(e) {
     e.preventDefault();
-  };
+  }
 
   render() {   
     const { toggles } = this.props;
@@ -35,11 +40,11 @@ class SubmitScore extends Component {
   }
 };
 
-// Map State from Store into Props
+// Map State from Redux Store into Props
 const mapStateToProps = ({ toggles }) => {
   return { toggles };
 };
 
 export default connect(mapStateToProps, {
   toggleSubmitPopup
-})(SubmitScore);
+})(PopupWarning);

@@ -5,10 +5,10 @@ import {
 
 const INITIAL_STATE = {
   deliveryMan: 0,
-  extraCheese: 0,
+  extraCheese: 0
 };
 
-export const BuyUpgradeReducer = (state = INITIAL_STATE, action) => {
+export const PurchasedReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case BUY_DELIVERY_MAN:
       return { ...state, deliveryMan: state.deliveryMan + 1 }

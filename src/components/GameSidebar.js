@@ -14,10 +14,10 @@ import ShopItem from './ShopItem';
 import IconDeliveryMan from '../assets/images/icon-delivery-man.png';
 import IconExtraCheese from '../assets/images/icon-extra-cheese.png';
 import soundPurchase from '../assets/audio/sound-purchase.mp3';
-import SidebarInfo from './SidebarInfo';
+import SidebarOptions from './SidebarOptions';
 
 
-class Sidebar extends Component {
+class GameSidebar extends Component {
 
   // Handle 'purchase' sound effect
   purchaseSound() {
@@ -26,31 +26,43 @@ class Sidebar extends Component {
     soundOne.play();
   }
 
-  // Add slices on interval when 'Extra Cheese' is purchased
-  handleIntervalSlices() {
-    setInterval(() => this.props.dispatch(intervalExtraCheese()), 2000)
-  }
-
-  // Activated when Delivery Man is purchased
+  // When Delivery Man is purchased
   handleDeliveryMan() {
-    const { dispatch, purchased, counter } = this.props;
+    const { 
+      purchased, 
+      counter, 
+      buyDeliveryMan, 
+      activateDeliveryMan 
+    } = this.props;
 
     if (249 < counter.total && purchased.deliveryMan < 3) {
-      dispatch(buyDeliveryMan())
-      dispatch(activateDeliveryMan())
-      this.purchaseSound()
+      
+      // Call Redux actions
+      buyDeliveryMan();
+      activateDeliveryMan();
+
+      this.purchaseSound();
     }
   }
 
-  // Activated when Extra Cheese is purchased
+  // When Extra Cheese is purchased
   handleExtraCheese() {
-    const { dispatch, purchased, counter } = this.props;
+    const { 
+      purchased, 
+      counter, 
+      buyExtraCheese, 
+      activateExtraCheese,
+      intervalExtraCheese
+    } = this.props;
 
     if (149 < counter.total && purchased.extraCheese < 3) {
-      dispatch(buyExtraCheese())
-      dispatch(activateExtraCheese())
-      this.handleIntervalSlices()
-      this.purchaseSound()
+
+      // Call Redux actions
+      buyExtraCheese();
+      activateExtraCheese();
+      setInterval(() => intervalExtraCheese(), 2000);
+
+      this.purchaseSound();
     }
   }
 
@@ -71,22 +83,28 @@ class Sidebar extends Component {
           />
           <ShopItem
             title='Extra Cheese'
-            description={'Adds 1 slice every 10 seconds.'}
+            description={'Adds 1 slice every 2 seconds.'}
             icon={IconExtraCheese}
             itemCost={'150'}
             purchased={purchased.extraCheese + '/ 3'}
             triggerAction={() => this.handleExtraCheese()}
           />
         </div>
-        <SidebarInfo />
+        <SidebarOptions />
       </div>
     );
   }
 };
 
-// Map State from Store into Props
+// Map State from Redux Store into Props
 const mapStateToProps = ({ counter, purchased }) => {
   return { counter, purchased };
 };
 
-export default connect(mapStateToProps)(Sidebar);
+export default connect(mapStateToProps, {
+  buyDeliveryMan,
+  activateDeliveryMan,
+  buyExtraCheese,
+  activateExtraCheese,
+  intervalExtraCheese
+})(GameSidebar);
