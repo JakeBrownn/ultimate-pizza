@@ -3,11 +3,10 @@
   top: 0;
   right: 0;
   width: 425px;
-  height: 92.5%;
+  height: 100%;
   padding: 25px 20px;
-  background-color: rgb(72,103,144);
-  outline-offset: -5px;
-  border: $gold-border;
+  background-color: $color-dark-blue;
+  border-left: 4px ridge $color-gold;
 }
 
 .shop {

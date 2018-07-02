@@ -4,6 +4,7 @@
 /build
 /src/assets/styles/.sass-cache
 /public/keys.js
+/src/assets/OLD_styles
 .sass-cache
 .DS_Store
 .env.local
