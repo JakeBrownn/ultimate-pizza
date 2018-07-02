@@ -17,7 +17,7 @@ class SidebarOptions extends Component {
   componentDidMount() {
     const soundtrackMusic = document.getElementById('gameSoundtrack');
 
-    // soundtrackMusic.play();
+    soundtrackMusic.play();
   }
 
   // Setup 'click' sound effect
@@ -46,33 +46,28 @@ class SidebarOptions extends Component {
   toggleButtonSource() {
     const { toggles } = this.props;
 
-    return (toggles.playSoundtrack === true) ? SoundOn : SoundOff;
+    return (toggles.playSoundtrack === false) ? SoundOff : SoundOn;
   }
 
   toggleSubmitScore(e) {
-    const { toggleSubmitPopup } = this.props;
     e.preventDefault();
 
     this.clickNoise();
-    toggleSubmitPopup();
+    this.props.toggleSubmitPopup();
   }
 
   handleLeaderboardClick(e) {
-    const { toggleLeaderboard } = this.props;
     e.preventDefault();
 
     this.clickNoise();
-    toggleLeaderboard(e);
+    this.props.toggleLeaderboard(e);
   }
 
   render() {    
     return (
       <div className='sidebar-buttons'>
         <div className='sidebar-buttons__row'>
-          <form className='submit-form'>
-            <input className='submit-form__input' placeholder='Username' type='text' value='' />
-            <input className='submit-form__button' type='submit' value='Submit'  onClick={(e) => this.toggleSubmitScore(e)} />
-          </form>
+
         </div>
         <div className='sidebar-buttons__row'>
           <div className='sidebar-option sidebar-option--sound' onClick={() => this.handleSoundClick()}>

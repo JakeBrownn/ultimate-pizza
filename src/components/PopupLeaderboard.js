@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 class PopupLeaderboard extends Component {
   render() {
     const { toggles } = this.props;
+    
     return (
       <div className={`leaderboard leaderboard--${toggles.leaderboardClass}`} >
         <div className='leaderboard__wrapper'>

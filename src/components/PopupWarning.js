@@ -8,11 +8,10 @@ class PopupWarning extends Component {
 
   // When 'No' is clicked
   handeNoButton(e) {
-    const { toggleSubmitPopup } = this.props;
     e.preventDefault();
     
     // Call Redux action
-    toggleSubmitPopup();
+    this.props.toggleSubmitPopup();
   }
 
   // When 'Yes' is clicked

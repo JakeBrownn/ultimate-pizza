@@ -13,5 +13,6 @@ export const ACTIVATE_EXTRA_CHEESE = 'activate_extra_cheese';
 export const INTERVAL_EXTRA_CHEESE = 'interval_extra_cheese';
 
 // Form Types
+export const USERNAME_CHANGED = 'username_changed';
 export const SUBMIT_SCORE = 'submit_score';
 export const SUBMIT_SCORE_SUCCESS = 'submit_score_success';

@@ -9,6 +9,7 @@
     "id": 1,
     "title": "Extra Cheese",
     "desc": "Adds 1 slide every 2 seconds.",
-    "cost": "150"
+    "cost": "150",
+    "intervalTime": "2000"
   }
 ]

@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import {
+  usernameChanged,
   startGame
 } from '../actions';
 
 class PopupWelcome extends Component {
   onInputChange(e) {
-    console.log(e);
+    this.props.usernameChanged(e.target.value)
   }
 
   handleFormSubmit(e) {
-    const { startGame } = this.props;
-
     e.preventDefault();
-    startGame();
+
+    this.props.startGame();
   }
 
   render() {
@@ -33,7 +33,7 @@ class PopupWelcome extends Component {
             autoComplete='off'
             onChange={(e) => this.onInputChange(e)}
           />
-          <input class='button' type='submit' value="Let's Go" />
+          <input className='button' type='submit' value="Let's Go" />
         </form>
       </div>
     );
@@ -41,11 +41,12 @@ class PopupWelcome extends Component {
 };
 
 // Map State from Store into Props
-const mapStateToProps = ({ toggles }) => {
-  return { toggles };
+const mapStateToProps = ({ toggles, form }) => {
+  return { toggles, form };
 };
 
 
 export default connect(mapStateToProps, {
+  usernameChanged,
   startGame
 })(PopupWelcome);

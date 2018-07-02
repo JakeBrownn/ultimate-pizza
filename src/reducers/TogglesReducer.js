@@ -7,12 +7,11 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-  total: 249,
   chompSound: 1,
   playSoundtrack: true,
   leaderboardClass: 'hidden',
   popupClass: 'hidden',
-  userPopupClass: 'visible'
+  userPopupClass: 'visible',
 };
 
 export const TogglesReducer = (state = INITIAL_STATE, action) => {
@@ -23,10 +22,10 @@ export const TogglesReducer = (state = INITIAL_STATE, action) => {
       return { ...state, leaderboardClass: ( state.leaderboardClass === 'hidden' ) ? 'visible' : 'hidden' };
     case TOGGLE_SUBMIT_POPUP:
       return { ...state, popupClass: ( state.popupClass === 'hidden' ) ? 'visible' : 'hidden' };
+    case TOGGLE_SOUNDTRACK:
+      return { ...state, playSoundtrack: !state.playSoundtrack };
     case START_GAME:
       return { ...state, userPopupClass: 'hidden' };
-    case TOGGLE_SOUNDTRACK:
-      return { ...state, playSoundtrack: !state.playSoundtrack }
     default:
       return state;
   }

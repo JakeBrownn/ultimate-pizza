@@ -7,10 +7,10 @@
   'base/base-styles';
 
 @import
-  'components/popup';
+  'components/popup-user',
+  'components/popup-submit',
+  'components/popup-leaderboard';
 
 @import 
-  'layout/sidebar',
-  'layout/leaderboard',
-  'layout/submit-score',
-  'layout/gamescreen';
+  'layout/game-sidebar',
+  'layout/game-screen';

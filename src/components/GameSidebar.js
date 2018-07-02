@@ -39,7 +39,7 @@ class GameSidebar extends Component {
       activateDeliveryMan 
     } = this.props;
 
-    if (249 < counter.total && purchased.deliveryMan < 3) {
+    if (itemOne.cost - 1 < counter.total && purchased.deliveryMan < 3) {
       
       // Call Redux actions
       buyDeliveryMan();
@@ -59,12 +59,12 @@ class GameSidebar extends Component {
       intervalExtraCheese
     } = this.props;
 
-    if (149 < counter.total && purchased.extraCheese < 3) {
+    if (itemTwo.cost - 1 < counter.total && purchased.extraCheese < 3) {
 
       // Call Redux actions
       buyExtraCheese();
       activateExtraCheese();
-      setInterval(() => intervalExtraCheese(), 2000);
+      setInterval(() => intervalExtraCheese(), itemTwo.intervalTime);
 
       this.purchaseSound();
     }
@@ -82,7 +82,7 @@ class GameSidebar extends Component {
             description={itemOne.desc}
             icon={IconDeliveryMan}
             itemCost={itemOne.cost}
-            purchased={purchased.deliveryMan + '/ 3'}
+            purchased={`${purchased.deliveryMan}/ 3`}
             triggerAction={() => this.handleDeliveryMan()}
           />
           <ShopItem
@@ -90,7 +90,7 @@ class GameSidebar extends Component {
             description={itemTwo.desc}
             icon={IconExtraCheese}
             itemCost={itemTwo.cost}
-            purchased={purchased.extraCheese + '/ 3'}
+            purchased={`${purchased.extraCheese}/ 3`}
             triggerAction={() => this.handleExtraCheese()}
           />
         </div>
