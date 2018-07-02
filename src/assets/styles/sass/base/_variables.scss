@@ -1,5 +1,6 @@
 // Base
 $font-stack: ('Arcade Classic', sans-serif);
+$title-font: ('Karmatic Arcade', sans-serif);
 
 // Colors
 $color-white: rgb(255, 255, 255);   // #FFFFFF
@@ -8,11 +9,3 @@ $color-dark-blue: rgb(31, 39, 45);  // #1F272D
 $color-gold: rgb(117, 84, 24);      // #755418
 
 $gold-border: 6px ridge $color-gold;
-
-// Mixins
-@mixin flex($direction) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: ($direction);
-}

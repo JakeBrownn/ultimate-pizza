@@ -18,7 +18,7 @@
   border: 10px solid;
   border-color: rgb(33,33,33) rgb(79,79,79) rgb(79,79,79) rgb(33,33,33);
   animation: sidescroll 5s linear infinite;
-  @include flex(column);
+  @include flex-center(column);
 }
 
 .action-button {
@@ -39,7 +39,7 @@
   position: absolute;
   left: 20px;
   top: 20px;
-  @include flex(column);
+  @include flex-center(column);
 
   &__value {
     font-size: 50px;

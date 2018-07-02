@@ -1,3 +1,19 @@
-@mixin border {
-  border: $color-gold 4px solid;
+@mixin flex-center ($direction) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+
+@mixin activeElement {
+  &:active {
+    transform: scale(0.98);  
+  }
+}
+
+@mixin hoverElement {
+  &:hover {
+    transform: translateY(-5px);
+  }
 }

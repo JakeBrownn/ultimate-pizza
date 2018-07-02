@@ -67,14 +67,14 @@ class SidebarOptions extends Component {
 
   render() {    
     return (
-      <div className='sidebar-info'>
-        <div className='sidebar-info__row'>
+      <div className='sidebar-buttons'>
+        <div className='sidebar-buttons__row'>
           <form className='submit-form'>
             <input className='submit-form__input' placeholder='Username' type='text' value='' />
             <input className='submit-form__button' type='submit' value='Submit'  onClick={(e) => this.toggleSubmitScore(e)} />
           </form>
         </div>
-        <div className='sidebar-info__row'>
+        <div className='sidebar-buttons__row'>
           <div className='sidebar-option sidebar-option--sound' onClick={() => this.handleSoundClick()}>
             <audio id='gameSoundtrack'>
               <source src={gameSoundtrack} type='audio/mpeg' />

@@ -9,6 +9,11 @@ import {
   TOGGLE_SOUNDTRACK
 } from '../actions/types';
 
+import {
+  itemOne,
+  itemTwo
+} from '../data';
+
 const INITIAL_STATE = {
   total: 249,
   chompSound: 1,
@@ -23,8 +28,8 @@ const itemBonus = {
 };
 
 const itemPrice = {
-  deliveryMan: 100,
-  extraCheese: 150
+  deliveryMan: itemOne.cost,
+  extraCheese: itemTwo.cost
 };
 
 export const ClickReducer = (state = INITIAL_STATE, action) => {

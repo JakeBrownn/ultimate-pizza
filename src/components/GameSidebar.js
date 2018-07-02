@@ -10,11 +10,15 @@ import {
 } from '../actions';
 
 import ShopItem from './ShopItem';
+import {
+  itemOne,
+  itemTwo
+} from '../data';
 
 import IconDeliveryMan from '../assets/images/icon-delivery-man.png';
 import IconExtraCheese from '../assets/images/icon-extra-cheese.png';
 import soundPurchase from '../assets/audio/sound-purchase.mp3';
-import SidebarOptions from './SidebarOptions';
+import SidebarButtons from './SidebarButtons';
 
 
 class GameSidebar extends Component {
@@ -74,23 +78,23 @@ class GameSidebar extends Component {
         <div className='shop'>
           <h2 className='shop__title'>Upgrades</h2>
           <ShopItem
-            title='Delivery Man'
-            description={'Double your pizza slices.'}
+            title={itemOne.title}
+            description={itemOne.desc}
             icon={IconDeliveryMan}
-            itemCost={'250'}
+            itemCost={itemOne.cost}
             purchased={purchased.deliveryMan + '/ 3'}
             triggerAction={() => this.handleDeliveryMan()}
           />
           <ShopItem
-            title='Extra Cheese'
-            description={'Adds 1 slice every 2 seconds.'}
+            title={itemTwo.title}
+            description={itemTwo.desc}
             icon={IconExtraCheese}
-            itemCost={'150'}
+            itemCost={itemTwo.cost}
             purchased={purchased.extraCheese + '/ 3'}
             triggerAction={() => this.handleExtraCheese()}
           />
         </div>
-        <SidebarOptions />
+        <SidebarButtons />
       </div>
     );
   }

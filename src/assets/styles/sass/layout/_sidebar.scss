@@ -15,6 +15,7 @@
 
   &__title {
     font-size: 40px;
+    letter-spacing: 3px;
     margin-bottom: 10px;
   }
 }
@@ -23,25 +24,15 @@
   position: relative;
   justify-content: space-around;
   background-color: $color-blue;
-  margin: 40px 0;
+  margin: 20px 0;
   padding: 10px;
   border: $gold-border;
   user-select: none;
   cursor: pointer;
-  @include flex(row);
-  
-  &:hover {
-    transform: translateY(-5px);
+  @include flex-center(row);
+  @include hoverElement;
+  @include activeElement;
 
-    .shop-item__popup {
-      display: block;
-    }
-  }
-
-  &:active {
-    transform: scale(0.98);
-  }
-  
   &__icon {
     margin-right: 10px;
   }
@@ -51,45 +42,12 @@
   }
 
   &__title {
+    letter-spacing: 2px;
     margin-bottom: 5px;
-  }
-
-  &__popup {
-    display: none;
-    position: absolute;
-    top: -5px;
-    left: -290px;
-    width: 230px;
-    height: 75px;
-    background-image: url('../images/background-shop-popup.jpg');
-    background-size: cover;
-    padding: 15px;
-    border: $color-gold ridge 5px;
-  }
-
-  &__owned {
-    text-align: right;
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
-
-  &__upgrade-text {
-    list-style: square;
-    font-size: 13px;
-    margin-left: 20px;
-  }
-
-  &__button {
-    font-family: 'Karmatic Arcade', sans-serif;
-    height: 25px;
-    border: $gold-border;
-    width: 120px;
-    margin-top: 10px;
-    cursor: pointer;
   }
 }
 
-.sidebar-info {
+.sidebar-buttons {
   &__row {
     margin: 25px 0;
     display: flex;
@@ -97,7 +55,7 @@
 }
 
 .sidebar-option {
-  @include flex(column);
+  @include flex-center(column);
   background-color: $color-blue;
   border: $gold-border;
   height: 75px;
@@ -105,14 +63,8 @@
   font-size: 25px;
   user-select: none;
   cursor: pointer;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
+  @include hoverElement;
+  @include activeElement;
 
   &--sound {
     width: 75px;
@@ -126,10 +78,11 @@
 }
 
 .submit-form {
-  @include flex(row);
+  @include flex-center(row);
   
   &__input,
   &__button {
+    background-color: $color-blue;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,8 +90,6 @@
     font-size: 25px;
     padding: 0 10px;
     border: $gold-border;
-    background-color: $color-blue;
-    font-family: 'Karmatic Arcade', sans-serif;
   }
 
   &__input {
@@ -149,9 +100,7 @@
     height: 95px;
     margin-left: 15px;
     cursor: pointer;
-
-    &:hover {
-      transform: translateY(-5px);
-    }
+    @include hoverElement;
+    @include activeElement;
   }
 }
