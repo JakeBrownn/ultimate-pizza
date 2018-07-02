@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
 
+import PopupWelcome from './PopupWelcome';
 import PopupWarning from './PopupWarning';
 import PopupLeaderboard from './PopupLeaderboard';
 import pizza from '../assets/images/image-pixel-pizza.png';
@@ -13,7 +14,7 @@ import {
 import soundChompOne from '../assets/audio/sound-chomp-1.mp3';
 import soundChompTwo from '../assets/audio/sound-chomp-2.mp3';
 
-class ActionWindow extends Component {
+class GameWindow extends Component {
 
   // Handle onClick of Pizza
   addClick() {
@@ -34,6 +35,7 @@ class ActionWindow extends Component {
 
     return (
       <div className='action-window'>
+        <PopupWelcome />
         <PopupLeaderboard />
         <PopupWarning />
         <div className='action-button'>
@@ -58,4 +60,4 @@ const mapStateToProps = ({ counter, toggles }) => {
 export default connect(mapStateToProps, {
   incrementClicks,
   toggleSoundChomp
-})(ActionWindow);
+})(GameWindow);

@@ -1,0 +1,9 @@
+.user-popup {
+  &--visible {
+    display: block;
+  }
+
+  &--hidden {
+    display: none;
+  }
+}

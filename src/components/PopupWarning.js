@@ -24,7 +24,7 @@ class PopupWarning extends Component {
     const { toggles } = this.props;
   
     return (
-      <div className={'submit-score submit-score--' + toggles.popupClass}>
+      <div className={`submit-score submit-score--${toggles.popupClass}`}>
         <div className='submit-score__wrapper'>
           <h2 className='submit-score__title'>Warning</h2>
           <p className='submit-score__text'>Submitting your score will end your current session and rank you on our leaderboards... if you're lucky.</p>

@@ -3,7 +3,8 @@ import {
   TOGGLE_SOUND_CHOMP,
   TOGGLE_LEADERBOARD,
   TOGGLE_SUBMIT_POPUP,
-  TOGGLE_SOUNDTRACK
+  TOGGLE_SOUNDTRACK,
+  START_GAME
 } from './types';
 
 // Increment Clicks
@@ -15,8 +16,11 @@ export const toggleSoundChomp = () => (dispatch) => dispatch({ type: TOGGLE_SOUN
 // Toggle Leaderboard ClassName
 export const toggleLeaderboard = () => (dispatch) => dispatch({ type: TOGGLE_LEADERBOARD });
 
+// Play / Pause the Soundtrack
+export const toggleSoundtrack = () => (dispatch) => dispatch({ type: TOGGLE_SOUNDTRACK });
+
 // Toggle SubmitPopup ClassName
 export const toggleSubmitPopup = () => (dispatch) => dispatch({ type: TOGGLE_SUBMIT_POPUP });
 
-// Play / Pause the Soundtrack
-export const toggleSoundtrack = () => (dispatch) => dispatch({ type: TOGGLE_SOUNDTRACK });
+// Begin Session
+export const startGame = () => (dispatch) => dispatch({ type: START_GAME });

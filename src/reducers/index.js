@@ -1,18 +1,13 @@
 import { combineReducers } from 'redux';
 
-import {
-  ClickReducer,
-  UserToggles,
-} from './UserReducers';
-
-import {
-  PurchasedReducer,
-} from './ShopReducers';
+import { ClickReducer } from './ClickReducer';
+import { TogglesReducer } from './TogglesReducer';
+import { PurchasedReducer } from './PurchasedReducer';
 
 const reducers = combineReducers({
   counter: ClickReducer,
   purchased: PurchasedReducer,
-  toggles: UserToggles
+  toggles: TogglesReducer
 });
 
 export default reducers;
