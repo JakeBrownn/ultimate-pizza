@@ -4,7 +4,9 @@ export const TOGGLE_SOUND_CHOMP = 'toggle_sound_chomp';
 export const TOGGLE_SOUNDTRACK = 'toggle_soundtrack';
 export const TOGGLE_LEADERBOARD = 'toggle_leaderboard';
 export const TOGGLE_SUBMIT_POPUP = 'toggle_submit_popup';
+export const TOGGLE_ITEM_INFO = 'toggle_item_info';
 export const START_GAME = 'start_game';
+
 // Shop Types
 export const BUY_DELIVERY_MAN = 'buy_delivery_man';
 export const BUY_EXTRA_CHEESE = 'buy_extra_cheese';

@@ -12,6 +12,13 @@
   flex-direction: $direction;
 }
 
+@mixin flex-start ($direction) {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
 @mixin activeElement {
   &:active {
     transform: scale(0.98);  

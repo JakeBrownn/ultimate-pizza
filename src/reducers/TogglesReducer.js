@@ -3,6 +3,7 @@ import {
   TOGGLE_LEADERBOARD,
   TOGGLE_SUBMIT_POPUP,
   TOGGLE_SOUNDTRACK,
+  TOGGLE_ITEM_INFO,
   START_GAME
 } from '../actions/types';
 
@@ -12,6 +13,11 @@ const INITIAL_STATE = {
   leaderboardClass: 'hidden',
   popupClass: 'hidden',
   userPopupClass: 'visible',
+  item: { 
+    title: '', 
+    desc: '', 
+    cost: '' 
+  }
 };
 
 export const TogglesReducer = (state = INITIAL_STATE, action) => {
@@ -24,6 +30,8 @@ export const TogglesReducer = (state = INITIAL_STATE, action) => {
       return { ...state, popupClass: ( state.popupClass === 'hidden' ) ? 'visible' : 'hidden' };
     case TOGGLE_SOUNDTRACK:
       return { ...state, playSoundtrack: !state.playSoundtrack };
+    case TOGGLE_ITEM_INFO: 
+      return { ...state, item: ( state.item.title.length === 0 ) ? action.payload : INITIAL_STATE.item }
     case START_GAME:
       return { ...state, userPopupClass: 'hidden' };
     default:

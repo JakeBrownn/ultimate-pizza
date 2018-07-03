@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { toggleItemInfo } from '../actions';
 
 class ShopItem extends Component {
   handleItemHover(item) {
-    console.log(item)
+    this.props.toggleItemInfo(item);
   }
 
   render() {
     const { triggerAction, icon, item, purchased } = this.props;
 
     return (
-      <li className='shop-item' onClick={triggerAction} onMouseEnter={() => this.handleItemHover(item)}>
+      <li 
+        className='shop-item' 
+        onClick={triggerAction} 
+        onMouseEnter={() => this.handleItemHover(item)}
+        onMouseLeave={() => this.handleItemHover()}
+      >
         <img className='shop-item__icon' src={icon} alt={item.title} />
-        <p className='shop-item__owned'>{`Owned: ${purchased} / 3`}</p>
+        <span className='shop-item__owned'>{`Owned: ${purchased} / 3`}</span>
       </li>
     )
   }
 }
 
-export default ShopItem;
+export default connect(null, {toggleItemInfo})(ShopItem);

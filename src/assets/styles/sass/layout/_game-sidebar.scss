@@ -1,3 +1,10 @@
+%sidebar-icon {
+  background-color: $color-blue;
+  padding: 15px;
+  border: $gold-border;
+  user-select: none;
+}
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -11,9 +18,9 @@
 
 .shop {
   position: relative;
-  height: 65%;
+  height: 47%;
   border-bottom: $gold-border;
-  @include flex-center(column);
+  @include flex-start(column);
 
   &__title {
     font-size: 40px;
@@ -35,10 +42,7 @@
   @include activeElement;
 
   &__icon {
-    background-color: $color-blue;
-    padding: 15px;
-    border: $gold-border;
-    user-select: none;
+    @extend %sidebar-icon;
   }
 
   &__owned {
@@ -57,23 +61,23 @@
 .sidebar-option {
   background-color: $color-blue;
   border: $gold-border;
-  height: 75px;
-  padding: 0 10px;
   font-size: 25px;
   user-select: none;
   cursor: pointer;
-  @include flex-center(column);
   @include hoverElement;
   @include activeElement;
 
-  &--sound {
-    width: 75px;
-    padding: 0;
+  &__wrapper {
+    padding: 15px;
+    @include flex-center(column);
   }
 
-  &--leaderboard {
-    width: 100%;
-    margin-left: 15px;
+  &__icon {
+    margin-bottom: 8px;
+  }
+
+  &--sound {
+    width: 160px;
   }
 }
 

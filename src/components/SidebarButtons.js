@@ -9,8 +9,9 @@ import {
 
 import gameSoundtrack from '../assets/audio/soundtrack-main.mp3';
 import SoundToggle from '../assets/audio/sound-toggle.mp3';
-import SoundOn from '../assets/images/icon-sound-on.jpg';
-import SoundOff from '../assets/images/icon-sound-off.jpg';
+import SoundOn from '../assets/images/icon-sound-on.png';
+import SoundOff from '../assets/images/icon-sound-off.png';
+import SidebarOption from './SidebarOption';
 
 
 class SidebarOptions extends Component {
@@ -42,11 +43,25 @@ class SidebarOptions extends Component {
     (toggles.playSoundtrack === true) ? soundtrackMusic.pause() : soundtrackMusic.play();
   }
 
-  // Toggle the Button source
-  toggleButtonSource() {
-    const { toggles } = this.props;
+  // Toggle the Music button
+  toggleSoundButton() {
+    const { playSoundtrack } = this.props.toggles;
 
-    return (toggles.playSoundtrack === false) ? SoundOff : SoundOn;
+    if (playSoundtrack === false) {
+      return (
+        <div className='sidebar-option__wrapper'>
+          <img className='sidebar-option__icon' src={SoundOff} alt='Sound Off' />
+          <span className='sidebar-option__text'>Music Off</span>
+        </div>
+      );
+    }
+
+    return (
+      <div className='sidebar-option__wrapper'>
+        <img className='sidebar-option__icon' src={SoundOn} alt='Sound On' />
+        <span className='sidebar-option__text'>Music On</span>
+      </div>
+    );
   }
 
   toggleSubmitScore(e) {
@@ -70,15 +85,16 @@ class SidebarOptions extends Component {
 
         </div>
         <div className='sidebar-buttons__row'>
-          <div className='sidebar-option sidebar-option--sound' onClick={() => this.handleSoundClick()}>
-            <audio id='gameSoundtrack'>
-              <source src={gameSoundtrack} type='audio/mpeg' />
-            </audio> 
-            <img src={this.toggleButtonSource()} alt='Toggle Sound' />
-          </div>
-          <div className='sidebar-option sidebar-option--leaderboard' onClick={(e) => this.handleLeaderboardClick(e)}>
+          <SidebarOption 
+            className='sound'
+            triggerAction={() => this.handleSoundClick()
+          }>
+            <audio id='gameSoundtrack'><source src={gameSoundtrack} type='audio/mpeg' /></audio> 
+            {this.toggleSoundButton()}
+          </SidebarOption>
+          {/* <div className='sidebar-option sidebar-option--leaderboard' onClick={(e) => this.handleLeaderboardClick(e)}>
             <span className='sidebar-option__text'>The Leaderboards</span>
-          </div>
+          </div> */}
         </div>
       </div>
     );

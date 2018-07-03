@@ -11,10 +11,7 @@ import {
 
 import ShopItem from './ShopItem';
 import SidebarInfo from './SidebarInfo';
-import {
-  itemOne,
-  itemTwo
-} from '../data';
+import { itemOne, itemTwo } from '../data';
 
 import IconDeliveryMan from '../assets/images/icon-delivery-man.png';
 import IconExtraCheese from '../assets/images/icon-extra-cheese.png';
@@ -72,7 +69,7 @@ class GameSidebar extends Component {
   }
 
   render() {
-    const { purchased } = this.props;
+    const { deliveryMan, extraCheese} = this.props.purchased;
       
     return (
       <div className='sidebar'>
@@ -82,20 +79,20 @@ class GameSidebar extends Component {
             <ShopItem
               item={itemOne}
               icon={IconDeliveryMan}
-              purchased={purchased.deliveryMan}
+              purchased={deliveryMan}
               triggerAction={() => this.handleDeliveryMan()}
             />
             <ShopItem
               item={itemTwo}
               icon={IconExtraCheese}
-              purchased={purchased.extraCheese}
+              purchased={extraCheese}
               triggerAction={() => this.handleExtraCheese()}
             />
             <ShopItem
               item={itemOne}
               description={itemOne.desc}
               icon={IconDeliveryMan}
-              purchased={purchased.deliveryMan}
+              purchased={deliveryMan}
               triggerAction={() => this.handleDeliveryMan()}
             />
           </ul>
