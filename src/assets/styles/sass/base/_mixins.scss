@@ -5,6 +5,12 @@
   flex-direction: $direction;
 }
 
+@mixin flex-between ($direction) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: $direction;
+}
 
 @mixin activeElement {
   &:active {

@@ -10,6 +10,7 @@ import {
 } from '../actions';
 
 import ShopItem from './ShopItem';
+import SidebarInfo from './SidebarInfo';
 import {
   itemOne,
   itemTwo
@@ -77,22 +78,28 @@ class GameSidebar extends Component {
       <div className='sidebar'>
         <div className='shop'>
           <h2 className='shop__title'>Upgrades</h2>
-          <ShopItem
-            title={itemOne.title}
-            description={itemOne.desc}
-            icon={IconDeliveryMan}
-            itemCost={itemOne.cost}
-            purchased={`${purchased.deliveryMan}/ 3`}
-            triggerAction={() => this.handleDeliveryMan()}
-          />
-          <ShopItem
-            title={itemTwo.title}
-            description={itemTwo.desc}
-            icon={IconExtraCheese}
-            itemCost={itemTwo.cost}
-            purchased={`${purchased.extraCheese}/ 3`}
-            triggerAction={() => this.handleExtraCheese()}
-          />
+          <ul className='shop__item-list'>
+            <ShopItem
+              item={itemOne}
+              icon={IconDeliveryMan}
+              purchased={purchased.deliveryMan}
+              triggerAction={() => this.handleDeliveryMan()}
+            />
+            <ShopItem
+              item={itemTwo}
+              icon={IconExtraCheese}
+              purchased={purchased.extraCheese}
+              triggerAction={() => this.handleExtraCheese()}
+            />
+            <ShopItem
+              item={itemOne}
+              description={itemOne.desc}
+              icon={IconDeliveryMan}
+              purchased={purchased.deliveryMan}
+              triggerAction={() => this.handleDeliveryMan()}
+            />
+          </ul>
+          <SidebarInfo />
         </div>
         <SidebarButtons />
       </div>

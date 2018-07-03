@@ -10,52 +10,51 @@
 }
 
 .shop {
-  height: 70%;
+  position: relative;
+  height: 65%;
   border-bottom: $gold-border;
+  @include flex-center(column);
 
   &__title {
     font-size: 40px;
     letter-spacing: 3px;
     margin-bottom: 10px;
   }
+
+  &__item-list {
+    width: 100%;
+    @include flex-between(row);
+  }
 }
 
 .shop-item {
   position: relative;
-  justify-content: space-around;
-  background-color: $color-blue;
-  margin: 20px 0;
-  padding: 10px;
-  border: $gold-border;
-  user-select: none;
   cursor: pointer;
-  @include flex-center(row);
+  @include flex-center(column);
   @include hoverElement;
   @include activeElement;
 
   &__icon {
-    margin-right: 10px;
+    background-color: $color-blue;
+    padding: 15px;
+    border: $gold-border;
+    user-select: none;
   }
 
-  &__content {
-    width: 100%;
-  }
-
-  &__title {
-    letter-spacing: 2px;
-    margin-bottom: 5px;
+  &__owned {
+    margin-top: 5px;
+    font-size: 20px;
   }
 }
 
 .sidebar-buttons {
   &__row {
-    margin: 25px 0;
-    display: flex;
+    margin: 20px 0;
+    @include flex-center(row);
   }
 }
 
 .sidebar-option {
-  @include flex-center(column);
   background-color: $color-blue;
   border: $gold-border;
   height: 75px;
@@ -63,6 +62,7 @@
   font-size: 25px;
   user-select: none;
   cursor: pointer;
+  @include flex-center(column);
   @include hoverElement;
   @include activeElement;
 

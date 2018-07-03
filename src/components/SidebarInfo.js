@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 
-class SidebarPopup extends Component {
+class SidebarInfo extends Component {
   render() {
     return (
-      <div className='sidebar-popup'>
+      <div className='sidebar-info'>
         
       </div>
     );
   }
 };
 
-export default SidebarPopup;
+export default SidebarInfo;

@@ -1,11 +1,9 @@
-.game-screen {
+.app-content {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: $color-blue;
   height: 100vh;
   margin-right: 465px;
-  background-color: $color-blue;
+  @include flex-center(row);
 }
 
 .action-window {
