@@ -59,9 +59,10 @@
 }
 
 .sidebar-option {
+  flex: 1;
   background-color: $color-blue;
   border: $gold-border;
-  font-size: 25px;
+  margin: 0 5px;
   user-select: none;
   cursor: pointer;
   @include hoverElement;
@@ -70,14 +71,18 @@
   &__wrapper {
     padding: 15px;
     @include flex-center(column);
+
+    &--sound {
+      padding: 0;
+    }
   }
 
   &__icon {
     margin-bottom: 8px;
   }
 
-  &--sound {
-    width: 160px;
+  &__text {
+    font-size: 17px;
   }
 }
 

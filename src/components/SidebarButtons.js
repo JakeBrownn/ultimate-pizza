@@ -49,7 +49,7 @@ class SidebarOptions extends Component {
 
     if (playSoundtrack === false) {
       return (
-        <div className='sidebar-option__wrapper'>
+        <div className='sidebar-option__wrapper sidebar-option__wrapper--sound'>
           <img className='sidebar-option__icon' src={SoundOff} alt='Sound Off' />
           <span className='sidebar-option__text'>Music Off</span>
         </div>
@@ -57,7 +57,7 @@ class SidebarOptions extends Component {
     }
 
     return (
-      <div className='sidebar-option__wrapper'>
+      <div className='sidebar-option__wrapper sidebar-option__wrapper--sound'>
         <img className='sidebar-option__icon' src={SoundOn} alt='Sound On' />
         <span className='sidebar-option__text'>Music On</span>
       </div>
@@ -82,19 +82,33 @@ class SidebarOptions extends Component {
     return (
       <div className='sidebar-buttons'>
         <div className='sidebar-buttons__row'>
-
-        </div>
-        <div className='sidebar-buttons__row'>
           <SidebarOption 
             className='sound'
-            triggerAction={() => this.handleSoundClick()
-          }>
+            triggerAction={() => this.handleSoundClick()}
+          >
             <audio id='gameSoundtrack'><source src={gameSoundtrack} type='audio/mpeg' /></audio> 
             {this.toggleSoundButton()}
           </SidebarOption>
-          {/* <div className='sidebar-option sidebar-option--leaderboard' onClick={(e) => this.handleLeaderboardClick(e)}>
-            <span className='sidebar-option__text'>The Leaderboards</span>
-          </div> */}
+          <SidebarOption 
+            className=''
+            triggerAction={() => console.log(123)}
+          >
+            Hello!
+          </SidebarOption>
+          <SidebarOption 
+            className=''
+            triggerAction={() => console.log(123)}
+          >
+            Button 3!
+          </SidebarOption>
+        </div>
+        <div className='sidebar-buttons__row'>
+          <SidebarOption 
+            className='leaderboard'
+            triggerAction={(e) => this.handleLeaderboardClick(e)}
+          >
+            <span className='sidebar-option__text'>Leaderboards</span>
+          </SidebarOption>
         </div>
       </div>
     );
