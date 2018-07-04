@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 
 import { toggleItemInfo } from '../actions';
 
+
 class ShopItem extends Component {
+
+  // Send ShopItem details to
+  // display in SidebarInfo
   handleItemHover(item) {
     this.props.toggleItemInfo(item);
   }
@@ -16,7 +20,7 @@ class ShopItem extends Component {
         className='shop-item' 
         onClick={triggerAction} 
         onMouseEnter={() => this.handleItemHover(item)}
-        onMouseLeave={() => this.handleItemHover()}
+        onMouseLeave={() => this.handleItemHover(item)}
       >
         <img className='shop-item__icon' src={icon} alt={item.title} />
         <span className='shop-item__owned'>{`Owned: ${purchased} / 3`}</span>
@@ -25,4 +29,6 @@ class ShopItem extends Component {
   }
 }
 
-export default connect(null, {toggleItemInfo})(ShopItem);
+export default connect(null, {
+  toggleItemInfo
+})(ShopItem);

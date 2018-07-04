@@ -36,4 +36,12 @@ body {
   li {
     list-style: none;
   }
+
+  input {
+    font-family: $font-stack;
+  }
+
+  input[type="submit"] {
+    cursor: pointer;
+  }
 }

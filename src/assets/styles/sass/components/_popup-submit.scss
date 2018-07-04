@@ -1,12 +1,11 @@
-
 .submit-score {
+  background-color: $color-blue;
   position: absolute;
+  left: 0;
   top: 30%;
   height: 250px;
-  left: 0;
-  text-align: center;
   margin: 0 40px;
-  background-color: $color-blue;
+  text-align: center;
   border: $gold-border;
 
   &--hidden {
@@ -22,8 +21,8 @@
   }
 
   &__title {
-    font-size: 36px;
     margin-bottom: 20px;
+    font-size: 36px;
   }
 
   &__text {
@@ -31,25 +30,19 @@
   }
 
   &__buttons-wrapper {
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 80%;
-    margin: auto;
-    margin-top: 30px;
+    margin: 30px auto 0;
+    @include flex-between(row);
   }
 
   &__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
+    background-color: $color-blue;
     padding: 10px;
     border: $gold-border;
-    background-color: $color-blue;
     font-family: 'Karmatic Arcade', sans-serif;
+    font-size: 25px;
     cursor: pointer;
+    @include flex-center(row);
 
     &:hover {
       transform: translateY(-5px);

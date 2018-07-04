@@ -10,9 +10,9 @@
   top: 0;
   right: 0;
   width: 425px;
+  background-color: $color-dark-blue;
   height: 100%;
   padding: 25px 20px;
-  background-color: $color-dark-blue;
   border-left: 4px ridge $color-gold;
 }
 
@@ -23,9 +23,9 @@
   @include flex-start(column);
 
   &__title {
+    margin-bottom: 10px;
     font-size: 40px;
     letter-spacing: 3px;
-    margin-bottom: 10px;
   }
 
   &__item-list {
@@ -92,13 +92,11 @@
   &__input,
   &__button {
     background-color: $color-blue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 75px;
-    font-size: 25px;
     padding: 0 10px;
     border: $gold-border;
+    font-size: 25px;
+    @include flex-center(row);
   }
 
   &__input {

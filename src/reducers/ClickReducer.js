@@ -5,23 +5,22 @@ import {
   INTERVAL_EXTRA_CHEESE 
 } from '../actions/types';
 
-import {
-  itemOne,
-  itemTwo
-} from '../data';
+import { itemOne, itemTwo } from '../data';
 
 const INITIAL_STATE = {
   total: 249
 };
 
-const itemBonus = {
-  deliveryMan: 2,
-  extraCheese: 1
+// itemOne
+const deliveryMan = {
+  cost: itemOne.cost,
+  itemBonus: itemOne.itemEffectVal
 };
 
-const itemPrice = {
-  deliveryMan: itemOne.cost,
-  extraCheese: itemTwo.cost
+// itemTwo
+const extraCheese = {
+  cost: itemTwo.cost,
+  itemBonus: itemTwo.itemEffectVal
 };
 
 export const ClickReducer = (state = INITIAL_STATE, action) => {
@@ -29,11 +28,11 @@ export const ClickReducer = (state = INITIAL_STATE, action) => {
     case INCREMENT_CLICK:
       return { total: state.total + 1 };
     case ACTIVATE_DELIVERY_MAN: 
-      return { ...state, total: state.total * itemBonus.deliveryMan - itemPrice.deliveryMan };
+      return { ...state, total: state.total * deliveryMan.itemBonus - deliveryMan.cost };
     case ACTIVATE_EXTRA_CHEESE: 
-      return { ...state, total: state.total - itemPrice.extraCheese };
+      return { ...state, total: state.total - extraCheese.cost };
     case INTERVAL_EXTRA_CHEESE:
-      return { ...state, total: state.total + itemBonus.extraCheese };
+      return { ...state, total: state.total + extraCheese.itemBonus };
     default: 
       return state;
   }

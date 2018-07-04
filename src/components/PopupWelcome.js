@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import {
-  usernameChanged,
-  startGame
-} from '../actions';
+import { usernameChanged, startGame } from '../actions';
+
 
 class PopupWelcome extends Component {
   onInputChange(e) {
@@ -24,7 +22,7 @@ class PopupWelcome extends Component {
       <div className={`user-popup user-popup--${toggles.userPopupClass}`} onSubmit={(e) => this.handleFormSubmit(e)}>
         <form className='form form--popup' id='welcome-form'>
           <span className='form__text'>Welcome to Ultimate Pizza! An awesome game that'll keep you entertained for hours.</span>
-          <span className='form__text'>Enter a Username to get started....</span>
+          <span className='form__text'>Enter a Username to get started...</span>
           <input 
             className='form__field' 
             type='text'

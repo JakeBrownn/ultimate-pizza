@@ -3,13 +3,22 @@
     "id": 0,
     "title": "Delivery Man",
     "desc": "Double your pizza slices.",
-    "cost": "250"
+    "cost": "250",
+    "itemEffectVal": 2
   },
   {
     "id": 1,
     "title": "Extra Cheese",
-    "desc": "Adds 1 slide every 2 seconds.",
+    "desc": "Adds 1 slice every 2 seconds.",
     "cost": "150",
+    "itemEffectVal": 1,
     "intervalTime": "2000"
+  },
+  {
+    "id": 2,
+    "title": "All You Can Eat",
+    "desc": "Adds 5 slices every 3 seconds.",
+    "cost": "200",
+    "intervalTime": "3000"
   }
 ]

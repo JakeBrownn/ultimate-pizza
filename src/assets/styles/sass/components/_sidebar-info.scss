@@ -1,7 +1,7 @@
 .sidebar-info {
   position: relative;
-  height: 150px;
   background-color: $color-blue;
+  height: 150px;
   width: 375px;
   padding: 20px;
   margin: 20px 0;
@@ -19,9 +19,9 @@
 
     &--cost {
       position: absolute;
-      font-size: 20px;
       right: 20px;
       bottom: 20px;
+      font-size: 20px;
     }
   }
 }

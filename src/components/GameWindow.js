@@ -4,15 +4,13 @@ import { connect } from 'react-redux';
 import PopupWelcome from './PopupWelcome';
 import PopupWarning from './PopupWarning';
 import PopupLeaderboard from './PopupLeaderboard';
+
+import { incrementClicks, toggleSoundChomp } from '../actions';
+
 import pizza from '../assets/images/image-pixel-pizza.png';
-
-import { 
-  incrementClicks,
-  toggleSoundChomp,
-} from '../actions';
-
 import soundChompOne from '../assets/audio/sound-chomp-1.mp3';
 import soundChompTwo from '../assets/audio/sound-chomp-2.mp3';
+
 
 class GameWindow extends Component {
 
@@ -29,15 +27,23 @@ class GameWindow extends Component {
     // Toggle Chomp sounds effects
     ( toggles.chompSound === 1 ) ? soundOne.play() : soundTwo.play();
   }
+
+  renderPopups() {
+    return (
+      <div className='popup-windows'>
+        <PopupWelcome />
+        <PopupLeaderboard />
+        <PopupWarning />
+      </div>
+    )
+  }
     
   render() {
     const { counter } = this.props;
 
     return (
       <div className='action-window'>
-        <PopupWelcome />
-        <PopupLeaderboard />
-        <PopupWarning />
+        {this.renderPopups()}
         <div className='action-button'>
           <img className='action-button__image' src={pizza} alt='Pizza' onClick={(e) => {this.addClick()}} />
         </div>

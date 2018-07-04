@@ -9,4 +9,3 @@ const SidebarRow = (props) => {
 };
 
 export default SidebarRow;
-

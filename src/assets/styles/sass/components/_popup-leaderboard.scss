@@ -6,6 +6,7 @@
   background-color: $color-blue;
   border: $gold-border;
   overflow: hidden;
+  z-index: 2;
 
   &--visible {
     display: block;
