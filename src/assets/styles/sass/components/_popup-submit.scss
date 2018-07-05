@@ -1,12 +1,11 @@
 .submit-score {
-  background-color: $color-blue;
   position: absolute;
   left: 0;
   top: 30%;
   height: 250px;
   margin: 0 40px;
   text-align: center;
-  border: $gold-border;
+  @extend %panel-style;
 
   &--hidden {
     display: none;
@@ -36,12 +35,11 @@
   }
 
   &__button {
-    background-color: $color-blue;
     padding: 10px;
-    border: $gold-border;
     font-family: 'Karmatic Arcade', sans-serif;
     font-size: 25px;
     cursor: pointer;
+    @extend %panel-style;
     @include flex-center(row);
 
     &:hover {

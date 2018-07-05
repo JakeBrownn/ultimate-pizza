@@ -2,10 +2,9 @@
   position: absolute;
   width: 60%;
   height: 620px;
-  background-color: $color-blue;
-  border: $gold-border;
   overflow: hidden;
   z-index: 2;
+  @extend %panel-style;
 
   &--visible {
     display: block;

@@ -13,6 +13,7 @@ const INITIAL_STATE = {
   leaderboardClass: 'hidden',
   popupClass: 'hidden',
   userPopupClass: 'visible',
+  sidebarClass: 'disabled',
   item: { 
     title: '', 
     desc: '', 
@@ -33,7 +34,7 @@ export const TogglesReducer = (state = INITIAL_STATE, action) => {
     case TOGGLE_ITEM_INFO: 
       return { ...state, item: ( state.item.title.length === 0 ) ? action.payload : INITIAL_STATE.item }
     case START_GAME:
-      return { ...state, userPopupClass: 'hidden' };
+      return { ...state, userPopupClass: 'hidden', sidebarClass: 'enabled' };
     default:
       return state;
   }

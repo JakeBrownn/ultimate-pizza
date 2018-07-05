@@ -14,6 +14,19 @@
   height: 100%;
   padding: 25px 20px;
   border-left: 4px ridge $color-gold;
+
+  &--disabled {
+    &:after {
+      content: '';
+      background-color: $color-dark-blue;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+  }
 }
 
 .shop {
@@ -60,11 +73,10 @@
 
 .sidebar-option {
   flex: 1;
-  background-color: $color-blue;
-  border: $gold-border;
   margin: 0 5px;
   user-select: none;
   cursor: pointer;
+  @extend %panel-style;
   @include hoverElement;
   @include activeElement;
 
@@ -91,11 +103,10 @@
   
   &__input,
   &__button {
-    background-color: $color-blue;
     height: 75px;
     padding: 0 10px;
-    border: $gold-border;
     font-size: 25px;
+    @extend %panel-style;
     @include flex-center(row);
   }
 

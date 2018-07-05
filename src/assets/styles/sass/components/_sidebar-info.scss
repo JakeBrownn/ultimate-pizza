@@ -1,11 +1,10 @@
 .sidebar-info {
   position: relative;
-  background-color: $color-blue;
   height: 150px;
   width: 375px;
   padding: 20px;
   margin: 20px 0;
-  border: $gold-border;  
+  @extend %panel-style;
 
   &__text {
     display: block;

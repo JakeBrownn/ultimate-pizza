@@ -4,6 +4,11 @@
   100% { background-position: -800px 0; }
 }
 
+@keyframes zoom-background {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-800px); }
+}
+
 // Pizza Bobbing
 @keyframes bobbing {
   0% { padding-bottom: 0; }

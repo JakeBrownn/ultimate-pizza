@@ -1,9 +1,34 @@
 .user-popup {
-  background-color: $color-blue;
+  position: relative;
   width: 100%;
   height: 100%;
   z-index: 2;
   @include flex-center(column);
+
+  &__title {
+    width: 80%;
+    margin-bottom: 200px;
+    text-align: center;
+    font-family: $title-font;
+    font-size: 60px;
+    color: $color-black;
+    letter-spacing: 12px;
+  }
+
+  &__background-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  &__background {
+
+    animation: zoom-background 120s linear forwards;
+  }
 
   &--visible {
     display: flex;
@@ -15,16 +40,35 @@
 }
 
 .form {
-  height: 400px;
-  width: 80%;
+  width: 600px;
   text-align: center;
   @include flex-center(column);
 
+  &__row {
+    @include flex-center(row);
+  }
+
   &__text {
     margin-bottom: 25px;
+    color: $color-black;
+    letter-spacing: 2px;
+  }
+
+  &__field {
+    border: $gold-border;
+    border-right: 0;
+    padding: 6px 7px;
   }
 
   &__submit {
+    height: 50px;
+    padding: 0 15px;
     cursor: pointer;
+    color: $color-white;;
+    @extend %panel-style;
+
+    &:hover {
+      background-color: $color-dark-blue;
+    }
   }
 }
