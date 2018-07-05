@@ -1,6 +1,5 @@
 .leaderboard {
   position: absolute;
-  top: 15%;
   width: 60%;
   height: 620px;
   background-color: $color-blue;
@@ -24,8 +23,7 @@
 
   &__wrapper {
     position: relative;
-    margin: 30px;
-    height: 100%;
+    padding: 30px;
   }
 }
 

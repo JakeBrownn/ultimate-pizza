@@ -5,9 +5,7 @@ import { toggleItemInfo } from '../actions';
 
 
 class ShopItem extends Component {
-
-  // Send ShopItem details to
-  // display in SidebarInfo
+  // Send ShopItem details to ./SidebarInfo
   handleItemHover(item) {
     this.props.toggleItemInfo(item);
   }

@@ -31,7 +31,7 @@ class PopupWelcome extends Component {
             autoComplete='off'
             onChange={(e) => this.onInputChange(e)}
           />
-          <input className='button' type='submit' value="Let's Go" />
+          <button className='form__submit' type='submit'>Let's Go</button>
         </form>
       </div>
     );

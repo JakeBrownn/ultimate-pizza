@@ -37,11 +37,10 @@ body {
     list-style: none;
   }
 
-  input {
+  input,
+  button {
     font-family: $font-stack;
-  }
-
-  input[type="submit"] {
-    cursor: pointer;
+    font-size: 26px;
+    letter-spacing: 1px;
   }
 }

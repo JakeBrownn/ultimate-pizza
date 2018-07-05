@@ -1,9 +1,30 @@
 .user-popup {
+  background-color: $color-blue;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  @include flex-center(column);
+
   &--visible {
-    display: block;
+    display: flex;
   }
 
   &--hidden {
     display: none;
+  }
+}
+
+.form {
+  height: 400px;
+  width: 80%;
+  text-align: center;
+  @include flex-center(column);
+
+  &__text {
+    margin-bottom: 25px;
+  }
+
+  &__submit {
+    cursor: pointer;
   }
 }
