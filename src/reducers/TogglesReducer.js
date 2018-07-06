@@ -40,7 +40,13 @@ export const TogglesReducer = (state = INITIAL_STATE, action) => {
     case START_GAME_ANIMATIONS:
       return { ...state, welcomeScreenContent: 'animating', blueBackground: 'animating', sidebarClass: 'animating', actionButton: 'fly-in' };
     case START_GAME:
-      return { ...state, welcomeScreen: 'hidden', welcomeScreenContent: 'hidden', sidebarClass: 'enable-sidebar', actionButton: 'in-view' };
+      return { 
+        ...state, 
+        welcomeScreen: 'hidden', 
+        welcomeScreenContent: 'hidden', 
+        sidebarClass: 'enable-sidebar', 
+        actionButton: 'in-view'
+      };
     default:
       return state;
   }

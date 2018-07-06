@@ -7,22 +7,55 @@ import {
   startGame 
 } from '../actions';
 
+import MenuSoundtrack from '../assets/audio/soundtrack-menu.mp3';
+
 import WelcomeBackground from '../assets/images/background-welcome-screen.jpg';
 
 
 class WelcomeScreen extends Component {
+  componentDidMount() {
+    const MenuSoundtrack = document.getElementById('menuSoundtrack');
+
+    MenuSoundtrack.play();  
+  }
+
+  // Handle user typing in Input Field
   onInputChange(e) {
     this.props.usernameChanged(e.target.value);
   }
 
+  // When Start Button is pressed
   handleFormSubmit(e) {
     e.preventDefault();
 
     this.props.startGameAnimations();
 
+    this.fadeOutSoundtrack();
+
+    // Run when Intro Animations have finished
     setTimeout(() => {
+      const menuSoundtrack = document.getElementById('gameSoundtrack');
+      menuSoundtrack.play();  
+
       this.props.startGame();
     }, 8000);
+  }
+
+  // Fade Out MenuSoundtrack
+  fadeOutSoundtrack() {
+    const menuSoundtrack = document.getElementById('menuSoundtrack');
+    let counter = 1;
+
+    const fadeOut = setInterval(() => {
+      menuSoundtrack.volume -= 0.1;
+      counter++;
+
+      if (counter > 9) {
+        menuSoundtrack.pause();
+
+        clearInterval(fadeOut);
+      }
+    }, 120);
   }
   
   render() {
@@ -57,6 +90,7 @@ class WelcomeScreen extends Component {
           </div>
         </div>
         <div className={`welcome-screen__blue-backdrop ${blueBackground}`}></div>
+        <audio id='menuSoundtrack'><source src={MenuSoundtrack} type='audio/mpeg' /></audio> 
       </div>
     );
   }

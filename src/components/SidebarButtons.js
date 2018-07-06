@@ -16,11 +16,6 @@ import SoundOff from '../assets/images/icon-sound-off.png';
 
 
 class SidebarOptions extends Component {
-  componentDidMount() {
-    const soundtrackMusic = document.getElementById('gameSoundtrack');
-
-    soundtrackMusic.play();
-  }
   
   // Toggle the Soundtrack 
   handleSoundButton() {

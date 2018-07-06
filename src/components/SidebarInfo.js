@@ -10,7 +10,10 @@ class SidebarInfo extends Component {
       <div className='sidebar-info'>
         <span className='sidebar-info__text sidebar-info__text--title'>{title}</span>
         <span className='sidebar-info__text'>{desc}</span>
-        <span className='sidebar-info__text sidebar-info__text--cost'>{`Cost: ${cost}`}</span>
+        <span className='sidebar-info__text sidebar-info__text--cost'>{
+          cost.length > 0 &&
+            `Cost: ${cost}`
+          }</span>
       </div>
     );
   }
