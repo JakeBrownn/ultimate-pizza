@@ -4,9 +4,17 @@
   100% { background-position: -800px 0; }
 }
 
-@keyframes zoom-background {
+// Sidescroll WelcomeScreen Background
+@keyframes sidescroll-image {
   0% { transform: translateX(0); }
   100% { transform: translateX(-800px); }
+}
+
+// Flashing Text
+@keyframes flash-opacity {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  0% { opacity: 0; }
 }
 
 // Pizza Bobbing

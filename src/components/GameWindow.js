@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
 
-import PopupWelcome from './PopupWelcome';
+import WelcomeScreen from './WelcomeScreen';
 import PopupWarning from './PopupWarning';
 import PopupLeaderboard from './PopupLeaderboard';
 
@@ -31,7 +31,7 @@ class GameWindow extends Component {
   renderPopups() {
     return (
       <div className='popup-windows'>
-        <PopupWelcome />
+        <WelcomeScreen />
         <PopupLeaderboard />
         <PopupWarning />
       </div>
