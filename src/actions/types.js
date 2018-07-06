@@ -5,6 +5,7 @@ export const TOGGLE_SOUNDTRACK = 'toggle_soundtrack';
 export const TOGGLE_LEADERBOARD = 'toggle_leaderboard';
 export const TOGGLE_SUBMIT_POPUP = 'toggle_submit_popup';
 export const TOGGLE_ITEM_INFO = 'toggle_item_info';
+export const START_GAME_ANIMATIONS = 'start_game_animations';
 export const START_GAME = 'start_game';
 
 // Shop Types

@@ -16,6 +16,7 @@
   border: 10px solid;
   border-color: rgb(33,33,33) rgb(79,79,79) rgb(79,79,79) rgb(33,33,33);
   animation: sidescroll 5s linear infinite;
+  overflow: hidden;
   @include flex-center(column);
 }
 
@@ -39,6 +40,16 @@
   &__image {
     height: 300px;
     animation: bobbing 1s linear infinite;
+  }
+
+  &--in-view {
+    animation: none;
+  }
+
+  &--fly-in {
+    transform: translateX(-560px);
+    animation: fly-in-pizza 3s linear forwards;
+    animation-delay: 3.5s;
   }
 }
 

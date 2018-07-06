@@ -39,12 +39,12 @@ class GameWindow extends Component {
   }
     
   render() {
-    const { counter } = this.props;
+    const { counter, toggles } = this.props;
 
     return (
       <div className='action-window'>
         {this.renderPopups()}
-        <div className='action-button'>
+        <div className={`action-button action-button--${toggles.actionButton}`}>
           <img className='action-button__image' src={pizza} alt='Pizza' onClick={(e) => {this.addClick()}} />
         </div>
         <div className='user-score'>

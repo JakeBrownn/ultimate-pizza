@@ -9,7 +9,8 @@ class GameSidebar extends Component {
     const { sidebarClass } = this.props.toggles;
 
     return (
-      <div className={`sidebar sidebar--${sidebarClass}`}>
+      <div className='sidebar'>
+        <div className={`sidebar__overlay sidebar__overlay--${sidebarClass}`}></div>
         <Shop />
         <SidebarButtons />
       </div>

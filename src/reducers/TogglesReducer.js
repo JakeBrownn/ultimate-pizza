@@ -4,6 +4,7 @@ import {
   TOGGLE_SUBMIT_POPUP,
   TOGGLE_SOUNDTRACK,
   TOGGLE_ITEM_INFO,
+  START_GAME_ANIMATIONS,
   START_GAME
 } from '../actions/types';
 
@@ -13,7 +14,10 @@ const INITIAL_STATE = {
   leaderboardClass: 'hidden',
   popupClass: 'hidden',
   welcomeScreen: 'visible',
-  sidebarClass: 'disabled',
+  sidebarClass: 'hide-sidebar',
+  welcomeScreenContent: 'in-view',
+  actionButton: 'off-screen',
+  blueBackground: '',
   item: { 
     title: '', 
     desc: '', 
@@ -32,9 +36,11 @@ export const TogglesReducer = (state = INITIAL_STATE, action) => {
     case TOGGLE_SOUNDTRACK:
       return { ...state, playSoundtrack: !state.playSoundtrack };
     case TOGGLE_ITEM_INFO: 
-      return { ...state, item: ( state.item.title.length === 0 ) ? action.payload : INITIAL_STATE.item }
+      return { ...state, item: ( state.item.title.length === 0 ) ? action.payload : INITIAL_STATE.item };
+    case START_GAME_ANIMATIONS:
+      return { ...state, welcomeScreenContent: 'animating', blueBackground: 'animating', sidebarClass: 'animating', actionButton: 'fly-in' };
     case START_GAME:
-      return { ...state, welcomeScreen: 'hidden' };
+      return { ...state, welcomeScreen: 'hidden', welcomeScreenContent: 'hidden', sidebarClass: 'enable-sidebar', actionButton: 'in-view' };
     default:
       return state;
   }

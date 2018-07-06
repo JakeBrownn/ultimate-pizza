@@ -3,7 +3,24 @@
   width: 100%;
   height: 100%;
   z-index: 2;
-  @include flex-center(column);
+  overflow: hidden;
+
+  &__content,
+  &__animate-wrapper {
+    width: 100%;
+    height: 100%;
+    @include flex-center(column);
+  }
+
+  &__animate-wrapper {
+    &--animating {
+      animation: welcome-screen-away 3s linear forwards;
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
 
   &__title {
     width: 80%;
@@ -18,18 +35,23 @@
   }
 
   &__background-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    overflow: hidden;
+    @extend %background-style;
   }
 
   &__background {
-
     animation: sidescroll-image 120s linear forwards;
+  }
+
+  &__blue-backdrop {
+    background-color: rgb(133, 207, 250);   // #85CFFA
+    z-index: -2;
+    @extend %background-style;
+
+    &.animating {
+      animation: fade-out 3s linear forwards;
+      animation-delay: 3.5s;
+      animation-timing-function: steps(10, end);
+    }
   }
 
   &--visible {

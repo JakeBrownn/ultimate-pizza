@@ -8,7 +8,7 @@ import {
 import { itemOne, itemTwo } from '../data';
 
 const INITIAL_STATE = {
-  total: 249
+  total: 0
 };
 
 // itemOne

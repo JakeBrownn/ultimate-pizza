@@ -15,16 +15,27 @@
   padding: 25px 20px;
   border-left: 4px ridge $color-gold;
 
-  &--disabled {
-    &:after {
-      content: '';
-      background-color: $color-dark-blue;
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1;
+  &__overlay {
+    background-color: $color-dark-blue;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    &--hide-sidebar {
+      opacity: 1;
+    }
+
+    &--animating {
+      animation: fade-out 3s linear forwards;
+      animation-delay: 3.5s;
+      animation-timing-function: steps(10, end);
+    }
+
+    &--enable-sidebar {
+      display: none;
     }
   }
 }

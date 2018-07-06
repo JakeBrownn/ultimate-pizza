@@ -5,6 +5,7 @@ import {
   TOGGLE_SUBMIT_POPUP,
   TOGGLE_SOUNDTRACK,
   TOGGLE_ITEM_INFO,
+  START_GAME_ANIMATIONS,
   START_GAME
 } from './types';
 
@@ -25,6 +26,9 @@ export const toggleSubmitPopup = () => (dispatch) => dispatch({ type: TOGGLE_SUB
 
 // Toggle Item Info in Sidebar
 export const toggleItemInfo = (item) => ({ type: TOGGLE_ITEM_INFO, payload: item });
+
+// Animate-out Welcome Screen
+export const startGameAnimations = () => (dispatch) => dispatch({ type: START_GAME_ANIMATIONS });
 
 // Begin Session
 export const startGame = () => (dispatch) => dispatch({ type: START_GAME });
