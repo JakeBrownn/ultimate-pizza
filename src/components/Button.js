@@ -12,37 +12,36 @@ class Button extends Component {
   }
 
   // When Button is clicked
-  handleClick(e) {
-    e.preventDefault();
+  handleClick() {
+    const { onClick } = this.props;
 
     this.playClickSound();
-    this.props.onClick();
+
+    if (onClick) {
+      onClick();
+    }
   }
 
   // Render Button structure
   buttonContents() {
-    const { withIcon, children } = this.props;
+    const { type, linkURL, children } = this.props;
+    const wrapperClassName = 'sidebar-option__wrapper';
 
-    if (withIcon) {
-      return (
-        <div className='sidebar-option__wrapper'>
-          {children}
-        </div>
-      );
+    switch(type) {
+      case 'icon':
+        return <div className={wrapperClassName}>{children}</div>;
+      case 'link':
+        return <a className={wrapperClassName} href={linkURL} target='_blank'>{children}</a>
+      default:
+        return <div className={wrapperClassName}><span className='sidebar-option__text'>{children}</span></div>;
     }
-
-    return (
-      <div className='sidebar-option__wrapper'>
-        <span className='sidebar-option__text'>{children}</span>
-      </div>
-    );
   }
 
   render() {
     const { className } = this.props;
     
     return (
-      <div className={`sidebar-option` + (className ? ` sidebar-option--${className}` : '')} onClick={(e) => this.handleClick(e)}>
+      <div className={`sidebar-option` + (className ? ` sidebar-option--${className}` : '')} onClick={() => this.handleClick()}>
         {this.buttonContents()}
       </div>
     );

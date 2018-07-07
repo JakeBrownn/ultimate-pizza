@@ -21,6 +21,11 @@ body {
     letter-spacing: 1px;
   }
 
+  a {
+    color: $color-white;
+    text-decoration: none;
+  }
+
   button,
   input {
     &:focus {

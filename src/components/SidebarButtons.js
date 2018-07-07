@@ -11,8 +11,10 @@ import {
 } from '../actions';
 
 import gameSoundtrack from '../assets/audio/soundtrack-main.mp3';
-import SoundOn from '../assets/images/icon-sound-on.png';
-import SoundOff from '../assets/images/icon-sound-off.png';
+import IconSoundOn from '../assets/images/icon-sound-on.png';
+import IconSoundOff from '../assets/images/icon-sound-off.png';
+import IconFeedback from '../assets/images/icon-feedback.png';
+import IconHeart from '../assets/images/icon-heart.png';
 
 
 class SidebarOptions extends Component {
@@ -32,11 +34,12 @@ class SidebarOptions extends Component {
   // Toggle the Music button
   toggleSoundButton() {
     const { playSoundtrack } = this.props.toggles;
-    const soundImage = (playSoundtrack === false ? SoundOff : SoundOn );
+    const soundImage = (playSoundtrack === false ? IconSoundOff : IconSoundOn );
     const soundText = (playSoundtrack === false ? 'Off' : 'On' );
 
     return (
       <div className='sidebar-option__wrapper sidebar-option__wrapper--sound'>
+        <audio id='gameSoundtrack'><source src={gameSoundtrack} type='audio/mpeg' /></audio> 
         <img className='sidebar-option__icon' src={soundImage} alt='Sound Off' />
         <span className='sidebar-option__text'>Music {soundText}</span>
       </div>
@@ -58,23 +61,32 @@ class SidebarOptions extends Component {
       <div className='sidebar-buttons'>
         <SidebarRow>
           <Button 
+            type='icon' 
             className='sound' 
             onClick={(e) => this.handleSoundButton(e)}
-            withIcon 
           >
-            <audio id='gameSoundtrack'><source src={gameSoundtrack} type='audio/mpeg' /></audio> 
             {this.toggleSoundButton()}
           </Button>
-          <Button triggerAction={() => console.log(123)}>
-            Hello!
+          <Button type='icon'>
+            <img className='sidebar-option__icon' src={IconFeedback} alt='Ink & Quill' />
+            <span className='sidebar-option__text'>Updates</span>
           </Button>
-          <Button triggerAction={() => console.log(123)}>
-            Button 3!
+          <Button type='icon'>
+            <img className='sidebar-option__icon' src={IconHeart} alt='Heart' />
+            <span className='sidebar-option__text'>Feedback</span>
           </Button>
         </SidebarRow>
         <SidebarRow>
           <Button className='leaderboard' onClick={(e) => this.handleLeaderboardClick(e)}>
-            <span className='sidebar-option__text'>Leaderboards</span>
+            Leaderboards
+          </Button>
+        </SidebarRow>
+        <SidebarRow>
+          <Button type='link' linkURL='https://github.com/JakeBrownn/ultimate-pizza'>
+            GitHub Repo
+          </Button>
+          <Button>
+            Game Info
           </Button>
         </SidebarRow>
       </div>

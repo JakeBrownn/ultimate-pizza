@@ -14,7 +14,7 @@ const INITIAL_STATE = {
   leaderboardClass: 'hidden',
   popupClass: 'hidden',
   welcomeScreen: 'visible',
-  sidebarClass: 'hide-sidebar',
+  sidebarClass: 'enable-sidebar',
   welcomeScreenContent: 'in-view',
   actionButton: 'off-screen',
   blueBackground: '',
