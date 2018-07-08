@@ -1,3 +1,6 @@
+// Game Types
+export const GAME_LOADING = 'game_loading';
+
 // User Types
 export const INCREMENT_CLICK = 'increment_click';
 export const TOGGLE_SOUND_CHOMP = 'toggle_sound_chomp';
@@ -19,3 +22,4 @@ export const INTERVAL_EXTRA_CHEESE = 'interval_extra_cheese';
 export const USERNAME_CHANGED = 'username_changed';
 export const SUBMIT_SCORE = 'submit_score';
 export const SUBMIT_SCORE_SUCCESS = 'submit_score_success';
+export const SUBMIT_SCORE_FAIL = 'submit_score_fail';

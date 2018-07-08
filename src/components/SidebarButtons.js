@@ -13,7 +13,7 @@ import {
 import gameSoundtrack from '../assets/audio/soundtrack-main.mp3';
 import IconSoundOn from '../assets/images/icon-sound-on.png';
 import IconSoundOff from '../assets/images/icon-sound-off.png';
-import IconFeedback from '../assets/images/icon-feedback.png';
+import IconSave from '../assets/images/icon-save.png';
 import IconHeart from '../assets/images/icon-heart.png';
 
 
@@ -67,9 +67,9 @@ class SidebarOptions extends Component {
           >
             {this.toggleSoundButton()}
           </Button>
-          <Button type='icon'>
-            <img className='sidebar-option__icon' src={IconFeedback} alt='Ink & Quill' />
-            <span className='sidebar-option__text'>Updates</span>
+          <Button type='icon' onClick={() => this.toggleSubmitScore()}>
+            <img className='sidebar-option__icon' src={IconSave} alt='Floppy Disk' />
+            <span className='sidebar-option__text'>End Session</span>
           </Button>
           <Button type='icon'>
             <img className='sidebar-option__icon' src={IconHeart} alt='Heart' />

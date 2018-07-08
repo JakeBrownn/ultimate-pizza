@@ -1,11 +1,11 @@
 .submit-score {
-  position: absolute;
-  left: 0;
-  top: 30%;
-  height: 250px;
+  position: relative;
+  background-color: $color-dark-blue;
+  width: 600px;
+  border: $gold-border;
   margin: 0 40px;
   text-align: center;
-  @extend %panel-style;
+  z-index: 2;
 
   &--hidden {
     display: none;
@@ -17,27 +17,33 @@
 
   &__wrapper {
     margin: 30px;
+    padding-bottom: 10px;
+    @include flex-center(column);
   }
 
   &__title {
-    margin-bottom: 20px;
-    font-size: 36px;
+    margin-bottom: 25px;
+    font-size: 40px;
+    letter-spacing: 3px;
   }
 
   &__text {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    font-size: 22px;
   }
 
   &__buttons-wrapper {
-    width: 80%;
-    margin: 30px auto 0;
+    position: absolute;
+    bottom: -32px;
+    width: 480px;
     @include flex-between(row);
   }
 
   &__button {
     padding: 10px;
-    font-family: 'Karmatic Arcade', sans-serif;
-    font-size: 25px;
+    font-family: $title-font;
+    font-size: 22px;
+    letter-spacing: 2px;
     cursor: pointer;
     @extend %panel-style;
     @include flex-center(row);

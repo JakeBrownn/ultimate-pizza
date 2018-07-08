@@ -23,10 +23,10 @@ class PopupWarning extends Component {
     const { toggles } = this.props;
   
     return (
-      <div className={`submit-score submit-score--${toggles.popupClass}`}>
+      <div className={`submit-score submit-score--${toggles.submitPopup}`}>
         <div className='submit-score__wrapper'>
           <h2 className='submit-score__title'>Warning</h2>
-          <p className='submit-score__text'>Submitting your score will end your current session and rank you on our leaderboards... if you're lucky.</p>
+          <p className='submit-score__text'>Submitting your score will end your current session and rank you on our leaderboards.</p>
           <p className='submit-score__text'>You will not keep your total slices once submitted.</p>
           <p className='submit-score__text'>Do you want to submit your score?</p>
           <form className='submit-score__buttons-wrapper'>
@@ -40,8 +40,8 @@ class PopupWarning extends Component {
 };
 
 // Map State from Redux Store into Props
-const mapStateToProps = ({ toggles }) => {
-  return { toggles };
+const mapStateToProps = ({ toggles, form }) => {
+  return { toggles, form };
 };
 
 export default connect(mapStateToProps, {

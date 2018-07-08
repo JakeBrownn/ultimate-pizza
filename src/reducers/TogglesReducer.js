@@ -12,7 +12,7 @@ const INITIAL_STATE = {
   chompSound: 1,
   playSoundtrack: true,
   leaderboardClass: 'hidden',
-  popupClass: 'hidden',
+  submitPopup: 'hidden',
   welcomeScreen: 'visible',
   sidebarClass: 'enable-sidebar',
   welcomeScreenContent: 'in-view',
@@ -32,7 +32,7 @@ export const TogglesReducer = (state = INITIAL_STATE, action) => {
     case TOGGLE_LEADERBOARD:
       return { ...state, leaderboardClass: ( state.leaderboardClass === 'hidden' ) ? 'visible' : 'hidden' };
     case TOGGLE_SUBMIT_POPUP:
-      return { ...state, popupClass: ( state.popupClass === 'hidden' ) ? 'visible' : 'hidden' };
+      return { ...state, submitPopup: ( state.submitPopup === 'hidden' ) ? 'visible' : 'hidden' };
     case TOGGLE_SOUNDTRACK:
       return { ...state, playSoundtrack: !state.playSoundtrack };
     case TOGGLE_ITEM_INFO: 

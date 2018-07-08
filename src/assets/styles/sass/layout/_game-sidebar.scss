@@ -94,7 +94,7 @@
   @include activeElement;
 
   &__wrapper {
-    padding: 15px;
+    padding: 15px 0;
     @include flex-center(column);
 
     &--sound {

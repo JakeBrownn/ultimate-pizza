@@ -1,23 +1,22 @@
 import {
   USERNAME_CHANGED,
-  SUBMIT_SCORE
+  SUBMIT_SCORE,
+  SUBMIT_SCORE_SUCCESS,
+  SUBMIT_SCORE_FAIL
 } from './types';
 
-export const usernameChanged = (text) => {
-  return {
-    type: USERNAME_CHANGED,
-    payload: text
-  }
-}
+// When User is typing in Username field
+export const usernameChanged = (text) => (dispatch) => dispatch({ type: USERNAME_CHANGED, payload: text });
 
-export const SubmitScore = () => (dispatch) => {
+// Submit User Score
+export const SubmitScore = () => {
   return (dispatch) => {
     dispatch({ type: SUBMIT_SCORE });
   }
 }
 
-export const SubmitScoreSuccess = () => {
-  return (dispatch) => {
+// Upon Successful Submission
+export const SubmitScoreSuccess = () => (dispatch) => dispatch({ type: SUBMIT_SCORE_SUCCESS });
 
-  }
-}
+// Upon Failed Submission
+export const SubmitScoreFail = (error) => (dispatch) => dispatch({ type: SUBMIT_SCORE_FAIL, payload: error });

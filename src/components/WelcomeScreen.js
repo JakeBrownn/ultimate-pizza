@@ -16,7 +16,7 @@ class WelcomeScreen extends Component {
   componentDidMount() {
     const MenuSoundtrack = document.getElementById('menuSoundtrack');
 
-    MenuSoundtrack.play();  
+    // MenuSoundtrack.play();  
   }
 
   // Handle user typing in Input Field
