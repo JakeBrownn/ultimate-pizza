@@ -26,19 +26,26 @@ class WelcomeScreen extends Component {
 
   // When Start Button is pressed
   handleFormSubmit(e) {
+    const { playerUsername } = this.props.form;
+
     e.preventDefault();
 
-    this.props.startGameAnimations();
+    // Username must be longer than 3 characters and does not contain spaces
+    if (playerUsername.length > 3 && playerUsername.indexOf(' ') === -1) {
+      this.props.startGameAnimations();
+      this.fadeOutSoundtrack();
+  
+      // Run when Intro Animations have finished
+      setTimeout(() => {
+        const menuSoundtrack = document.getElementById('gameSoundtrack');
+        menuSoundtrack.play();  
+  
+        this.props.startGame();
+      }, 8000);
+    } else {
 
-    this.fadeOutSoundtrack();
-
-    // Run when Intro Animations have finished
-    setTimeout(() => {
-      const menuSoundtrack = document.getElementById('gameSoundtrack');
-      menuSoundtrack.play();  
-
-      this.props.startGame();
-    }, 8000);
+      // Dispatch username fail action here.
+    }
   }
 
   // Fade Out MenuSoundtrack
