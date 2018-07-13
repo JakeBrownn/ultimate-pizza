@@ -1,14 +1,19 @@
 {
-  "name": "client",
+  "name": "ultimate-pizza",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "game": "concurrently \"node index\" \"npm run client\"",
+    "dev": "concurrently \"npm run dev-server\" \"npm run dev-client --prefix client\"",
+    "dev-client": "concurrently \"npm start --prefix client\" \"npm run sass --prefix client\"",
+    "dev-server": "nodemon index.js",
+    "client": "npm start --prefix client"
   },
-  "author": "",
+  "author": "Jake Brown",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^3.6.0",
     "express": "^4.16.3",
     "nodemon": "^1.18.1"
   }

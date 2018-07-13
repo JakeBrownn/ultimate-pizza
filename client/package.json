@@ -1,5 +1,5 @@
 {
-  "name": "ultimate-pizza",
+  "name": "ultimate-pizza-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,6 +17,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"npm start\" \"sass --watch src/assets/styles/sass/main.scss:src/assets/styles/main.min.css --style compressed\""
+    "sass": "sass --watch src/assets/styles/sass/main.scss:src/assets/styles/main.min.css --style compressed"
   }
 }

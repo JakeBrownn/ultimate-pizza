@@ -1,0 +1,22 @@
+## Ultimate Pizza
+It's Pizza Time! How many slices can you get?
+
+## Commands
+To play the game, use `$ npm run game`. 
+For editing the files, use `$ npm run dev`. 
+
+## Project Background
+##### Summary
+My first React project that combines everything I've learnt so far in React, Redux, Express and MongoDB. Ultimate Pizza (UP) initially started as a simple 'counter' app, that would increment a number when a button was clicked. I was pretty satisfied with this but I wanted to expanded on the concept a little more more... then some more... then even more... until it was clear that I couldn't let this project go.
+
+##### Overcoming Redux
+The intial version of UP was built with Reacts in-built state. Redux is something I struggled to understand before this project. Despite the countless hours of tutorials I watched and docs I read, Reduxs' core concepts, terminoligy and it's benefits just never made that much sense to me. At this point, I had a few great ideas I wanted to implement into the app - a leaderboard system, welcome screen, shop items etc. However, I learnt very quickly that Reacts in-built State may not be the best approach for these features, especially as I didn't know what features would be in the finished game and what that would even look like. I needed more flexibility, so I went to implement Redux (you can see this in Commit 85baa55). To my surprise, that Redux-lightbulb-moment happened pretty quickly and suddently all my attempts to understand Redux just made clear sense.
+
+
+##### Plannng Is Good
+One of the biggest lessons I've learnt from this project is the importance of planning. To breifly summarise development of the game so far: I've redesigned the game so many times I've lost count, built a poor intial Redux foundation (which needed to be re-built almost entirely to follow best practices and allow easier scalability), built features which were later scrapped, end restructuring of files and folders. You get the point. The moment I decided this was a project I wanted to see through, I should have scoped it out and had a plan set in place before writing a single line of code.
+
+
+##### Inspiration
+[Cookie Clicker](http://orteil.dashnet.org/cookieclicker/) was a great inspiration to this game. It was a great challenge to see if I could re-create some of Cookie Clickers functionality and features.
+
