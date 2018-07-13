@@ -25,13 +25,13 @@ class PopupWarning extends Component {
     return (
       <div className={`submit-score submit-score--${toggles.submitPopup}`}>
         <div className='submit-score__wrapper'>
-          <h2 className='submit-score__title'>Warning</h2>
+          <h2 className='submit-score__title'>End Game Session?</h2>
           <p className='submit-score__text'>Submitting your score will end your current session and rank you on our leaderboards.</p>
           <p className='submit-score__text'>You will not keep your total slices once submitted.</p>
           <p className='submit-score__text'>Do you want to submit your score?</p>
           <form className='submit-score__buttons-wrapper'>
-            <input className='submit-score__button no' value='Not Yet...' type='submit' onClick={(e) => this.handeNoButton(e)} />
-            <input className='submit-score__button yes' value='Yes Do It !!!' type='submit' onClick={(e) => this.handleYesButton(e)} />
+            <input className='submit-score__button no' value='Cancel' type='submit' onClick={(e) => this.handeNoButton(e)} />
+            <input className='submit-score__button yes' value='End Game' type='submit' onClick={(e) => this.handleYesButton(e)} />
           </form>
         </div>
       </div>

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { 
-  startGameAnimations,
   usernameChanged, 
+  usernameFail,
+  startGameAnimations,
   startGame 
 } from '../actions';
 
@@ -31,9 +32,9 @@ class WelcomeScreen extends Component {
     e.preventDefault();
 
     // Username must be longer than 3 characters and does not contain spaces
-    if (playerUsername.length > 3 && playerUsername.indexOf(' ') === -1) {
+    if (playerUsername.indexOf(' ') === -1) {
       this.props.startGameAnimations();
-      this.fadeOutSoundtrack();
+      // this.fadeOutSoundtrack();
   
       // Run when Intro Animations have finished
       setTimeout(() => {
@@ -43,8 +44,7 @@ class WelcomeScreen extends Component {
         this.props.startGame();
       }, 8000);
     } else {
-
-      // Dispatch username fail action here.
+      this.props.usernameFail();
     }
   }
 
@@ -71,6 +71,7 @@ class WelcomeScreen extends Component {
       welcomeScreenContent,
       blueBackground
     } = this.props.toggles;
+    const { usernameError } = this.props.form;
 
     return (
       <div className={`welcome-screen welcome-screen--${welcomeScreen}`} onSubmit={(e) => this.handleFormSubmit(e)}>
@@ -79,6 +80,7 @@ class WelcomeScreen extends Component {
             <h1 className='welcome-screen__title'>Ultimate Pizza</h1>
             <form className='user-form' id='welcome-form'>
               <span className='user-form__text'>Enter a username to play.</span>
+              <span className='user-form__text'>{usernameError}</span>
               <div className='user-form__row'>
                 <input 
                   className='user-form__field' 
@@ -111,6 +113,7 @@ const mapStateToProps = ({ toggles, form }) => {
 
 export default connect(mapStateToProps, {
   usernameChanged,
+  usernameFail,
   startGameAnimations,
   startGame
 })(WelcomeScreen);

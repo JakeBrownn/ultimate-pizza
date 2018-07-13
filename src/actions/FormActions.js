@@ -1,5 +1,6 @@
 import {
   USERNAME_CHANGED,
+  USERNAME_FAIL,
   SUBMIT_SCORE,
   SUBMIT_SCORE_SUCCESS,
   SUBMIT_SCORE_FAIL
@@ -7,6 +8,9 @@ import {
 
 // When User is typing in Username field
 export const usernameChanged = (text) => (dispatch) => dispatch({ type: USERNAME_CHANGED, payload: text });
+
+// If User inputs bad Username
+export const usernameFail = () => (dispatch) => dispatch({ type: USERNAME_FAIL });
 
 // Submit User Score
 export const SubmitScore = () => {

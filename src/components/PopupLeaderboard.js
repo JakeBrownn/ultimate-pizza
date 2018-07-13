@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 
 class PopupLeaderboard extends Component {
   render() {
-    const { toggles } = this.props;
+    const { leaderboard } = this.props.toggles;
     
     return (
-      <div className={`leaderboard leaderboard--${toggles.leaderboardClass}`} >
+      <div className={`leaderboard leaderboard--${leaderboard}`} >
         <div className='leaderboard__wrapper'>
           <h2 className='leaderboard__title'>Total Score Ranking</h2>
           <ul className='leaderboard-list'>

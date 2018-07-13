@@ -19,7 +19,7 @@ export const FormReducer = (state = INITIAL_STATE, action) => {
     case USERNAME_CHANGED:
       return { ...state, playerUsername: action.payload };
     case USERNAME_FAIL:
-      return { ...state, usernameError: 'Username must not contain spaces & be greater than 3 characters.' }
+      return { ...state, usernameError: 'Username must not contain spaces.' }
     case SUBMIT_SCORE:
       return { ...state, loading: true };
     case SUBMIT_SCORE_SUCCESS:
