@@ -1,22 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { toggleSubmitPopup } from '../actions';
+import { toggleSubmitPopup, submitScore } from '../actions';
 
 
 class PopupWarning extends Component {
 
-  // When 'No' is clicked
-  handeNoButton(e) {
+  // When 'Cancel' is clicked
+  submitCancelled(e) {
     e.preventDefault();
     
-    // Call Redux action
     this.props.toggleSubmitPopup();
   }
 
-  // When 'Yes' is clicked
-  handleYesButton(e) {
+  // When 'End Game' is clicked
+  submitConfirmed(e) {
     e.preventDefault();
+
+    const { total } = this.props.counter;
+    const { playerUsername } = this.props.form;    
+    const player = {
+      username: playerUsername,
+      score: total
+    };
+
+    this.props.submitScore(player);
   }
 
   render() {   
@@ -30,8 +38,8 @@ class PopupWarning extends Component {
           <p className='submit-score__text'>You will not keep your total slices once submitted.</p>
           <p className='submit-score__text'>Do you want to submit your score?</p>
           <form className='submit-score__buttons-wrapper'>
-            <input className='submit-score__button no' value='Cancel' type='submit' onClick={(e) => this.handeNoButton(e)} />
-            <input className='submit-score__button yes' value='End Game' type='submit' onClick={(e) => this.handleYesButton(e)} />
+            <input className='submit-score__button no' value='Cancel' type='submit' onClick={(e) => this.submitCancelled(e)} />
+            <input className='submit-score__button yes' value='End Game' type='submit' onClick={(e) => this.submitConfirmed(e)} />
           </form>
         </div>
       </div>
@@ -40,10 +48,11 @@ class PopupWarning extends Component {
 };
 
 // Map State from Redux Store into Props
-const mapStateToProps = ({ toggles, form }) => {
-  return { toggles, form };
+const mapStateToProps = ({ toggles, form, counter }) => {
+  return { toggles, form, counter };
 };
 
 export default connect(mapStateToProps, {
-  toggleSubmitPopup
+  toggleSubmitPopup,
+  submitScore
 })(PopupWarning);

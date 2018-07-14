@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import {
   USERNAME_CHANGED,
   USERNAME_FAIL,
@@ -13,14 +15,14 @@ export const usernameChanged = (text) => (dispatch) => dispatch({ type: USERNAME
 export const usernameFail = () => (dispatch) => dispatch({ type: USERNAME_FAIL });
 
 // Submit User Score
-export const SubmitScore = () => {
+export const submitScore = (player) => {
   return (dispatch) => {
     dispatch({ type: SUBMIT_SCORE });
   }
 }
 
 // Upon Successful Submission
-export const SubmitScoreSuccess = () => (dispatch) => dispatch({ type: SUBMIT_SCORE_SUCCESS });
+export const submitScoreSuccess = () => (dispatch) => dispatch({ type: SUBMIT_SCORE_SUCCESS });
 
 // Upon Failed Submission
-export const SubmitScoreFail = (error) => (dispatch) => dispatch({ type: SUBMIT_SCORE_FAIL, payload: error });
+export const submitScoreFail = (error) => (dispatch) => dispatch({ type: SUBMIT_SCORE_FAIL, payload: error });
