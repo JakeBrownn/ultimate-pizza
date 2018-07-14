@@ -2,6 +2,11 @@
   "name": "ultimate-pizza-client",
   "version": "0.1.0",
   "private": true,
+  "proxy": {
+    "api/*": {
+      "target": "http://localhost:8000"
+    }
+  },
   "dependencies": {
     "concurrently": "^3.6.0",
     "firebase": "^5.0.0",

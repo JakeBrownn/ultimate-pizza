@@ -1,7 +1,6 @@
 # Root Folder
 /node_modules
 
-
 # Client Folder
 /client/node_modules
 /client/coverage
