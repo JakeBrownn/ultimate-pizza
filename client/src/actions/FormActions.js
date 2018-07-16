@@ -1,11 +1,14 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 import {
   USERNAME_CHANGED,
   USERNAME_FAIL,
   SUBMIT_SCORE,
   SUBMIT_SCORE_SUCCESS,
-  SUBMIT_SCORE_FAIL
+  SUBMIT_SCORE_FAIL,
+  SUBMIT_FEEDBACK,
+  SUBMIT_FEEDBACK_SUCCESS,
+  SUBMIT_FEEDBACK_FAIL
 } from './types';
 
 // When User is typing in Username field
@@ -18,23 +21,44 @@ export const usernameChanged = (text) => {
 // If User inputs bad Username
 export const usernameFail = () => (dispatch) => dispatch({ type: USERNAME_FAIL });
 
-// When User attempts to submit Score
+// Called when a User attempts to submit their Score
 export const submitScore = (player) => {
   return (dispatch) => {
     dispatch({ type: SUBMIT_SCORE });
   }
 };
 
-// When User Score has been successfully submitted
+// Called when a Users' Score has been successfully submitted
 export const submitScoreSuccess = () => {
   return (dispatch) => {
     dispatch({ type: SUBMIT_SCORE_SUCCESS });
   }
 };
 
-// When User Score has failed to be submitted
+// Called when a Users' Score has failed to submit
 export const submitScoreFail = (error) => {
   return (dispatch) => {
     dispatch({ type: SUBMIT_SCORE_FAIL, payload: error });
+  }
+};
+
+// Called when a User attempts to submit Feedback
+export const submitFeedback = () => {
+  return (dispatch) => {
+    dispatch({ type: SUBMIT_FEEDBACK });
+  }
+};
+
+// When a Users feedback has been successfully submitted
+export const submitFeedbackSuccess = () => {
+  return (dispatch) => {
+    dispatch({ type: SUBMIT_FEEDBACK_SUCCESS });
+  }
+};
+
+// When a Users feedback has failed to submit
+export const submitFeedbackFail = () => {
+  return (dispatch) => {
+    dispatch({ type: SUBMIT_FEEDBACK_FAIL });
   }
 };

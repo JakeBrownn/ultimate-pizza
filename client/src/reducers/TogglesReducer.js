@@ -1,4 +1,7 @@
 import { 
+  HIDDEN,
+  VISIBLE,
+  ANIMATING,
   TOGGLE_SOUND_CHOMP,
   TOGGLE_LEADERBOARD,
   TOGGLE_SUBMIT_POPUP,
@@ -12,10 +15,10 @@ import {
 const INITIAL_STATE = {
   chompSound: 1,
   playSoundtrack: true,
-  leaderboard: 'hidden',
-  submitPopup: 'hidden',
-  feedbackPopup: 'hidden',
-  welcomeScreen: 'visible',
+  leaderboard: HIDDEN,
+  submitPopup: HIDDEN,
+  feedbackPopup: HIDDEN,
+  welcomeScreen: VISIBLE,
   sidebarClass: 'enable-sidebar',
   welcomeScreenContent: 'in-view',
   actionButton: 'off-screen',
@@ -25,20 +28,26 @@ const INITIAL_STATE = {
 
 export const TogglesReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
-    case TOGGLE_SOUND_CHOMP: 
-      return { ...state, chompSound: ( state.chompSound === 2) ? 1 : 2 }
     case TOGGLE_LEADERBOARD:
-      if ( state.leaderboard === 'hidden' ) {
-        return { ...state, leaderboard: 'visible', submitPopup: 'hidden' } 
+      if ( state.leaderboard === HIDDEN ) {
+        return { ...state, leaderboard: VISIBLE, submitPopup: HIDDEN } 
       } else {
-        return { ...state, leaderboard: 'hidden' }
+        return { ...state, leaderboard: HIDDEN }
       }
     case TOGGLE_SUBMIT_POPUP:
-      if ( state.submitPopup === 'hidden' ) {
-        return { ...state, submitPopup: 'visible', leaderboard: 'hidden' } 
+      if ( state.submitPopup === HIDDEN ) {
+        return { ...state, submitPopup: VISIBLE, leaderboard: HIDDEN } 
       } else {
-        return { ...state, submitPopup: 'hidden' }
+        return { ...state, submitPopup: HIDDEN }
       }
+    case TOGGLE_FEEDBACK_POPUP: 
+      if (state.feedbackPopup === HIDDEN) {
+        return { ...state, feedbackPopup: VISIBLE, leaderboard: HIDDEN, submitPopup: HIDDEN }
+      } else {
+        return { ...state, feedbackPopup: HIDDEN }
+      }
+    case TOGGLE_SOUND_CHOMP: 
+      return { ...state, chompSound: ( state.chompSound === 2) ? 1 : 2 }
     case TOGGLE_SOUNDTRACK:
       return { ...state, playSoundtrack: !state.playSoundtrack };
     case TOGGLE_ITEM_INFO: 
@@ -46,16 +55,16 @@ export const TogglesReducer = (state = INITIAL_STATE, action) => {
     case START_GAME_ANIMATIONS:
       return { 
         ...state, 
-        welcomeScreenContent: 'animating', 
-        blueBackground: 'animating', 
-        sidebarClass: 'animating', 
+        welcomeScreenContent: ANIMATING, 
+        blueBackground: ANIMATING, 
+        sidebarClass: ANIMATING, 
         actionButton: 'fly-in' 
       };
     case START_GAME:
       return { 
         ...state, 
-        welcomeScreen: 'hidden', 
-        welcomeScreenContent: 'hidden', 
+        welcomeScreen: HIDDEN, 
+        welcomeScreenContent: HIDDEN, 
         sidebarClass: 'enable-sidebar', 
         actionButton: 'in-view'
       };

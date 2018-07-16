@@ -25,3 +25,11 @@ export const USERNAME_FAIL = 'username_fail';
 export const SUBMIT_SCORE = 'submit_score';
 export const SUBMIT_SCORE_SUCCESS = 'submit_score_success';
 export const SUBMIT_SCORE_FAIL = 'submit_score_fail';
+export const SUBMIT_FEEDBACK = 'submit_feedack';
+export const SUBMIT_FEEDBACK_SUCCESS = 'submit_feedback_success';
+export const SUBMIT_FEEDBACK_FAIL = 'submit_feedback_fail';
+
+// String Variables
+export const HIDDEN = 'hidden';
+export const VISIBLE = 'visible';
+export const ANIMATING = 'animating';

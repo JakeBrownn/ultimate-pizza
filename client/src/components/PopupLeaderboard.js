@@ -7,7 +7,7 @@ class PopupLeaderboard extends Component {
     const { leaderboard } = this.props.toggles;
 
     return (
-      <div className={`leaderboard leaderboard--${leaderboard}`} >
+      <div className={`leaderboard leaderboard--${leaderboard}`}>
         <div className='leaderboard__wrapper'>
           <h2 className='leaderboard__title'>Total Score Ranking</h2>
           <ul className='leaderboard-list'>

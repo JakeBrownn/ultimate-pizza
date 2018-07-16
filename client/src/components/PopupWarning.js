@@ -17,7 +17,7 @@ class PopupWarning extends Component {
   submitConfirmed(e) {
     e.preventDefault();
     
-    const { total, playerUsername } = this.props;
+    const { form, counter } = this.props;
     
     // Create player object with data from props
     const player = {
@@ -29,10 +29,10 @@ class PopupWarning extends Component {
   }
 
   render() {   
-    const { toggles } = this.props;
+    const { submitPopup } = this.props.toggles;
   
     return (
-      <div className={`submit-score submit-score--${toggles.submitPopup}`}>
+      <div className={`submit-score submit-score--${submitPopup}`}>
         <div className='submit-score__wrapper'>
           <h2 className='submit-score__title'>End Game Session?</h2>
           <p className='submit-score__text'>Submitting your score will end your current session and rank you on our leaderboards.</p>
