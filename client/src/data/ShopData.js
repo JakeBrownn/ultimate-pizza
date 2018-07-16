@@ -1,3 +1,8 @@
+/*
+  * Create and export variables
+  * from ShopItems.json
+*/
+
 import ShopItems from './ShopItems';
 
 export const itemOne = ShopItems[0];

@@ -11,13 +11,11 @@ const INITIAL_STATE = {
   total: 0
 };
 
-// ShopItem, itemOne
 const deliveryMan = {
   cost: itemOne.cost,
   itemBonus: itemOne.itemEffectVal
 };
 
-// ShopItem, itemTwo
 const extraCheese = {
   cost: itemTwo.cost,
   itemBonus: itemTwo.itemEffectVal

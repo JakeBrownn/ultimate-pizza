@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+
 class PopupFeedback extends Component {
   render() {
     const { feedbackPopup } = this.props.toggles;

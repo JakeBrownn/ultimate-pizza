@@ -8,7 +8,6 @@ import {
 
 const INITIAL_STATE = {
   playerUsername: '',
-  usernameError: '',
   error: '',
   loading: false,
   submitSuccess: false
@@ -18,8 +17,6 @@ export const FormReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case USERNAME_CHANGED:
       return { ...state, playerUsername: action.payload };
-    case USERNAME_FAIL:
-      return { ...state, usernameError: 'Username must not contain spaces.' }
     case SUBMIT_SCORE:
       return { ...state, loading: true };
     case SUBMIT_SCORE_SUCCESS:

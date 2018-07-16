@@ -54,6 +54,13 @@
     }
   }
 
+  &__version {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 17px;
+  }
+
   &--visible {
     display: flex;
   }
@@ -76,6 +83,10 @@
     margin-bottom: 25px;
     color: $color-black;
     letter-spacing: 2px;
+  }
+
+  &__error {
+    color: $color-red;
   }
 
   &__field {

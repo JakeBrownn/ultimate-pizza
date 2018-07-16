@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { 
   usernameChanged, 
-  usernameFail,
   startGameAnimations,
   startGame 
 } from '../actions';
@@ -24,6 +23,40 @@ class WelcomeScreen extends Component {
     this.props.usernameChanged(e.target.value);
   }
 
+  // If Username input contains spaces 
+  inputSpacesError() {
+    const { playerUsername } = this.props.form;
+
+    if (playerUsername.indexOf(' ') < 0) {
+      return <span className='user-form__error'>Your username must not contain spaces.</span>;
+    }
+  }
+
+
+  // If Username length is too short
+  inputLengthError() {
+    const { playerUsername } = this.props.form;
+
+    if (playerUsername.length >= 3) {
+      return <span className='user-form__error'>Your username must be greater than 2 characters.</span>;
+    }
+  }
+
+  // Welcome Screen Message
+  welcomeScreenText() {
+    const { playerUsername } = this.props.form;
+
+    // if (playerUsername.indexOf(' ') === 0) {
+    //   return <span className='user-form__error'>Your username must not contain spaces.</span>;
+    // }
+
+    if (playerUsername.length >= 3) {
+      return <span className='user-form__error'>Your username must be greater than 2 characters.</span>;
+    }
+    
+    return 'Enter a username to start the game.';
+  }
+
   // When Start Button is pressed
   handleFormSubmit(e) {
     const { playerUsername } = this.props.form;
@@ -31,7 +64,7 @@ class WelcomeScreen extends Component {
     e.preventDefault();
 
     // Username must be longer than 3 characters and does not contain spaces
-    if (playerUsername.indexOf(' ') === -1) {
+    if (playerUsername.indexOf(' ') === -1 || playerUsername.length >= 3) {
       this.props.startGameAnimations();
       // this.fadeOutSoundtrack();
   
@@ -43,7 +76,7 @@ class WelcomeScreen extends Component {
         this.props.startGame();
       }, 8000);
     } else {
-      this.props.usernameFail();
+      this.welcomeScreenText();
     }
   }
 
@@ -70,7 +103,6 @@ class WelcomeScreen extends Component {
       welcomeScreenContent,
       blueBackground
     } = this.props.toggles;
-    const { usernameError } = this.props.form;
 
     return (
       <div className={`welcome-screen welcome-screen--${welcomeScreen}`} onSubmit={(e) => this.handleFormSubmit(e)}>
@@ -78,8 +110,7 @@ class WelcomeScreen extends Component {
           <div className='welcome-screen__content'>
             <h1 className='welcome-screen__title'>Ultimate Pizza</h1>
             <form className='user-form' id='welcome-form'>
-              <span className='user-form__text'>Enter a username to play.</span>
-              <span className='user-form__text'>{usernameError}</span>
+              <span className='user-form__text'>{this.welcomeScreenText()}</span>
               <div className='user-form__row'>
                 <input 
                   className='user-form__field' 
@@ -92,6 +123,7 @@ class WelcomeScreen extends Component {
                 <button className='user-form__submit' type='submit'>Let's Go</button>
               </div>
             </form>
+            <span className='welcome-screen__version'>1.0.0</span>
           </div>
           <div className='welcome-screen__background-wrapper'>
             <img className='welcome-screen__background' src={WelcomeBackground} alt='Game Background' />
@@ -112,7 +144,6 @@ const mapStateToProps = ({ toggles, form }) => {
 
 export default connect(mapStateToProps, {
   usernameChanged,
-  usernameFail,
   startGameAnimations,
   startGame
 })(WelcomeScreen);

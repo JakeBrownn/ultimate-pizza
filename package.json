@@ -1,7 +1,7 @@
 {
   "name": "ultimate-pizza",
   "version": "1.0.0",
-  "description": "",
+  "description": "It's Pizza Time! How many slices can you get?",
   "main": "index.js",
   "scripts": {
     "game": "concurrently \"node index\" \"npm run client\"",

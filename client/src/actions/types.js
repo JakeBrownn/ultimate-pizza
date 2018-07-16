@@ -21,7 +21,6 @@ export const INTERVAL_EXTRA_CHEESE = 'interval_extra_cheese';
 
 // Form Types
 export const USERNAME_CHANGED = 'username_changed';
-export const USERNAME_FAIL = 'username_fail';
 export const SUBMIT_SCORE = 'submit_score';
 export const SUBMIT_SCORE_SUCCESS = 'submit_score_success';
 export const SUBMIT_SCORE_FAIL = 'submit_score_fail';
