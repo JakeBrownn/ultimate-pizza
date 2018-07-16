@@ -4,7 +4,7 @@ const keys = require('./config/keys');
 require('./models/User');
 
 
-// DB Setup
+// Database Setup
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 
 

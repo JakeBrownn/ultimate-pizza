@@ -20,11 +20,10 @@ class GameWindow extends Component {
     const soundOne = new Audio(soundChompOne);
     const soundTwo = new Audio(soundChompTwo);
     
-    // Call Redux actions
     toggleSoundChomp();
     incrementClicks();
 
-    // Toggle Chomp sounds effects
+    // Alternate between two Chomp sounds
     ( toggles.chompSound === 1 ) ? soundOne.play() : soundTwo.play();
   }
 

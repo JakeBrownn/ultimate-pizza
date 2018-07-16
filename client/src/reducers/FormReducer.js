@@ -11,7 +11,7 @@ const INITIAL_STATE = {
   usernameError: '',
   error: '',
   loading: false,
-  submitSuccess: false,
+  submitSuccess: false
 };
 
 export const FormReducer = (state = INITIAL_STATE, action) => {

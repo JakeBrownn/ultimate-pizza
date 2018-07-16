@@ -4,25 +4,21 @@ import SoundToggle from '../assets/audio/sound-toggle.mp3';
 
 class Button extends Component {
 
-  // Play 'click' sound effect
-  playClickSound() {
-    const clickSound = new Audio(SoundToggle);
-
-    clickSound.play();   
-  }
-
   // When Button is clicked
   handleClick() {
-    const { onClick } = this.props;
+    const { whenClicked } = this.props;
+    const clickSound = new Audio(SoundToggle);
 
-    this.playClickSound();
+    // Play 'click' sound effect
+    clickSound.play();   
 
-    if (onClick) {
-      onClick();
+    // If Button has Props of 'onClick'
+    if (whenClicked) {
+      whenClicked();
     }
   }
 
-  // Render Button structure
+  // Render Button JSX structure
   buttonContents() {
     const { type, linkURL, children } = this.props;
     const wrapperClassName = 'sidebar-option__wrapper';

@@ -5,13 +5,19 @@ import { toggleItemInfo } from '../actions';
 
 
 class ShopItem extends Component {
-  // Send ShopItem details to ./SidebarInfo
+
+  // Dispatches ShopItem details to SidebarInfo component
   handleItemHover(item) {
     this.props.toggleItemInfo(item);
   }
 
   render() {
-    const { triggerAction, icon, item, purchased } = this.props;
+    const { 
+      triggerAction, 
+      icon, 
+      item, 
+      purchased 
+    } = this.props;
 
     return (
       <li 
@@ -27,6 +33,4 @@ class ShopItem extends Component {
   }
 }
 
-export default connect(null, {
-  toggleItemInfo
-})(ShopItem);
+export default connect(null, {toggleItemInfo})(ShopItem);

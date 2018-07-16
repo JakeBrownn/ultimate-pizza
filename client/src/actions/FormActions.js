@@ -9,20 +9,32 @@ import {
 } from './types';
 
 // When User is typing in Username field
-export const usernameChanged = (text) => (dispatch) => dispatch({ type: USERNAME_CHANGED, payload: text });
+export const usernameChanged = (text) => {
+  return (dispatch) => {
+    dispatch({ type: USERNAME_CHANGED, payload: text });
+  }
+};
 
 // If User inputs bad Username
 export const usernameFail = () => (dispatch) => dispatch({ type: USERNAME_FAIL });
 
-// Submit User Score
+// When User attempts to submit Score
 export const submitScore = (player) => {
   return (dispatch) => {
     dispatch({ type: SUBMIT_SCORE });
   }
-}
+};
 
-// Upon Successful Submission
-export const submitScoreSuccess = () => (dispatch) => dispatch({ type: SUBMIT_SCORE_SUCCESS });
+// When User Score has been successfully submitted
+export const submitScoreSuccess = () => {
+  return (dispatch) => {
+    dispatch({ type: SUBMIT_SCORE_SUCCESS });
+  }
+};
 
-// Upon Failed Submission
-export const submitScoreFail = (error) => (dispatch) => dispatch({ type: SUBMIT_SCORE_FAIL, payload: error });
+// When User Score has failed to be submitted
+export const submitScoreFail = (error) => {
+  return (dispatch) => {
+    dispatch({ type: SUBMIT_SCORE_FAIL, payload: error });
+  }
+};

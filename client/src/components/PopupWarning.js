@@ -16,12 +16,13 @@ class PopupWarning extends Component {
   // When 'End Game' is clicked
   submitConfirmed(e) {
     e.preventDefault();
-
-    const { total } = this.props.counter;
-    const { playerUsername } = this.props.form;    
+    
+    const { total, playerUsername } = this.props;
+    
+    // Create player object with data from props
     const player = {
-      username: playerUsername,
-      score: total
+      username: form.playerUsername,
+      score: counter.total
     };
 
     this.props.submitScore(player);

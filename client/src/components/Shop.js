@@ -19,14 +19,14 @@ import IconExtraCheese from '../assets/images/icon-extra-cheese.png';
 
 class Shop extends Component {
   
-  // Handle 'purchase' sound effect
+  // Play the 'purchase' sound effect
   purchaseSound() {
     const soundOne = new Audio(soundPurchase);
 
     soundOne.play();
   }
 
-  // When Delivery Man is purchased
+  // When Delivery Man ShopItem is clicked
   handleDeliveryMan() {
     const { 
       purchased, 
@@ -35,17 +35,15 @@ class Shop extends Component {
       activateDeliveryMan 
     } = this.props;
 
+    // If purchase is successful
     if (itemOne.cost <= counter.total && purchased.deliveryMan < 3) {
-      
-      // Call Redux actions
+      this.purchaseSound();
       buyDeliveryMan();
       activateDeliveryMan();
-
-      this.purchaseSound();
     }
   }
 
-  // When Extra Cheese is purchased
+  // When Extra Cheese ShopItem is clicked
   handleExtraCheese() {
     const { 
       purchased, 
@@ -55,14 +53,14 @@ class Shop extends Component {
       intervalExtraCheese
     } = this.props;
 
+    // If purchase is successful
     if (itemTwo.cost <= counter.total && purchased.extraCheese < 3) {
-
-      // Call Redux actions
+      this.purchaseSound();
       buyExtraCheese();
       activateExtraCheese();
-      setInterval(() => intervalExtraCheese(), itemTwo.intervalTime);
 
-      this.purchaseSound();
+      // Add Slices on interval of set on Extra Cheese ShopItem
+      setInterval(() => intervalExtraCheese(), itemTwo.intervalTime);
     }
   }
 

@@ -9,7 +9,6 @@ import {
 } from '../actions';
 
 import MenuSoundtrack from '../assets/audio/soundtrack-menu.mp3';
-
 import WelcomeBackground from '../assets/images/background-welcome-screen.jpg';
 
 
@@ -17,7 +16,7 @@ class WelcomeScreen extends Component {
   componentDidMount() {
     const MenuSoundtrack = document.getElementById('menuSoundtrack');
 
-    // MenuSoundtrack.play();  
+    MenuSoundtrack.play();  
   }
 
   // Handle user typing in Input Field

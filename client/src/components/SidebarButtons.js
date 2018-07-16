@@ -24,24 +24,23 @@ class SidebarOptions extends Component {
     const { playSoundtrack } = this.props.toggles;
     const soundtrackMusic = document.getElementById('gameSoundtrack');
 
-    // Call Redux action
     this.props.toggleSoundtrack();
 
     // Handle play / pause for the game Soundtrack  
     (playSoundtrack === true) ? soundtrackMusic.pause() : soundtrackMusic.play();
   }
 
-  // Toggle the Music button
+  // Toggle contents of the Music button
   toggleSoundButton() {
     const { playSoundtrack } = this.props.toggles;
-    const soundImage = (playSoundtrack === false ? IconSoundOff : IconSoundOn );
-    const soundText = (playSoundtrack === false ? 'Off' : 'On' );
+    const soundButtonIcon = (playSoundtrack === false ? IconSoundOff : IconSoundOn );
+    const soundButtonText = (playSoundtrack === false ? 'Off' : 'On' );
 
     return (
       <div className='sidebar-option__wrapper sidebar-option__wrapper--sound'>
         <audio id='gameSoundtrack'><source src={gameSoundtrack} type='audio/mpeg' /></audio> 
-        <img className='sidebar-option__icon' src={soundImage} alt='Sound Off' />
-        <span className='sidebar-option__text'>Music {soundText}</span>
+        <img className='sidebar-option__icon' src={soundButtonIcon} alt='Sound Off' />
+        <span className='sidebar-option__text'>Music {soundButtonText}</span>
       </div>
     );
   }
@@ -63,11 +62,11 @@ class SidebarOptions extends Component {
           <Button 
             type='icon' 
             className='sound' 
-            onClick={(e) => this.handleSoundButton(e)}
+            whenClicked={(e) => this.handleSoundButton(e)}
           >
             {this.toggleSoundButton()}
           </Button>
-          <Button type='icon' onClick={() => this.toggleSubmitScore()}>
+          <Button type='icon' whenClicked={() => this.toggleSubmitScore()}>
             <img className='sidebar-option__icon' src={IconSave} alt='Floppy Disk' />
             <span className='sidebar-option__text'>End Session</span>
           </Button>
@@ -77,7 +76,7 @@ class SidebarOptions extends Component {
           </Button>
         </SidebarRow>
         <SidebarRow>
-          <Button className='leaderboard' onClick={(e) => this.handleLeaderboardClick(e)}>
+          <Button className='leaderboard' whenClicked={(e) => this.handleLeaderboardClick(e)}>
             Leaderboards
           </Button>
         </SidebarRow>

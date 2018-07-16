@@ -29,30 +29,15 @@ export const TogglesReducer = (state = INITIAL_STATE, action) => {
       return { ...state, chompSound: ( state.chompSound === 2) ? 1 : 2 }
     case TOGGLE_LEADERBOARD:
       if ( state.leaderboard === 'hidden' ) {
-        return {
-          ...state,
-          leaderboard: 'visible',
-          submitPopup: 'hidden'
-        } 
+        return { ...state, leaderboard: 'visible', submitPopup: 'hidden' } 
       } else {
-        return {
-          ...state,
-          leaderboard: 'hidden'          
-        }
+        return { ...state, leaderboard: 'hidden' }
       }
-
     case TOGGLE_SUBMIT_POPUP:
       if ( state.submitPopup === 'hidden' ) {
-        return {
-          ...state,
-          submitPopup: 'visible',
-          leaderboard: 'hidden'
-        } 
+        return { ...state, submitPopup: 'visible', leaderboard: 'hidden' } 
       } else {
-        return {
-          ...state,
-          submitPopup: 'hidden'          
-        }
+        return { ...state, submitPopup: 'hidden' }
       }
     case TOGGLE_SOUNDTRACK:
       return { ...state, playSoundtrack: !state.playSoundtrack };
