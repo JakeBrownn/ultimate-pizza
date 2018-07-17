@@ -6,6 +6,7 @@ import {
   TOGGLE_FEEDBACK_POPUP,
   TOGGLE_SOUNDTRACK,
   TOGGLE_ITEM_INFO,
+  USERNAME_ERROR,
   START_GAME_ANIMATIONS,
   START_GAME
 } from './types';
@@ -30,6 +31,13 @@ export const toggleFeedbackPopup = () => (dispatch) => dispatch({ type: TOGGLE_F
 
 // Toggle Item Info in Sidebar
 export const toggleItemInfo = (item) => ({ type: TOGGLE_ITEM_INFO, payload: item });
+
+// Show error if Username is not correct format
+export const usernameError = (error) => {
+  return (dispatch) => {
+    dispatch({ type: USERNAME_ERROR, payload: error });
+  }
+};
 
 // Animate-out Welcome Screen
 export const startGameAnimations = () => (dispatch) => dispatch({ type: START_GAME_ANIMATIONS });

@@ -8,6 +8,7 @@ import {
   TOGGLE_FEEDBACK_POPUP,
   TOGGLE_SOUNDTRACK,
   TOGGLE_ITEM_INFO,
+  USERNAME_ERROR,
   START_GAME_ANIMATIONS,
   START_GAME
 } from '../actions/types';
@@ -23,6 +24,7 @@ const INITIAL_STATE = {
   welcomeScreenContent: 'in-view',
   actionButton: 'off-screen',
   blueBackground: '',
+  welcomeMessage: 'Enter a username to start the game.',
   item: { title: '', desc: '', cost: '' }
 };
 
@@ -52,6 +54,8 @@ export const TogglesReducer = (state = INITIAL_STATE, action) => {
       return { ...state, playSoundtrack: !state.playSoundtrack };
     case TOGGLE_ITEM_INFO: 
       return { ...state, item: ( state.item.title.length === 0 ) ? action.payload : INITIAL_STATE.item };
+    case USERNAME_ERROR: 
+      return { ...state, welcomeMessage: action.payload }
     case START_GAME_ANIMATIONS:
       return { 
         ...state, 

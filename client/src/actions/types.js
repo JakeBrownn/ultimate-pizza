@@ -9,6 +9,7 @@ export const TOGGLE_LEADERBOARD = 'toggle_leaderboard';
 export const TOGGLE_SUBMIT_POPUP = 'toggle_submit_popup';
 export const TOGGLE_FEEDBACK_POPUP = 'toggle_feedback_popup';
 export const TOGGLE_ITEM_INFO = 'toggle_item_info';
+export const USERNAME_ERROR = 'username_error';
 export const START_GAME_ANIMATIONS = 'start_game_animations';
 export const START_GAME = 'start_game';
 
