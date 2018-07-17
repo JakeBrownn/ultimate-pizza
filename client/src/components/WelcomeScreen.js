@@ -51,26 +51,28 @@ class WelcomeScreen extends Component {
     const { playerUsername } = this.props.form;
     const minimumLength = 5;
 
-    // If Username is too short
-    if (playerUsername.length < minimumLength) {
-      this.props.usernameError(`Your username must be greater than ${minimumLength - 1} characters.`);
+    switch(true) {
+      case (playerUsername.length < minimumLength): 
+        this.props.usernameError(`Your username must be greater than ${minimumLength - 1} characters.`);
+        break;
+      case (playerUsername.indexOf(' ') > 1):
+        this.props.usernameError('Your username must not contain spaces.');
+        break;
+      case (/[^\w]|_/g.test(playerUsername)):
+        this.props.usernameError('Your username must only contain letters and numbers.');
+        break;
+      default: 
+        this.props.startGameAnimations();
 
-    // If Username contains spaces
-    } else if (playerUsername.indexOf(' ') > 1) {
-      this.props.usernameError('Your username must not contain spaces.');
-
-    } else {
-      this.props.startGameAnimations();
-
-      // this.fadeOutSoundtrack();
-  
-      // Wait for WelcomeScreen animations to finish
-      setTimeout(() => {
-        const menuSoundtrack = document.getElementById('gameSoundtrack');
-        menuSoundtrack.play();  
-  
-        this.props.startGame();
-      }, 8000);
+        // this.fadeOutSoundtrack();
+    
+        // Wait for WelcomeScreen animations to finish
+        setTimeout(() => {
+          const menuSoundtrack = document.getElementById('gameSoundtrack');
+          menuSoundtrack.play();  
+    
+          this.props.startGame();
+        }, 8000);
     }
   }
 
@@ -96,6 +98,7 @@ class WelcomeScreen extends Component {
       welcomeScreen,
       welcomeScreenContent,
       welcomeMessage,
+      welcomeMessageClass,
       blueBackground
     } = this.props.toggles;
 
@@ -105,7 +108,7 @@ class WelcomeScreen extends Component {
           <div className='welcome-screen__content'>
             <h1 className='welcome-screen__title'>Ultimate Pizza</h1>
             <form className='user-form' id='welcome-form'>
-              <span className='user-form__text'>{welcomeMessage}</span>
+              <span className={`user-form__text ${welcomeMessageClass}`}>{welcomeMessage}</span>
               <div className='user-form__row'>
                 <input 
                   className='user-form__field' 

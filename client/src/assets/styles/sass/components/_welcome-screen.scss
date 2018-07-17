@@ -85,10 +85,6 @@
     letter-spacing: 2px;
   }
 
-  &__error {
-    color: $color-red;
-  }
-
   &__field {
     background-color: rgb(243, 243, 243);   // #F3F3F3
     border: $gold-border;
@@ -106,5 +102,9 @@
     &:hover {
       background-color: $color-dark-blue;
     }
+  }
+
+  .error {
+    color: $color-red;
   }
 }

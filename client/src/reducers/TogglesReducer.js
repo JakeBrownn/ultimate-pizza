@@ -20,11 +20,12 @@ const INITIAL_STATE = {
   submitPopup: HIDDEN,
   feedbackPopup: HIDDEN,
   welcomeScreen: VISIBLE,
-  sidebarClass: 'enable-sidebar',
+  sidebarClass: 'hide-sidebar',
   welcomeScreenContent: 'in-view',
   actionButton: 'off-screen',
   blueBackground: '',
   welcomeMessage: 'Enter a username to start the game.',
+  welcomeMessageClass: '',
   item: { title: '', desc: '', cost: '' }
 };
 
@@ -55,7 +56,7 @@ export const TogglesReducer = (state = INITIAL_STATE, action) => {
     case TOGGLE_ITEM_INFO: 
       return { ...state, item: ( state.item.title.length === 0 ) ? action.payload : INITIAL_STATE.item };
     case USERNAME_ERROR: 
-      return { ...state, welcomeMessage: action.payload }
+      return { ...state, welcomeMessage: action.payload, welcomeMessageClass: 'error' }
     case START_GAME_ANIMATIONS:
       return { 
         ...state, 
