@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "game": "concurrently \"node index\" \"npm run client\"",
-    "dev": "concurrently \"npm run dev-server\" \"npm run dev-client --prefix client\"",
+    "dev": "concurrently \"npm run dev-server\" \"npm run dev-client\"",
     "dev-client": "concurrently \"npm start --prefix client\" \"npm run sass --prefix client\"",
     "dev-server": "nodemon index.js",
     "client": "npm start --prefix client"
@@ -13,6 +13,7 @@
   "author": "Jake Brown",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "concurrently": "^3.6.0",
     "express": "^4.16.3",
     "mongoose": "^5.2.3",

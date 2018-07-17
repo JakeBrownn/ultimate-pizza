@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import axios from 'axios';
 
 import {
   USERNAME_CHANGED,
@@ -18,9 +18,18 @@ export const usernameChanged = (text) => {
 };
 
 // Called when a User attempts to submit their Score
-export const submitScore = (player) => {
-  return (dispatch) => {
-    dispatch({ type: SUBMIT_SCORE });
+export const submitScore = (player) => async (dispatch) => {
+  dispatch({ type: SUBMIT_SCORE });
+
+  try {
+    const res = await axios.post('/api/players/user', player);
+
+    // If successful
+    console.log('success!');
+  }
+
+  catch(error) {
+    console.log('nope!');
   }
 };
 
