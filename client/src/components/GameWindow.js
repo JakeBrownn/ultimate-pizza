@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
 
 import WelcomeScreen from './WelcomeScreen';
-import PopupWarning from './PopupWarning';
+import PopupSubmitScore from './PopupSubmitScore';
 import PopupLeaderboard from './PopupLeaderboard';
+import PopupFeedback from './PopupFeedback';
 
 import { incrementClicks, toggleSoundChomp } from '../actions';
 
@@ -32,7 +33,8 @@ class GameWindow extends Component {
       <div className='popup-windows'>
         <WelcomeScreen />
         <PopupLeaderboard />
-        <PopupWarning />
+        <PopupSubmitScore />
+        <PopupFeedback />
       </div>
     )
   }

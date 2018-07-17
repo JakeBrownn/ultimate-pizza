@@ -7,7 +7,8 @@ import SidebarRow from './SidebarRow';
 import {
   toggleSoundtrack,
   toggleLeaderboard,
-  toggleSubmitPopup
+  toggleSubmitPopup,
+  toggleFeedbackPopup
 } from '../actions';
 
 import gameSoundtrack from '../assets/audio/soundtrack-main.mp3';
@@ -46,13 +47,18 @@ class SidebarOptions extends Component {
   }
 
   // Toggle Submit Score Popup  
-  toggleSubmitScore() {
+  displaySubmitPopup() {
     this.props.toggleSubmitPopup();
   }
 
   // Toggle Leaderboard Popup    
-  handleLeaderboardClick() {
+  displayLeaderboard() {
     this.props.toggleLeaderboard();
+  }
+
+  // Toggle Feedback Popup    
+  displayFeedbackPopup() {
+    this.props.toggleFeedbackPopup();
   }
 
   render() {    
@@ -66,17 +72,17 @@ class SidebarOptions extends Component {
           >
             {this.toggleSoundButton()}
           </Button>
-          <Button type='icon' whenClicked={() => this.toggleSubmitScore()}>
+          <Button type='icon' whenClicked={() => this.displaySubmitPopup()}>
             <img className='sidebar-option__icon' src={IconSave} alt='Floppy Disk' />
             <span className='sidebar-option__text'>End Session</span>
           </Button>
-          <Button type='icon'>
+          <Button type='icon' whenClicked={() => this.displayFeedbackPopup()}>
             <img className='sidebar-option__icon' src={IconHeart} alt='Heart' />
             <span className='sidebar-option__text'>Feedback</span>
           </Button>
         </SidebarRow>
         <SidebarRow>
-          <Button className='leaderboard' whenClicked={(e) => this.handleLeaderboardClick(e)}>
+          <Button className='leaderboard' whenClicked={(e) => this.displayLeaderboard(e)}>
             Leaderboards
           </Button>
         </SidebarRow>
@@ -101,5 +107,6 @@ const mapStateToProps = ({ toggles }) => {
 export default connect(mapStateToProps, {
   toggleSoundtrack,
   toggleLeaderboard,
-  toggleSubmitPopup
+  toggleSubmitPopup,
+  toggleFeedbackPopup
 })(SidebarOptions);

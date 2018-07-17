@@ -9,9 +9,10 @@
 @import
   'components/welcome-screen',
   'components/popup-submit',
+  'components/popup-feedback',
   'components/popup-leaderboard',
   'components/sidebar-info';
 
 @import 
-'layout/game-screen',
-'layout/game-sidebar';
+  'layout/game-screen',
+  'layout/game-sidebar';

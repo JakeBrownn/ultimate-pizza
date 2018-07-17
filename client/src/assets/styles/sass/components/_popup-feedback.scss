@@ -1,0 +1,9 @@
+.feedback-popup {
+  &--hidden {
+    display: none;
+  }
+
+  &--visible {
+    display: block;
+  }
+}

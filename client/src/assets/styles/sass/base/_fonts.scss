@@ -9,3 +9,11 @@
   font-family: 'Arcade Classic';
   src: url('../fonts/font-arcade-classic.ttf') format('truetype');
 };
+
+.title {
+  &--popup {
+    margin-bottom: 25px;
+    font-size: 40px;
+    letter-spacing: 3px;
+  }
+}

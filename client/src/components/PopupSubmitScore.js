@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { toggleSubmitPopup, submitScore } from '../actions';
 
 
-class PopupWarning extends Component {
+class PopupSubmitScore extends Component {
 
   // When 'Cancel' is clicked
   submitCancelled(e) {
@@ -34,7 +34,7 @@ class PopupWarning extends Component {
     return (
       <div className={`submit-score submit-score--${submitPopup}`}>
         <div className='submit-score__wrapper'>
-          <h2 className='submit-score__title'>End Game Session?</h2>
+          <h2 className='title title--popup'>End Game Session?</h2>
           <p className='submit-score__text'>Submitting your score will end your current session and rank you on our leaderboards.</p>
           <p className='submit-score__text'>You will not keep your total slices once submitted.</p>
           <p className='submit-score__text'>Do you want to submit your score?</p>
@@ -56,4 +56,4 @@ const mapStateToProps = ({ toggles, form, counter }) => {
 export default connect(mapStateToProps, {
   toggleSubmitPopup,
   submitScore
-})(PopupWarning);
+})(PopupSubmitScore);

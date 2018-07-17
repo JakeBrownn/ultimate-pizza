@@ -1,25 +1,6 @@
 .leaderboard {
-  position: absolute;
-  width: 60%;
-  height: 620px;
   overflow: hidden;
-  z-index: 2;
-  @extend %panel-style;
-
-  &--visible {
-    display: block;
-  }
-
-  &--hidden {
-    display: none;
-  }
-
-  &__title {
-    font-size: 36px;
-    margin-bottom: 60px;
-    text-align: center;
-  }
-
+  
   &__wrapper {
     position: relative;
     padding: 30px;

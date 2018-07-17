@@ -25,25 +25,6 @@ class WelcomeScreen extends Component {
     this.props.usernameChanged(e.target.value);
   }
 
-  // If Username input contains spaces 
-  inputSpacesError() {
-    const { playerUsername } = this.props.form;
-
-    if (playerUsername.indexOf(' ') < 0) {
-      return <span className='user-form__error'>Your username must not contain spaces.</span>;
-    }
-  }
-
-
-  // If Username length is too short
-  inputLengthError() {
-    const { playerUsername } = this.props.form;
-
-    if (playerUsername.length >= 3) {
-      return <span className='user-form__error'>Your username must be greater than 2 characters.</span>;
-    }
-  }
-
   // When Start Button is pressed
   handleFormSubmit(e) {
     e.preventDefault();
@@ -52,12 +33,23 @@ class WelcomeScreen extends Component {
     const minimumLength = 5;
 
     switch(true) {
-      case (playerUsername.length < minimumLength): 
+
+      // If Username is not entered
+      case (playerUsername.length === 0):
+        this.props.usernameError(`You must enter a username to continue.`);
+        break;
+      
+      // If Username is too short
+      case (playerUsername.length < minimumLength):
         this.props.usernameError(`Your username must be greater than ${minimumLength - 1} characters.`);
         break;
+      
+      // If Username contains spaces
       case (playerUsername.indexOf(' ') > 1):
         this.props.usernameError('Your username must not contain spaces.');
         break;
+
+      // If Username is contains symbols
       case (/[^\w]|_/g.test(playerUsername)):
         this.props.usernameError('Your username must only contain letters and numbers.');
         break;
