@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import PlayerSummary from './PlayerSummary';
+
 import { toggleSubmitPopup, submitScore } from '../actions';
 
 import LoadingSpinner from '../assets/images/loading-spinner.svg';
@@ -52,7 +54,8 @@ class PopupSubmitScore extends Component {
           <div className={innerWrapper}>
             <p className='title title--popup'>Thanks for playing Ultimate Pizza!</p>
             <p className='submit-score__text'>You placed <span></span> on our Leaderboards</p>
-            <img className='submit-score__ending-image' src={EndGameImage} alt='Hotline Bling!' />  
+            <PlayerSummary />
+            {/* <img className='submit-score__ending-image' src={EndGameImage} alt='Hotline Bling!' />   */}
             <div className='submit-score__buttons-row'>
               <a className='submit-score__button' href='' onClick={() => window.location.hrefsdg} >Back To Menu</a>
               <a 
@@ -61,7 +64,8 @@ class PopupSubmitScore extends Component {
                 target='_blank'
                 rel="noopener noreferrer"
               >
-              Github Repo</a>
+                Github Repo
+              </a>
             </div>
           </div>
         );
