@@ -9,7 +9,7 @@ const INITIAL_STATE = {
   playerUsername: '',
   error: '',
   loading: false,
-  submitSuccess: false
+  submitSuccess: true
 };
 
 export const FormReducer = (state = INITIAL_STATE, action) => {

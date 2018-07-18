@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 
 import { toggleSubmitPopup, submitScore } from '../actions';
 
+import LoadingSpinner from '../assets/images/loading-spinner.svg';
+import EndGameImage from '../assets/images/hotline-bling.gif';
+
 
 class PopupSubmitScore extends Component {
 
@@ -31,15 +34,41 @@ class PopupSubmitScore extends Component {
   // Render loading spinner
   renderPopupContent() {
     const { loading, submitSuccess } = this.props.form;
+    const innerWrapper = 'submit-score__wrapper';
     
     switch(true) {
+
+      // Display loading animation whilst Score is submitting
       case loading:
-        return <p>loading...</p>
+        return (
+          <div className='submit-score__loading-wrapper'>
+            <img className='submit-score__loading-image' src={LoadingSpinner} alt='Loading' />
+          </div>
+        );
+
+      // When Score has been successfully submitted
       case submitSuccess:
-        return <p>Success!</p>
+        return (
+          <div className={innerWrapper}>
+            <p className='title title--popup'>Thanks for playing Ultimate Pizza!</p>
+            <p className='submit-score__text'>You placed <span></span> on our Leaderboards</p>
+            <img className='submit-score__ending-image' src={EndGameImage} alt='Hotline Bling!' />  
+            <div className='submit-score__buttons-row'>
+              <a className='submit-score__button' href='' onClick={() => window.location.hrefsdg} >Back To Menu</a>
+              <a 
+                className='submit-score__button' 
+                href='https://github.com/JakeBrownn/ultimate-pizza' 
+                target='_blank'
+                rel="noopener noreferrer"
+              >
+              Github Repo</a>
+            </div>
+          </div>
+        );
+            
       default:
         return (
-          <div className='submit-score__wrapper'>
+          <div className={innerWrapper}>
             <h2 className='title title--popup'>End Game Session?</h2>
             <p className='submit-score__text'>Submitting your score will end your current session and rank you on our leaderboards.</p>
             <p className='submit-score__text'>You will not keep your total slices once submitted.</p>
