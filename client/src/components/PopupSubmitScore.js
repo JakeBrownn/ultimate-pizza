@@ -28,21 +28,37 @@ class PopupSubmitScore extends Component {
     this.props.submitScore(player);
   }
 
+  // Render loading spinner
+  renderPopupContent() {
+    const { loading, submitSuccess } = this.props.form;
+    
+    switch(true) {
+      case loading:
+        return <p>loading...</p>
+      case submitSuccess:
+        return <p>Success!</p>
+      default:
+        return (
+          <div className='submit-score__wrapper'>
+            <h2 className='title title--popup'>End Game Session?</h2>
+            <p className='submit-score__text'>Submitting your score will end your current session and rank you on our leaderboards.</p>
+            <p className='submit-score__text'>You will not keep your total slices once submitted.</p>
+            <p className='submit-score__text'>Do you want to submit your score?</p>
+            <form className='submit-score__buttons-wrapper'>
+              <input className='submit-score__button no' value='Cancel' type='submit' onClick={(e) => this.submitCancelled(e)} />
+              <input className='submit-score__button yes' value='End Game' type='submit' onClick={(e) => this.submitConfirmed(e)} />
+            </form>
+          </div>
+        );
+    }
+  }
+
   render() {   
     const { submitPopup } = this.props.toggles;
   
     return (
       <div className={`submit-score submit-score--${submitPopup}`}>
-        <div className='submit-score__wrapper'>
-          <h2 className='title title--popup'>End Game Session?</h2>
-          <p className='submit-score__text'>Submitting your score will end your current session and rank you on our leaderboards.</p>
-          <p className='submit-score__text'>You will not keep your total slices once submitted.</p>
-          <p className='submit-score__text'>Do you want to submit your score?</p>
-          <form className='submit-score__buttons-wrapper'>
-            <input className='submit-score__button no' value='Cancel' type='submit' onClick={(e) => this.submitCancelled(e)} />
-            <input className='submit-score__button yes' value='End Game' type='submit' onClick={(e) => this.submitConfirmed(e)} />
-          </form>
-        </div>
+        {this.renderPopupContent()}
       </div>
     );
   }

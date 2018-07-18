@@ -11,10 +11,10 @@ class PopupFeedback extends Component {
         <div className='feedback-popup__wrapper'>
           <h2 className='title title--popup'>Submit your feedback</h2>
           <form className='feedback-popup__form'>
-            <div classname='feedback-popup__radio-buttons'>
-
+            <div className='feedback-popup__radio-buttons'>
+      
             </div>
-            <textarea className='feedback-popup__text-field' placeholder='Write your comments here...' />          
+            <textarea className='feedback-popup__text-field' placeholder='Tell us why?' />          
             <button className='feedback-popup__submit' type='submit'>Send</button>
           </form>
         </div>

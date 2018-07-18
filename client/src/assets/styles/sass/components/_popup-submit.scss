@@ -29,10 +29,7 @@
     cursor: pointer;
     @extend %panel-style;
     @include flex-center(row);
-
-    &:hover {
-      transform: translateY(-5px);
-    }
+    @include hoverElement;
 
     &.yes {
       &:hover {

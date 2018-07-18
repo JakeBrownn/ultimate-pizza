@@ -26,13 +26,6 @@ body {
     text-decoration: none;
   }
 
-  button,
-  input {
-    &:focus {
-      outline: 0;
-    }
-  }
-
   ul {
     padding: 0;
     margin: 0;
@@ -43,9 +36,14 @@ body {
   }
 
   input,
-  button {
+  button,
+  textarea {
     font-family: $font-stack;
     font-size: 26px;
     letter-spacing: 1px;
+
+    &:focus {
+      outline: 0;
+    }
   }
 }

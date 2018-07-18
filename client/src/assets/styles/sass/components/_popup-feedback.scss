@@ -1,4 +1,34 @@
 .feedback-popup {
+  &__wrapper {
+    margin: 30px;
+    padding-bottom: 10px;
+  }
+
+  &__form {
+
+    @include flex-center(column);
+  }
+
+  &__text-field {
+    width: 510px;
+    height: 150px;
+    padding: 10px 15px;
+    resize: none;
+  }
+
+  &__submit {
+    position: absolute;
+    bottom: -30px;
+    padding: 10px;
+    text-align: center;
+    color: $color-white;
+    font-size: 27px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    @extend %panel-style;
+    @include hoverElement;
+  }
+
   &--hidden {
     display: none;
   }

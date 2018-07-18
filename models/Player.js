@@ -7,9 +7,9 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;    // const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const playerSchema = new Schema({
   username: String,
   score: Number
 });
 
-mongoose.model('users', userSchema);
+module.exports = (Player) = mongoose.model('Player', playerSchema);

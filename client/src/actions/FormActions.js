@@ -10,58 +10,52 @@ import {
   SUBMIT_FEEDBACK_FAIL
 } from './types';
 
-// When User is typing in Username field
+// User is typing in Username field
 export const usernameChanged = (text) => {
   return (dispatch) => {
     dispatch({ type: USERNAME_CHANGED, payload: text });
   }
 };
 
-// Called when a User attempts to submit their Score
+// User attempts to submit their Score
 export const submitScore = (player) => async (dispatch) => {
   dispatch({ type: SUBMIT_SCORE });
 
+  // If User Score has successfully submitted
   try {
-    const res = await axios.post('/api/players/user', player);
-
-    // If successful
+    const res = await axios.post('/api/player', player);
     console.log('success!');
+    dispatch({ type: SUBMIT_SCORE_SUCCESS });
   }
 
+  // If User Score has failed to submit
   catch(error) {
     console.log('nope!');
   }
 };
 
-// Called when a Users' Score has been successfully submitted
-export const submitScoreSuccess = () => {
-  return (dispatch) => {
-    dispatch({ type: SUBMIT_SCORE_SUCCESS });
-  }
-};
-
-// Called when a Users' Score has failed to submit
+// User Score has failed to submit
 export const submitScoreFail = (error) => {
   return (dispatch) => {
     dispatch({ type: SUBMIT_SCORE_FAIL, payload: error });
   }
 };
 
-// Called when a User attempts to submit Feedback
+// User attempts to submit Feedback
 export const submitFeedback = () => {
   return (dispatch) => {
     dispatch({ type: SUBMIT_FEEDBACK });
   }
 };
 
-// When a Users feedback has been successfully submitted
+// User feedback has been successfully submitted
 export const submitFeedbackSuccess = () => {
   return (dispatch) => {
     dispatch({ type: SUBMIT_FEEDBACK_SUCCESS });
   }
 };
 
-// When a Users feedback has failed to submit
+// User feedback has failed to submit
 export const submitFeedbackFail = () => {
   return (dispatch) => {
     dispatch({ type: SUBMIT_FEEDBACK_FAIL });
