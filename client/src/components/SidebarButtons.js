@@ -82,7 +82,7 @@ class SidebarOptions extends Component {
           </Button>
         </SidebarRow>
         <SidebarRow>
-          <Button className='leaderboard' whenClicked={(e) => this.displayLeaderboard(e)}>
+          <Button className='leaderboard' whenClicked={() => this.displayLeaderboard()}>
             Leaderboards
           </Button>
         </SidebarRow>

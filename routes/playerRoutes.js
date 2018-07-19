@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Player = require('../models/Player');
 
-// 
 router.post('/', (req, res) => {
   const newPlayer = new Player({
     username: req.body.username,

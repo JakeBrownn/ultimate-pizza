@@ -16,9 +16,10 @@ import {
 const INITIAL_STATE = {
   chompSound: 1,
   playSoundtrack: true,
-  leaderboard: HIDDEN,
-  submitPopup: HIDDEN,
-  feedbackPopup: HIDDEN,
+  showLeaderboard: false,
+  showSubmitPopup: false,
+  showFeedbackPopup: false,
+  gameStarted: false,
   welcomeScreen: VISIBLE,
   sidebarClass: 'hide-sidebar',
   welcomeScreenContent: 'in-view',
@@ -32,22 +33,22 @@ const INITIAL_STATE = {
 export const TogglesReducer = (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case TOGGLE_LEADERBOARD:
-      if ( state.leaderboard === HIDDEN ) {
-        return { ...state, leaderboard: VISIBLE, submitPopup: HIDDEN } 
+      if ( state.showLeaderboard === false ) {
+        return { ...state, showLeaderboard: true, showSubmitPopup: false, showFeedbackPopup: false } 
       } else {
-        return { ...state, leaderboard: HIDDEN }
+        return { ...state, showLeaderboard: false }
       }
     case TOGGLE_SUBMIT_POPUP:
-      if ( state.submitPopup === HIDDEN ) {
-        return { ...state, submitPopup: VISIBLE, leaderboard: HIDDEN } 
+      if ( state.showSubmitPopup === false ) {
+        return { ...state, showSubmitPopup: true, showLeaderboard: false, showFeedbackPopup: false } 
       } else {
-        return { ...state, submitPopup: HIDDEN }
+        return { ...state, showSubmitPopup: false }
       }
     case TOGGLE_FEEDBACK_POPUP: 
-      if (state.feedbackPopup === HIDDEN) {
-        return { ...state, feedbackPopup: VISIBLE, leaderboard: HIDDEN, submitPopup: HIDDEN }
+      if (state.showFeedbackPopup === false) {
+        return { ...state, showFeedbackPopup: false, showSubmitPopup: false, showLeaderboard: false }
       } else {
-        return { ...state, feedbackPopup: HIDDEN }
+        return { ...state, showFeedbackPopup: false }
       }
     case TOGGLE_SOUND_CHOMP: 
       return { ...state, chompSound: ( state.chompSound === 2) ? 1 : 2 }
@@ -68,6 +69,7 @@ export const TogglesReducer = (state = INITIAL_STATE, action) => {
     case START_GAME:
       return { 
         ...state, 
+        gameStarted: true,
         welcomeScreen: HIDDEN, 
         welcomeScreenContent: HIDDEN, 
         sidebarClass: 'enable-sidebar', 

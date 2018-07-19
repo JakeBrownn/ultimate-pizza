@@ -18,7 +18,21 @@ export const incrementClicks = () => (dispatch) => dispatch({ type: INCREMENT_CL
 export const toggleSoundChomp = () => (dispatch) => dispatch({ type: TOGGLE_SOUND_CHOMP }); 
 
 // Toggle Leaderboard ClassName
-export const toggleLeaderboard = () => (dispatch) => dispatch({ type: TOGGLE_LEADERBOARD });
+export const toggleLeaderboard = () => {
+  return (dispatch) => {
+    dispatch({ type: TOGGLE_LEADERBOARD });
+    
+    // try {
+    //   const res = await axios.get('/api/leaderboard');
+  
+    //   dispatch({ type: FETCH_LEADERBOARD });
+    // }
+
+    // catch(error) {
+    //   console.log('nope!')
+    // }
+  }
+};
 
 // Play / Pause the Soundtrack
 export const toggleSoundtrack = () => (dispatch) => dispatch({ type: TOGGLE_SOUNDTRACK });

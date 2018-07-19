@@ -17,3 +17,6 @@ app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 // Routes Setup
 const playerRoutes = require('./routes/playerRoutes');
 app.use('/api/player', playerRoutes);
+
+const leaderboardRoutes = require('./routes/leaderboardRoutes');
+app.use('/api/leaderboard', leaderboardRoutes);

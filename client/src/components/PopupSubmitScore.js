@@ -6,7 +6,7 @@ import PlayerSummary from './PlayerSummary';
 import { toggleSubmitPopup, submitScore } from '../actions';
 
 import LoadingSpinner from '../assets/images/loading-spinner.svg';
-import EndGameImage from '../assets/images/hotline-bling.gif';
+// import EndGameImage from '../assets/images/hotline-bling.gif';
 
 
 class PopupSubmitScore extends Component {
@@ -86,11 +86,9 @@ class PopupSubmitScore extends Component {
     }
   }
 
-  render() {   
-    const { submitPopup } = this.props.toggles;
-  
+  render() {     
     return (
-      <div className={`submit-score submit-score--${submitPopup}`}>
+      <div className='submit-score'>
         {this.renderPopupContent()}
       </div>
     );
@@ -98,8 +96,8 @@ class PopupSubmitScore extends Component {
 };
 
 // Map State from Redux Store into Props
-const mapStateToProps = ({ toggles, form, counter }) => {
-  return { toggles, form, counter };
+const mapStateToProps = ({ form, counter }) => {
+  return { form, counter };
 };
 
 export default connect(mapStateToProps, {

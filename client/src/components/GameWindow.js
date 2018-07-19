@@ -29,14 +29,22 @@ class GameWindow extends Component {
   }
 
   renderPopups() {
-    return (
-      <div className='popup-windows'>
-        <WelcomeScreen />
-        <PopupLeaderboard />
-        <PopupSubmitScore />
-        <PopupFeedback />
-      </div>
-    )
+    const { 
+      showLeaderboard, 
+      showSubmitPopup, 
+      showFeedbackPopup 
+    } = this.props.toggles;
+
+    switch(true) {
+      case showLeaderboard:
+        return <PopupLeaderboard />;
+      case showSubmitPopup:
+        return <PopupSubmitScore />;
+      case showFeedbackPopup:
+        return <PopupFeedback />;
+      default:
+        return;
+    }
   }
     
   render() {
@@ -45,6 +53,10 @@ class GameWindow extends Component {
     return (
       <div className='action-window'>
         {this.renderPopups()}
+
+        {toggles.gameStarted === false && 
+          <WelcomeScreen />
+        }
         <div className={`action-button action-button--${toggles.actionButton}`}>
           <img className='action-button__image' src={pizza} alt='Pizza' onClick={(e) => {this.addClick()}} />
         </div>

@@ -7,7 +7,9 @@ import {
   SUBMIT_SCORE_FAIL,
   SUBMIT_FEEDBACK,
   SUBMIT_FEEDBACK_SUCCESS,
-  SUBMIT_FEEDBACK_FAIL
+  SUBMIT_FEEDBACK_FAIL,
+  FETCH_LEADERBOARD,
+  FETCH_LEADERBOARD_SUCCESS,
 } from './types';
 
 // User is typing in Username field
@@ -24,7 +26,7 @@ export const submitScore = (player) => async (dispatch) => {
   // If User Score has successfully submitted
   try {
     const res = await axios.post('/api/player', player);
-    console.log('success!');
+
     dispatch({ type: SUBMIT_SCORE_SUCCESS });
   }
 

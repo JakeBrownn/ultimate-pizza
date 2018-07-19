@@ -28,6 +28,8 @@ export const SUBMIT_SCORE_FAIL = 'submit_score_fail';
 export const SUBMIT_FEEDBACK = 'submit_feedack';
 export const SUBMIT_FEEDBACK_SUCCESS = 'submit_feedback_success';
 export const SUBMIT_FEEDBACK_FAIL = 'submit_feedback_fail';
+export const FETCH_LEADERBOARD = 'fetch_leaderboard_data';
+export const FETCH_LEADERBOARD_SUCCESS = 'fetch_leaderboard_data';
 
 // String Variables
 export const HIDDEN = 'hidden';
