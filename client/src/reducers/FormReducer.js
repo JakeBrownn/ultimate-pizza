@@ -13,7 +13,8 @@ const INITIAL_STATE = {
   loading: false,
   fetchingData: false,
   submitSuccess: false,
-  leaderboardData: null
+  dataFetched: false,
+  leaderboardData: 0
 };
 
 export const FormReducer = (state = INITIAL_STATE, action) => {
@@ -29,7 +30,7 @@ export const FormReducer = (state = INITIAL_STATE, action) => {
     case FETCH_LEADERBOARD:
       return { ...state, fetchingData: true };
     case FETCH_LEADERBOARD_SUCCESS:
-      return { ...state, fetchingData: false, leaderboardData: action.payload };
+      return { ...state, leaderboardData: action.payload, fetchingData: false };
     default:
       return state;
   }

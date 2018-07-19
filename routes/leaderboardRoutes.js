@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const Player = require('../models/Player');
 
 router.get('/', (req, res) => {
-  console.log(req);
-  console.log(res);
+  Player.find({}, (err, players) => {
+    res.json(players);
+  });
 });
 
 module.exports = router;

@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { fetchLeaderboardData } from '../actions';
+
 import LoadingSpinner from '../assets/images/loading-spinner.svg';
 
 
 class PopupLeaderboard extends Component {
   componentDidMount() {
-    console.log(123)
+    this.props.fetchLeaderboardData();
   }
 
   renderLeaderboardContent() {
-    const { fetchingData, leaderboardData } = this.props.form;
+    const { fetchingData, dataFetched } = this.props.form;
     const innerWrapper = 'leaderboard__wrapper';
 
     switch(true) {
@@ -23,11 +25,11 @@ class PopupLeaderboard extends Component {
           </div>
         );
 
-      // Once Leaderbaord data has been loaded
-      case leaderboardData:
+      // Once Leaderboard data has been loaded
+      case dataFetched:
         return (
           <div className={innerWrapper}>
-
+            yes!
           </div>
         );
 
@@ -41,10 +43,12 @@ class PopupLeaderboard extends Component {
     }
   }
 
-  render() {
+  render() {    
+    console.log(this.props.form.leaderboardData)
+
     return (
       <div className='leaderboard'>
-        
+        {this.renderLeaderboardContent()}
       </div>
     );
   }
@@ -55,4 +59,4 @@ const mapStateToProps = ({ form }) => {
   return { form };
 };
 
-export default connect(mapStateToProps)(PopupLeaderboard);
+export default connect(mapStateToProps, {fetchLeaderboardData})(PopupLeaderboard);

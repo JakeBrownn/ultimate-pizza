@@ -63,3 +63,21 @@ export const submitFeedbackFail = () => {
     dispatch({ type: SUBMIT_FEEDBACK_FAIL });
   }
 };
+
+export const fetchLeaderboardData = () => {
+  // dispatch({ type: FETCH_LEADERBOARD });
+  
+  return (dispatch) => {
+    dispatch({ type: FETCH_LEADERBOARD_SUCCESS, payload: 123 });
+  }
+
+  // try {
+  //   const res = await axios.get('/api/leaderboard');
+
+  //   console.log('success!')
+  // }
+
+  // catch(error) {
+  //   console.log('nope!');
+  // }
+}
