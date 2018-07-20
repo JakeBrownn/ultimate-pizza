@@ -29,6 +29,7 @@ export const SUBMIT_FEEDBACK = 'submit_feedack';
 export const SUBMIT_FEEDBACK_SUCCESS = 'submit_feedback_success';
 export const SUBMIT_FEEDBACK_FAIL = 'submit_feedback_fail';
 export const LEADERBOARD_DATA = 'leaderboard_data';
+export const LEADERBOARD_POSITION = 'leaderboard_position';
 
 // String Variables
 export const HIDDEN = 'hidden';

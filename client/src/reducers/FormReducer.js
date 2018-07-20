@@ -3,7 +3,8 @@ import {
   SUBMIT_SCORE,
   SUBMIT_SCORE_SUCCESS,
   SUBMIT_SCORE_FAIL,
-  LEADERBOARD_DATA
+  LEADERBOARD_DATA,
+  LEADERBOARD_POSITION
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -11,6 +12,7 @@ const INITIAL_STATE = {
   error: '',
   loading: false,
   submitSuccess: false,
+  leaderboardPos: 0,
   leaderboardData: []
 };
 
@@ -26,6 +28,8 @@ export const FormReducer = (state = INITIAL_STATE, action) => {
       return { ...state, loading: false, error: action.payload };
     case LEADERBOARD_DATA:
       return { ...state, leaderboardData: action.payload };
+    case LEADERBOARD_POSITION:
+      return { ...state, leaderboardPos: action.payload };
     default:
       return state;
   }

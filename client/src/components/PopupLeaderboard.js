@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchLeaderboardData } from '../actions';
+import { fetchLeaderboardData, setLeaderboardPos } from '../actions';
 
 import LoadingSpinner from '../assets/images/loading-spinner.svg';
 
@@ -19,7 +19,7 @@ class PopupLeaderboard extends Component {
       let playerPos = i + 1;
 
       // Prepend '0' if Rank is less than 10
-      if (i < 10) {
+      if (i < 9) {
         playerPos = `0${i + 1}`;
       }
 
@@ -69,4 +69,7 @@ const mapStateToProps = ({ form }) => {
   return { form };
 };
 
-export default connect(mapStateToProps, {fetchLeaderboardData})(PopupLeaderboard);
+export default connect(mapStateToProps, {
+  fetchLeaderboardData,
+  setLeaderboardPos
+})(PopupLeaderboard);

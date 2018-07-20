@@ -6,6 +6,8 @@ import PlayerSummary from './PlayerSummary';
 import { toggleSubmitPopup, submitScore } from '../actions';
 
 import LoadingSpinner from '../assets/images/loading-spinner.svg';
+import IconTrophy from '../assets/images/icon-trophy.png';
+
 // import EndGameImage from '../assets/images/hotline-bling.gif';
 
 
@@ -35,7 +37,12 @@ class PopupSubmitScore extends Component {
 
   // Render loading spinner
   renderPopupContent() {
-    const { loading, submitSuccess } = this.props.form;
+    const { 
+      loading, 
+      submitSuccess,
+      leaderboardPos
+    } = this.props.form;
+    const Trophy = () => <img className='submit-score__trophy' src={IconTrophy} alt='Trophy' />;
 
     switch(true) {
 
@@ -48,12 +55,16 @@ class PopupSubmitScore extends Component {
         return (
           <React.Fragment>
             <p className='title title--popup'>Thanks for playing Ultimate Pizza!</p>
-            <p className='submit-score__text'>You placed <span></span> on our Leaderboards</p>
+            <p className='submit-score__text submit-score__text--message'>
+              <Trophy />
+              You placed <span> {leaderboardPos} </span> on our Leaderboards!
+              <Trophy />
+            </p>
             <PlayerSummary />
             <div className='submit-score__buttons-row'>
-              <a className='submit-score__button' href='' onClick={() => window.location.hrefsdg} >Back To Menu</a>
+              <a className='submit-score__button submit-score__button--game-ended' href='' onClick={() => window.location.href} >Back To Menu</a>
               <a 
-                className='submit-score__button' 
+                className='submit-score__button submit-score__button--game-ended' 
                 href='https://github.com/JakeBrownn/ultimate-pizza' 
                 target='_blank'
                 rel="noopener noreferrer"

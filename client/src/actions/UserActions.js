@@ -8,7 +8,8 @@ import {
   TOGGLE_ITEM_INFO,
   USERNAME_ERROR,
   START_GAME_ANIMATIONS,
-  START_GAME
+  START_GAME,
+  LEADERBOARD_POSITION
 } from './types';
 
 // Increment Clicks
@@ -44,3 +45,10 @@ export const startGameAnimations = () => (dispatch) => dispatch({ type: START_GA
 
 // Begin Session
 export const startGame = () => (dispatch) => dispatch({ type: START_GAME });
+
+// Set User Leaderboard Position
+export const setLeaderboardPos = (pos) => {
+  return (dispatch) => {
+    dispatch({ type: LEADERBOARD_POSITION, payload: pos })
+  }
+}
