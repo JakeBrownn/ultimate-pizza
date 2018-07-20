@@ -3,18 +3,15 @@ import {
   SUBMIT_SCORE,
   SUBMIT_SCORE_SUCCESS,
   SUBMIT_SCORE_FAIL,
-  FETCH_LEADERBOARD,
-  FETCH_LEADERBOARD_SUCCESS
+  LEADERBOARD_DATA
 } from '../actions/types';
 
 const INITIAL_STATE = {
   playerUsername: '',
   error: '',
   loading: false,
-  fetchingData: false,
   submitSuccess: false,
-  dataFetched: false,
-  leaderboardData: 0
+  leaderboardData: []
 };
 
 export const FormReducer = (state = INITIAL_STATE, action) => {
@@ -27,10 +24,8 @@ export const FormReducer = (state = INITIAL_STATE, action) => {
       return { ...state, loading: false, submitSuccess: true };
     case SUBMIT_SCORE_FAIL:
       return { ...state, loading: false, error: action.payload };
-    case FETCH_LEADERBOARD:
-      return { ...state, fetchingData: true };
-    case FETCH_LEADERBOARD_SUCCESS:
-      return { ...state, leaderboardData: action.payload, fetchingData: false };
+    case LEADERBOARD_DATA:
+      return { ...state, leaderboardData: action.payload };
     default:
       return state;
   }

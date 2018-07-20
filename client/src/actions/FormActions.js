@@ -8,8 +8,7 @@ import {
   SUBMIT_FEEDBACK,
   SUBMIT_FEEDBACK_SUCCESS,
   SUBMIT_FEEDBACK_FAIL,
-  FETCH_LEADERBOARD,
-  FETCH_LEADERBOARD_SUCCESS,
+  LEADERBOARD_DATA
 } from './types';
 
 // User is typing in Username field
@@ -64,20 +63,8 @@ export const submitFeedbackFail = () => {
   }
 };
 
-export const fetchLeaderboardData = () => {
-  // dispatch({ type: FETCH_LEADERBOARD });
-  
-  return (dispatch) => {
-    dispatch({ type: FETCH_LEADERBOARD_SUCCESS, payload: 123 });
-  }
+export const fetchLeaderboardData = () => async (dispatch) => {
+  const res = await axios.get('/api/leaderboard');
 
-  // try {
-  //   const res = await axios.get('/api/leaderboard');
-
-  //   console.log('success!')
-  // }
-
-  // catch(error) {
-  //   console.log('nope!');
-  // }
+  dispatch({ type: LEADERBOARD_DATA, payload: res.data });
 }

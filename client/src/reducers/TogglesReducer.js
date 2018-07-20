@@ -21,7 +21,7 @@ const INITIAL_STATE = {
   showFeedbackPopup: false,
   gameStarted: false,
   welcomeScreen: VISIBLE,
-  sidebarClass: 'hide-sidebar',
+  sidebarClass: 'enable-sidebar',
   welcomeScreenContent: 'in-view',
   actionButton: 'off-screen',
   blueBackground: '',

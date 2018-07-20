@@ -8,8 +8,10 @@
     @include flex-center(column);
   }
 
-  &__text {
-    font-size: 22px;
+  &__categories {
+    width: 100%;
+    margin-bottom: 10px;
+    @include flex-between(row);    
   }
 }
 
@@ -18,12 +20,23 @@
   margin: auto;
   
   &__entry {
-    list-style-type: decimal-leading-zero;
-    margin-bottom: 3px;
-    margin-left: 40px;
+    margin-bottom: 5px;
+    background-color: $color-blue;
+    @include flex-between(row);
+  }
+
+  &__position {
+    width: 10%;
+    text-align: center;
+  }
+
+  &__username {
+    width: 65%;
+    text-align: left;
   }
 
   &__score {
-    float: right;
+    width: 25%;
+    text-align: center;
   }
 }

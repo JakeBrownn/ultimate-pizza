@@ -4,7 +4,7 @@ const Player = require('../models/Player');
 
 router.get('/', (req, res) => {
   Player.find({}, (err, players) => {
-    res.json(players);
+    res.send(players);
   });
 });
 
