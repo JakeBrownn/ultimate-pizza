@@ -1,3 +1,8 @@
+$rank-column-width: 15%;
+$username-column-width: 60%;
+$score-column-width: 25%;
+
+
 .leaderboard {
   min-height: 500px;
   overflow: hidden;
@@ -11,7 +16,26 @@
   &__categories {
     width: 100%;
     margin-bottom: 10px;
-    @include flex-between(row);    
+    @include flex-between(row);
+  }
+
+  &__category {
+    &--rank,
+    &--username {
+      text-align: left;
+    }
+
+    &--rank {
+      width: $rank-column-width;
+    }
+
+    &--username {
+      width: $username-column-width;
+    }
+
+    &--score {
+      width: $score-column-width;
+    }
   }
 }
 
@@ -20,23 +44,23 @@
   margin: auto;
   
   &__entry {
-    margin-bottom: 5px;
     background-color: $color-blue;
+    padding: 0 5px;
+    margin-bottom: 5px;
+    text-align: left;
     @include flex-between(row);
   }
 
-  &__position {
-    width: 10%;
-    text-align: center;
+  &__rank {
+    width: $rank-column-width;
   }
 
   &__username {
-    width: 65%;
-    text-align: left;
+    width: $username-column-width;
   }
 
   &__score {
-    width: 25%;
-    text-align: center;
+    width: $score-column-width;
+    text-align: right;
   }
 }

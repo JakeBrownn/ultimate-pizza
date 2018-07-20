@@ -36,26 +36,20 @@ class PopupSubmitScore extends Component {
   // Render loading spinner
   renderPopupContent() {
     const { loading, submitSuccess } = this.props.form;
-    const innerWrapper = 'submit-score__wrapper';
-    
+
     switch(true) {
 
       // Display loading animation whilst Score is submitting
       case loading:
-        return (
-          <div className='submit-score__loading-wrapper'>
-            <img className='submit-score__loading-image' src={LoadingSpinner} alt='Loading' />
-          </div>
-        );
+        return <img className='submit-score__loading-image' src={LoadingSpinner} alt='Loading' />; 
 
       // When Score has been successfully submitted
       case submitSuccess:
         return (
-          <div className={innerWrapper}>
+          <React.Fragment>
             <p className='title title--popup'>Thanks for playing Ultimate Pizza!</p>
             <p className='submit-score__text'>You placed <span></span> on our Leaderboards</p>
             <PlayerSummary />
-            {/* <img className='submit-score__ending-image' src={EndGameImage} alt='Hotline Bling!' />   */}
             <div className='submit-score__buttons-row'>
               <a className='submit-score__button' href='' onClick={() => window.location.hrefsdg} >Back To Menu</a>
               <a 
@@ -67,12 +61,12 @@ class PopupSubmitScore extends Component {
                 Github Repo
               </a>
             </div>
-          </div>
+          </React.Fragment>
         );
             
       default:
         return (
-          <div className={innerWrapper}>
+          <React.Fragment>
             <h2 className='title title--popup'>End Game Session?</h2>
             <p className='submit-score__text'>Submitting your score will end your current session and rank you on our leaderboards.</p>
             <p className='submit-score__text'>You will not keep your total slices once submitted.</p>
@@ -81,7 +75,7 @@ class PopupSubmitScore extends Component {
               <input className='submit-score__button no' value='Cancel' type='submit' onClick={(e) => this.submitCancelled(e)} />
               <input className='submit-score__button yes' value='End Game' type='submit' onClick={(e) => this.submitConfirmed(e)} />
             </form>
-          </div>
+          </React.Fragment>
         );
     }
   }
@@ -89,7 +83,9 @@ class PopupSubmitScore extends Component {
   render() {     
     return (
       <div className='submit-score'>
-        {this.renderPopupContent()}
+        <div className='submit-score__wrapper'>
+          {this.renderPopupContent()}
+        </div>
       </div>
     );
   }
