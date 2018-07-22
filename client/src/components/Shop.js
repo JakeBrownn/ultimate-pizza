@@ -17,6 +17,7 @@ import soundPurchase from '../assets/audio/sound-purchase.mp3';
 import IconDeliveryMan from '../assets/images/icon-delivery-man.png';
 import IconExtraCheese from '../assets/images/icon-extra-cheese.png';
 
+
 class Shop extends Component {
   
   // Play the 'purchase' sound effect

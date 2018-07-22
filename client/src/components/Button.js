@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import SoundToggle from '../assets/audio/sound-toggle.mp3';
 
+
 class Button extends Component {
 
   // When Button is clicked
@@ -18,26 +19,44 @@ class Button extends Component {
     }
   }
 
-  // Render Button JSX structure
   buttonContents() {
-    const { type, linkURL, children } = this.props;
+    const { type, linkURL, buttonIcon, buttonText, children } = this.props;
     const wrapperClassName = 'sidebar-option__wrapper';
+    const textClassName = 'sidebar-option__text';
+    const iconClassName = 'sidebar-option__icon';
 
+    // Decide Component JSX structure based on props
     switch(type) {
       case 'icon':
-        return <div className={wrapperClassName}>{children}</div>;
+        return (
+          <div className={wrapperClassName}>
+            <img className={iconClassName} src={buttonIcon} alt={buttonText} />
+            <span className={textClassName}>{buttonText}</span>
+          </div>
+        );
+      case 'text':
+        return (
+          <div className={wrapperClassName}>
+            <span className={textClassName}>{children}</span>
+          </div>
+        );
       case 'link':
         return <a className={wrapperClassName} href={linkURL} target='_blank'>{children}</a>
       default:
-        return <div className={wrapperClassName}><span className='sidebar-option__text'>{children}</span></div>;
+        return (
+          <div className={wrapperClassName}>
+            {children}
+          </div>
+        );
     }
   }
 
   render() {
     const { className } = this.props;
+    const buttonClass = (`sidebar-option` + (className ? ` sidebar-option--${className}` : ''));
     
     return (
-      <div className={`sidebar-option` + (className ? ` sidebar-option--${className}` : '')} onClick={() => this.handleClick()}>
+      <div className={buttonClass} onClick={() => this.handleClick()}>
         {this.buttonContents()}
       </div>
     );

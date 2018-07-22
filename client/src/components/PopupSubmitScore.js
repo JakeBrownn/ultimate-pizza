@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import LoadingSpinner from './LoadingSpinner';
 import PlayerSummary from './PlayerSummary';
 
 import { toggleSubmitPopup, submitScore } from '../actions';
 
-import LoadingSpinner from '../assets/images/loading-spinner.svg';
 import IconTrophy from '../assets/images/icon-trophy.png';
-
-// import EndGameImage from '../assets/images/hotline-bling.gif';
 
 
 class PopupSubmitScore extends Component {
@@ -39,16 +37,15 @@ class PopupSubmitScore extends Component {
   renderPopupContent() {
     const { 
       loading, 
-      submitSuccess,
-      leaderboardPos
+      submitSuccess
     } = this.props.form;
     const Trophy = () => <img className='submit-score__trophy' src={IconTrophy} alt='Trophy' />;
 
     switch(true) {
 
-      // Display loading animation whilst Score is submitting
+      // Show loading animation whilst Score is submitting
       case loading:
-        return <img className='submit-score__loading-image' src={LoadingSpinner} alt='Loading' />; 
+        return <LoadingSpinner />;
 
       // When Score has been successfully submitted
       case submitSuccess:
@@ -56,8 +53,8 @@ class PopupSubmitScore extends Component {
           <React.Fragment>
             <p className='title title--popup'>Thanks for playing Ultimate Pizza!</p>
             <p className='submit-score__text submit-score__text--message'>
-              <Trophy />
-              You placed <span> {leaderboardPos} </span> on our Leaderboards!
+              <Trophy /> 
+              You placed on our Leaderboards!
               <Trophy />
             </p>
             <PlayerSummary />

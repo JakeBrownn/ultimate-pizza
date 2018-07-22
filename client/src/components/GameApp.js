@@ -3,7 +3,7 @@ import React from 'react';
 import GameWindow from './GameWindow';
 import GameSidebar from './GameSidebar';
 
-const MainApp = () => {
+const GameApp = () => {
   return (
     <div className='app-content'>
       <GameWindow />
@@ -12,4 +12,4 @@ const MainApp = () => {
   )
 };
 
-export default MainApp;
+export default GameApp;

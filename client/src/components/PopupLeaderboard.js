@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchLeaderboardData, setLeaderboardPos } from '../actions';
+import LoadingSpinner from './LoadingSpinner';
 
-import LoadingSpinner from '../assets/images/loading-spinner.svg';
+import { fetchLeaderboardData, setLeaderboardPos } from '../actions';
 
 
 class PopupLeaderboard extends Component {
@@ -18,7 +18,7 @@ class PopupLeaderboard extends Component {
     const leaderboardEntry = leaderboardData.map((item, i) => {
       let playerPos = i + 1;
 
-      // Prepend '0' if Rank is less than 10
+      // Prepend '0' if Player Rank is less than 10
       if (i < 9) {
         playerPos = `0${i + 1}`;
       }
@@ -49,7 +49,7 @@ class PopupLeaderboard extends Component {
     } 
 
     // Display loading spinner by default
-    return <img className='leaderboard__loading-image' src={LoadingSpinner} alt='Loading' />
+    return <LoadingSpinner />
   }
 
   render() {    

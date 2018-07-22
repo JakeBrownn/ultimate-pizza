@@ -38,11 +38,11 @@ class SidebarOptions extends Component {
     const soundButtonText = (playSoundtrack === false ? 'Off' : 'On' );
 
     return (
-      <div className='sidebar-option__wrapper sidebar-option__wrapper--sound'>
+      <React.Fragment>
         <audio id='gameSoundtrack'><source src={gameSoundtrack} type='audio/mpeg' /></audio> 
         <img className='sidebar-option__icon' src={soundButtonIcon} alt='Sound Off' />
         <span className='sidebar-option__text'>Music {soundButtonText}</span>
-      </div>
+      </React.Fragment>
     );
   }
 
@@ -65,24 +65,28 @@ class SidebarOptions extends Component {
     return (
       <div className='sidebar-buttons'>
         <SidebarRow>
-          <Button 
-            type='icon' 
-            className='sound' 
-            whenClicked={(e) => this.handleSoundButton(e)}
-          >
+          <Button whenClicked={(e) => this.handleSoundButton(e)}>
             {this.toggleSoundButton()}
           </Button>
-          <Button type='icon' whenClicked={() => this.displaySubmitPopup()}>
-            <img className='sidebar-option__icon' src={IconSave} alt='Floppy Disk' />
-            <span className='sidebar-option__text'>End Session</span>
-          </Button>
-          <Button type='icon' whenClicked={() => this.displayFeedbackPopup()}>
-            <img className='sidebar-option__icon' src={IconHeart} alt='Heart' />
-            <span className='sidebar-option__text'>Feedback</span>
-          </Button>
+          <Button 
+            type='icon' 
+            buttonIcon={IconSave}
+            buttonText='End Session'
+            whenClicked={() => this.displaySubmitPopup()}
+          />
+          <Button 
+            type='icon' 
+            buttonIcon={IconHeart}
+            buttonText='Feedback'
+            whenClicked={() => this.displayFeedbackPopup()}
+          />
         </SidebarRow>
         <SidebarRow>
-          <Button className='leaderboard' whenClicked={() => this.displayLeaderboard()}>
+          <Button 
+            type='text' 
+            className='leaderboard' 
+            whenClicked={() => this.displayLeaderboard()}
+          >
             Leaderboards
           </Button>
         </SidebarRow>
@@ -90,9 +94,7 @@ class SidebarOptions extends Component {
           <Button type='link' linkURL='https://github.com/JakeBrownn/ultimate-pizza'>
             GitHub Repo
           </Button>
-          <Button>
-            Game Info
-          </Button>
+          <Button type='text'>Game Info</Button>
         </SidebarRow>
       </div>
     );

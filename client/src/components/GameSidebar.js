@@ -7,10 +7,11 @@ import SidebarButtons from './SidebarButtons';
 class GameSidebar extends Component {
   render() {
     const { sidebarClass } = this.props.toggles;
+    const sidebarClassName = (`sidebar__overlay sidebar__overlay--${sidebarClass}`);
 
     return (
       <div className='sidebar'>
-        <div className={`sidebar__overlay sidebar__overlay--${sidebarClass}`}></div>
+        <div className={sidebarClassName}></div>
         <Shop />
         <SidebarButtons />
       </div>

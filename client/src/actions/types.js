@@ -1,5 +1,5 @@
 // Game Types
-export const GAME_LOADING = 'game_loading';
+export const GAME_LOADED = 'game_loaded';
 
 // User Types
 export const INCREMENT_CLICK = 'increment_click';

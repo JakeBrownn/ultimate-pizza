@@ -9,17 +9,11 @@ import {
   startGame  
 } from '../actions';
 
-import MenuSoundtrack from '../assets/audio/soundtrack-menu.mp3';
 import WelcomeBackground from '../assets/images/background-welcome-screen.jpg';
 
 
 class WelcomeScreen extends Component {
-  componentDidMount() {
-    const MenuSoundtrack = document.getElementById('menuSoundtrack');
-
-    MenuSoundtrack.play();  
-  }
-
+  
   // Handle user typing in Input Field
   onInputChange(e) {
     this.props.usernameChanged(e.target.value);
@@ -30,7 +24,7 @@ class WelcomeScreen extends Component {
     e.preventDefault();
 
     const { playerUsername } = this.props.form;
-    const minimumLength = 5;
+    const minUserLength = 5;
 
     switch(true) {
 
@@ -40,8 +34,8 @@ class WelcomeScreen extends Component {
         break;
       
       // If Username is too short
-      case (playerUsername.length < minimumLength):
-        this.props.usernameError(`Your username must be greater than ${minimumLength - 1} characters.`);
+      case (playerUsername.length < minUserLength):
+        this.props.usernameError(`Your username must be greater than ${minUserLength - 1} characters.`);
         break;
       
       // If Username contains spaces
@@ -55,34 +49,15 @@ class WelcomeScreen extends Component {
         break;
       default: 
         this.props.startGameAnimations();
-
-        // this.fadeOutSoundtrack();
     
         // Wait for WelcomeScreen animations to finish
         setTimeout(() => {
-          const menuSoundtrack = document.getElementById('gameSoundtrack');
-          menuSoundtrack.play();  
-    
+          const gameSoundtrack = document.getElementById('gameSoundtrack');
+
+          gameSoundtrack.play();  
           this.props.startGame();
         }, 8000);
     }
-  }
-
-  // Fade Out MenuSoundtrack
-  fadeOutSoundtrack() {
-    const menuSoundtrack = document.getElementById('menuSoundtrack');
-    let counter = 1;
-
-    const fadeOut = setInterval(() => {
-      menuSoundtrack.volume -= 0.1;
-      counter++;
-
-      if (counter > 9) {
-        menuSoundtrack.pause();
-
-        clearInterval(fadeOut);
-      }
-    }, 120);
   }
   
   render() {
@@ -120,7 +95,6 @@ class WelcomeScreen extends Component {
           </div>
         </div>
         <div className={`welcome-screen__blue-backdrop ${blueBackground}`}></div>
-        <audio id='menuSoundtrack'><source src={MenuSoundtrack} type='audio/mpeg' /></audio> 
       </div>
     );
   }
@@ -130,7 +104,6 @@ class WelcomeScreen extends Component {
 const mapStateToProps = ({ toggles, form }) => {
   return { toggles, form };
 };
-
 
 export default connect(mapStateToProps, {
   usernameChanged,
