@@ -8,7 +8,6 @@ $score-column-width: 25%;
   overflow: hidden;
   
   &__wrapper {
-    position: relative;
     padding: 30px;
     @include flex-center(column);
   }
@@ -41,7 +40,10 @@ $score-column-width: 25%;
 
 .leaderboard-list {
   width: 100%;
+  height: 340px;
   margin: auto;
+  padding-bottom: 25px;
+  overflow-y: scroll;
   
   &__entry {
     background-color: $color-blue;
@@ -61,6 +63,7 @@ $score-column-width: 25%;
 
   &__score {
     width: $score-column-width;
+    margin-right: 10px;
     text-align: right;
   }
 }

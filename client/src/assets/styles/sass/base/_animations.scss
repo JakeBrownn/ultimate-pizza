@@ -6,8 +6,8 @@
 
 // Sidescroll WelcomeScreen Background
 @keyframes sidescroll-image {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-800px); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-800px, 0, 0); }
 }
 
 // Flashing Text
@@ -25,25 +25,26 @@
 
 // Animate WelcomeScreen Away
 @keyframes welcome-screen-away {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(800px); }
+  0% { transform: translate3d(0); }
+  100% { transform: translate3d(0, 800px, 0); }
 }
 
 // Fly Pizza Onscreen
 @keyframes fly-in-pizza {
-  0% { transform: translateX(-560px); }
-  100% { transform: translateX(0); }
+  0% { transform: translate3d(-560px, 0, 0); }
+  100% { transform: translate3d(0); }
 }
 
 // Pizza Bobbing
 @keyframes bobbing {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0); }
+  0% { transform: translate3d(0); }
+  50% { transform: translate3d(0, -15px, 0); }
+  100% { transform: translate3d(0); }
 }
 
+// Trophy Bobbing
 @keyframes mini-bobbing {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
+  0% { transform: translate3d(0); }
+  50% { transform: translate3d(0, -10px, 0); }
+  100% { transform: translate3d(0); }
 }

@@ -49,7 +49,7 @@
   }
 
   &--fly-in {
-    transform: translateX(-560px);
+    transform: translate3d(-560px, 0, 0);
     animation: fly-in-pizza 3s linear forwards;
     animation-delay: 3.5s;
   }
@@ -75,5 +75,25 @@
 
   &__value {
     font-size: 17px;
+  }
+}
+
+.loading-spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  @include flex-center(row);
+
+  &__image {
+
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+  .action-window {
+    height: 670px;
   }
 }

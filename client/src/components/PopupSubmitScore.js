@@ -18,7 +18,7 @@ class PopupSubmitScore extends Component {
     this.props.toggleSubmitPopup();
   }
 
-  // When 'End Game' is clicked
+  // When 'Submit Score' is clicked
   submitConfirmed(e) {
     e.preventDefault();
     
@@ -81,7 +81,7 @@ class PopupSubmitScore extends Component {
             <p className='submit-score__text'>Do you want to submit your score?</p>
             <form className='submit-score__buttons-wrapper'>
               <input className='submit-score__button no' value='Cancel' type='submit' onClick={(e) => this.submitCancelled(e)} />
-              <input className='submit-score__button yes' value='End Game' type='submit' onClick={(e) => this.submitConfirmed(e)} />
+              <input className='submit-score__button yes' value='Submit Score' type='submit' onClick={(e) => this.submitConfirmed(e)} />
             </form>
           </React.Fragment>
         );

@@ -4,7 +4,9 @@ import LoadingImage from '../assets/images/loading-spinner.svg';
 
 const LoadingSpinner = () => {
   return (
-    <img className='loading-spinner' src={LoadingImage} alt='Loading...' />
+    <div className='loading-spinner'>
+      <img className='loading-spinner__image' src={LoadingImage} alt='Loading...' />
+    </div>
   );
 };
 

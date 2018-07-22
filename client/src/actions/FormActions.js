@@ -24,13 +24,12 @@ export const submitScore = (player) => async (dispatch) => {
 
   // If User Score has successfully submitted
   try {
-    const res = await axios.post('/api/player', player);
+    await axios.post('/api/player', player);
 
     dispatch({ type: SUBMIT_SCORE_SUCCESS });
-  }
 
   // If User Score has failed to submit
-  catch(error) {
+  } catch(error) {
     console.log('nope!');
   }
 };

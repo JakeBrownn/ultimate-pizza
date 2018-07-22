@@ -81,6 +81,47 @@
   }
 }
 
+.sidebar-info {
+  position: relative;
+  height: 150px;
+  width: 375px;
+  padding: 20px;
+  margin: 25px 0;
+  @extend %panel-style;
+
+  &__text {
+    display: block;
+    color: $color-white;
+
+    &--title {
+      margin-bottom: 8px;
+      font-size: 34px;
+      letter-spacing: 2px;
+    }
+
+    &--cost {
+      display: block;
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      font-size: 20px;
+    }
+
+    &--na {
+      opacity: 0.3;
+    }
+  }
+
+  p {
+    display: inline-block;
+    font-family: $font-stack;
+  }
+
+  span {
+    font-family: $symbol-font;
+  }
+}
+
 .sidebar-buttons {
   &__row {
     margin: 25px 0;
@@ -116,27 +157,57 @@
   }
 }
 
-.submit-form {
-  @include flex-center(row);
+// .submit-form {
+//   @include flex-center(row);
   
-  &__input,
-  &__button {
-    height: 75px;
-    padding: 0 10px;
-    font-size: 25px;
-    @extend %panel-style;
-    @include flex-center(row);
+//   &__input,
+//   &__button {
+//     height: 75px;
+//     padding: 0 10px;
+//     font-size: 25px;
+//     @extend %panel-style;
+//     @include flex-center(row);
+//   }
+
+//   &__input {
+//     width: 100%;
+//   }
+
+//   &__button {
+//     height: 95px;
+//     margin-left: 15px;
+//     cursor: pointer;
+//     @include hoverElement;
+//     @include activeElement;
+//   }
+// }
+
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+  .shop {
+    &__title {
+      margin: 20px;
+    }
+  }
+  
+  .shop-item {
+    &__icon {
+      padding: 10px;
+    }
   }
 
-  &__input {
-    width: 100%;
+  .sidebar-info {
+    margin: 20px 0;
   }
 
-  &__button {
-    height: 95px;
-    margin-left: 15px;
-    cursor: pointer;
-    @include hoverElement;
-    @include activeElement;
+  .sidebar-buttons {
+    &__row {
+      margin: 20px 0;
+    }
+  }
+
+  .sidebar-option {
+    &__wrapper {
+      padding: 10px 0;
+    }
   }
 }
