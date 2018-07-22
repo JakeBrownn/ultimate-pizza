@@ -10,6 +10,11 @@
   src: url('../fonts/font-arcade-classic.ttf') format('truetype');
 };
 
+@font-face {
+  font-family: 'Pixellari';
+  src: url('../fonts/font-pixellari.ttf') format('truetype');
+}
+
 .title {
   &--popup {
     margin-bottom: 25px;

@@ -74,6 +74,10 @@
   &__owned {
     margin-top: 5px;
     font-size: 20px;
+
+    &--na {
+      opacity: 0.3;
+    }
   }
 }
 

@@ -12,7 +12,12 @@ class ShopItem extends Component {
   }
 
   render() {
-    const { triggerAction, icon, item, purchased } = this.props;
+    const { triggerAction, icon, item, totalPurchased } = this.props;
+    const { infoUnlocked } = this.props.purchased;
+    const itemOwnedString = 'shop-item__owned';
+
+    // Toggle class if item title is in the infoUnlocked array 
+    const itemOwnedClassName = ( !infoUnlocked.includes(item.title) ? `${itemOwnedString} ${itemOwnedString}--na`: `${itemOwnedString}`);
 
     return (
       <li 
@@ -22,10 +27,15 @@ class ShopItem extends Component {
         onMouseLeave={() => this.handleItemHover(item)}
       >
         <img className='shop-item__icon' src={icon} alt={item.title} />
-        <span className='shop-item__owned'>{`Owned: ${purchased} / 3`}</span>
+        <span className={itemOwnedClassName}>{`Owned: ${totalPurchased} / 3`}</span>
       </li>
     )
   }
 }
 
-export default connect(null, {toggleItemInfo})(ShopItem);
+// Map State from Store into Props
+const mapStateToProps = ({ counter, purchased }) => {
+  return { counter, purchased };
+}
+
+export default connect(mapStateToProps, {toggleItemInfo})(ShopItem);

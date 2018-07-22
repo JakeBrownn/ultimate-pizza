@@ -1,5 +1,4 @@
 import {
-  GAME_LOADED,
   INCREMENT_CLICK,
   TOGGLE_SOUND_CHOMP,
   TOGGLE_LEADERBOARD,
@@ -10,6 +9,7 @@ import {
   USERNAME_ERROR,
   START_GAME_ANIMATIONS,
   START_GAME,
+  UNLOCK_ITEM_DESC,
   LEADERBOARD_POSITION
 } from './types';
 
@@ -46,6 +46,12 @@ export const startGameAnimations = () => (dispatch) => dispatch({ type: START_GA
 
 // Begin Session
 export const startGame = () => (dispatch) => dispatch({ type: START_GAME });
+
+export const unlockItemDesc = (itemTitle) => {
+  return (dispatch) => {
+    dispatch({ type: UNLOCK_ITEM_DESC, payload: itemTitle })
+  }
+}
 
 // Set User Leaderboard Position
 export const setLeaderboardPos = (pos) => {

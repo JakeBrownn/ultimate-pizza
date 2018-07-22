@@ -26,6 +26,9 @@ class WelcomeScreen extends Component {
     const { playerUsername } = this.props.form;
     const minUserLength = 5;
 
+    // Regex, only alphnumeric
+    const inputValidator = /[^\w]|_/g;
+
     switch(true) {
 
       // If Username is not entered
@@ -44,7 +47,7 @@ class WelcomeScreen extends Component {
         break;
 
       // If Username is contains symbols
-      case (/[^\w]|_/g.test(playerUsername)):
+      case (inputValidator.test(playerUsername)):
         this.props.usernameError('Your username must only contain letters and numbers.');
         break;
       default: 

@@ -6,26 +6,43 @@ import PopupSubmitScore from './PopupSubmitScore';
 import PopupLeaderboard from './PopupLeaderboard';
 import PopupFeedback from './PopupFeedback';
 
-import { incrementClicks, toggleSoundChomp } from '../actions';
+import { incrementClicks, toggleSoundChomp, unlockItemDesc } from '../actions';
 
 import pizza from '../assets/images/image-pixel-pizza.png';
 import soundChompOne from '../assets/audio/sound-chomp-1.mp3';
 import soundChompTwo from '../assets/audio/sound-chomp-2.mp3';
 
+import { itemOne, itemTwo, itemThree } from '../data';
+
 
 class GameWindow extends Component {
 
   // Handle onClick of Pizza
-  addClick() {
+  handleClick() {
     const { toggles, toggleSoundChomp, incrementClicks } = this.props;
     const soundOne = new Audio(soundChompOne);
     const soundTwo = new Audio(soundChompTwo);
     
     toggleSoundChomp();
     incrementClicks();
+    this.checkItemDesc(itemOne);
+    this.checkItemDesc(itemTwo);
+    this.checkItemDesc(itemThree);
 
     // Alternate between two Chomp sounds
     ( toggles.chompSound === 1 ) ? soundOne.play() : soundTwo.play();
+  }
+
+  checkItemDesc(item) {
+    const { total } = this.props.counter;
+    const { infoUnlocked } = this.props.purchased;
+
+    // If slices total is 1/4 of the item cost & infoUnlocked array does not contain the item title 
+    if ((item.cost * 0.25) <= total && (!infoUnlocked.includes(item.title))) {
+
+      // Add the item title to the infoUnlocked array
+      this.props.unlockItemDesc(item.title)
+    }
   }
 
   renderPopups() {
@@ -51,6 +68,8 @@ class GameWindow extends Component {
     const { counter, toggles } = this.props;
     const actionBtnClassName = (`action-button action-button--${toggles.actionButton}`);
 
+    console.log(this.props.purchased.infoUnlocked)
+
     return (
       <div className='action-window'>
         {this.renderPopups()}
@@ -59,7 +78,7 @@ class GameWindow extends Component {
           <WelcomeScreen />
         }
         <div className={actionBtnClassName}>
-          <img className='action-button__image' src={pizza} alt='Pizza' onClick={() => {this.addClick()}} />
+          <img className='action-button__image' src={pizza} alt='Pizza' onClick={() => {this.handleClick()}} />
         </div>
         <div className='user-score'>
           <span className='user-score__value'>{counter.total} Slices</span>
@@ -73,11 +92,12 @@ class GameWindow extends Component {
 };
 
 // Map State from Store into Props
-const mapStateToProps = ({ counter, toggles }) => {
-  return { counter, toggles };
+const mapStateToProps = ({ counter, toggles, purchased }) => {
+  return { counter, toggles, purchased };
 };
 
 export default connect(mapStateToProps, {
   incrementClicks,
-  toggleSoundChomp
+  toggleSoundChomp,
+  unlockItemDesc
 })(GameWindow);

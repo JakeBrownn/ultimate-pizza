@@ -75,19 +75,19 @@ class Shop extends Component {
           <ShopItem
             item={itemOne}
             icon={IconDeliveryMan}
-            purchased={deliveryMan}
+            totalPurchased={deliveryMan}
             triggerAction={() => this.handleDeliveryMan()}
           />
           <ShopItem
             item={itemTwo}
             icon={IconExtraCheese}
-            purchased={extraCheese}
+            totalPurchased={extraCheese}
             triggerAction={() => this.handleExtraCheese()}
           />
           <ShopItem
             item={itemThree}
             icon={IconDeliveryMan}
-            purchased={deliveryMan}
+            totalPurchased={deliveryMan}
             triggerAction={() => this.handleDeliveryMan()}
           />
         </ul>

@@ -14,9 +14,7 @@ class Button extends Component {
     clickSound.play();   
 
     // If Button has Props of 'onClick'
-    if (whenClicked) {
-      whenClicked();
-    }
+    (whenClicked) && (whenClicked());
   }
 
   buttonContents() {
