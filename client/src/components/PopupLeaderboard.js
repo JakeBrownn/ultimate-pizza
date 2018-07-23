@@ -36,12 +36,6 @@ class PopupLeaderboard extends Component {
     if (leaderboardData.length > 0) {
       return (
         <React.Fragment>
-          {/* <div className='scroll-down'>
-            <div className='scroll-down__wrapper'>
-              <span className='scroll-down__text'>Scroll Down</span>
-              <img className='scroll-down__image' src={IconArrowDown} alt='Arrow' />
-            </div>
-          </div>  */}
           <div className='leaderboard__categories'>
             <span className='leaderboard__category leaderboard__category--rank'>Rank</span>
             <span className='leaderboard__category leaderboard__category--username'>Username</span>

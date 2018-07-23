@@ -5,8 +5,44 @@
   }
 
   &__form {
-
     @include flex-center(column);
+  }
+
+  &__rating-list {
+    width: 520px;
+    padding: 0 15px;
+    margin-bottom: 25px;
+    @include flex-between(row);
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__rating-wrapper {
+    input[type="radio"] + label {
+      &:before {
+        content: '';
+        display: inline-block;
+        height: 17px;
+        width: 16px;
+        margin-right: 10px;
+        background-image: url('../images/checkboxes.png');
+        background-repeat: no-repeat;
+        background-position: -39px 0;
+      }
+    }
+
+    input[type="radio"]:checked + label {
+      &:before {
+        background-position: -58px 0;
+      }
+    }
+  }
+
+  &__radio-label {
+    font-size: 30px;
+    cursor: pointer;
   }
 
   &__text-field {
@@ -28,6 +64,10 @@
     cursor: pointer;
     @extend %panel-style;
     @include hoverElement;
+
+    &:hover {
+      background-color: $color-green;
+    }
   }
 
   &--hidden {

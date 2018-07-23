@@ -1,5 +1,6 @@
 # Root Folder
 /node_modules
+/.sass-cache
 
 # Client Folder
 /client/node_modules

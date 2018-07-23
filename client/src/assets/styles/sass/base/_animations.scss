@@ -32,7 +32,7 @@
 // Fly Pizza Onscreen
 @keyframes fly-in-pizza {
   0% { transform: translateX(-560px); }
-  100% { transform: translate3d(0); }
+  100% { transform: translateX(0); }
 }
 
 // Pizza Bobbing
