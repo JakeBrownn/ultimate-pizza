@@ -68,8 +68,6 @@ class GameWindow extends Component {
     const { counter, toggles } = this.props;
     const actionBtnClassName = (`action-button action-button--${toggles.actionButton}`);
 
-    console.log(this.props.purchased.infoUnlocked)
-
     return (
       <div className='action-window'>
         {this.renderPopups()}

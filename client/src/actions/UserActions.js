@@ -35,11 +35,7 @@ export const toggleFeedbackPopup = () => (dispatch) => dispatch({ type: TOGGLE_F
 export const toggleItemInfo = (item) => ({ type: TOGGLE_ITEM_INFO, payload: item });
 
 // Show error if Username is not correct format
-export const usernameError = (error) => {
-  return (dispatch) => {
-    dispatch({ type: USERNAME_ERROR, payload: error });
-  }
-};
+export const usernameError = (error) => (dispatch) => dispatch({ type: USERNAME_ERROR, payload: error });
 
 // Animate-out Welcome Screen
 export const startGameAnimations = () => (dispatch) => dispatch({ type: START_GAME_ANIMATIONS });
@@ -47,15 +43,8 @@ export const startGameAnimations = () => (dispatch) => dispatch({ type: START_GA
 // Begin Session
 export const startGame = () => (dispatch) => dispatch({ type: START_GAME });
 
-export const unlockItemDesc = (itemTitle) => {
-  return (dispatch) => {
-    dispatch({ type: UNLOCK_ITEM_DESC, payload: itemTitle })
-  }
-}
+// Add item title to infoUnlocked array
+export const unlockItemDesc = (itemTitle) => (dispatch) => dispatch({ type: UNLOCK_ITEM_DESC, payload: itemTitle })
 
 // Set User Leaderboard Position
-export const setLeaderboardPos = (pos) => {
-  return (dispatch) => {
-    dispatch({ type: LEADERBOARD_POSITION, payload: pos })
-  }
-}
+export const setLeaderboardPos = (pos) => (dispatch) => dispatch({ type: LEADERBOARD_POSITION, payload: pos });

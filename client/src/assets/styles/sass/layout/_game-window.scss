@@ -20,17 +20,6 @@
   @include flex-center(column);
 }
 
-.leaderboard,
-.submit-score,
-.feedback-popup {
-  position: absolute;
-  background-color: $color-dark-blue;
-  width: 600px;
-  border: $gold-border;
-  text-align: center;
-  z-index: 3;
-}
-
 .action-button {
   cursor: pointer;
   z-index: 1;
@@ -49,7 +38,7 @@
   }
 
   &--fly-in {
-    transform: translate3d(-560px, 0, 0);
+    transform: translateX(-560px);
     animation: fly-in-pizza 3s linear forwards;
     animation-delay: 3.5s;
   }
@@ -86,10 +75,17 @@
   width: 100%;
   z-index: 1;
   @include flex-center(row);
+}
 
-  &__image {
-
-  }
+.leaderboard,
+.submit-score,
+.feedback-popup {
+  position: absolute;
+  background-color: $color-dark-blue;
+  width: 600px;
+  border: $gold-border;
+  text-align: center;
+  z-index: 3;
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1366px) {

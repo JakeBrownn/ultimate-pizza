@@ -85,10 +85,6 @@
   width: 510px;
   margin: 35px 0;
 
-  &__stats {
-
-  }
-
   &__item {
     margin-bottom: 10px;
     @include flex-between(row);

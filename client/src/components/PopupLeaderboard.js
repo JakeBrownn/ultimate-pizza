@@ -5,6 +5,8 @@ import LoadingSpinner from './LoadingSpinner';
 
 import { fetchLeaderboardData, setLeaderboardPos } from '../actions';
 
+import IconArrowDown from '../assets/images/icon-arrow-down.png';
+
 
 class PopupLeaderboard extends Component {
   componentDidMount() {
@@ -34,6 +36,12 @@ class PopupLeaderboard extends Component {
     if (leaderboardData.length > 0) {
       return (
         <React.Fragment>
+          {/* <div className='scroll-down'>
+            <div className='scroll-down__wrapper'>
+              <span className='scroll-down__text'>Scroll Down</span>
+              <img className='scroll-down__image' src={IconArrowDown} alt='Arrow' />
+            </div>
+          </div>  */}
           <div className='leaderboard__categories'>
             <span className='leaderboard__category leaderboard__category--rank'>Rank</span>
             <span className='leaderboard__category leaderboard__category--username'>Username</span>
@@ -48,6 +56,7 @@ class PopupLeaderboard extends Component {
 
     // Display loading spinner by default
     return <LoadingSpinner />
+
   }
 
   render() {    

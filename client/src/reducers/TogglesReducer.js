@@ -46,7 +46,7 @@ export const TogglesReducer = (state = INITIAL_STATE, action) => {
       }
     case TOGGLE_FEEDBACK_POPUP: 
       if (state.showFeedbackPopup === false) {
-        return { ...state, showFeedbackPopup: false, showSubmitPopup: false, showLeaderboard: false }
+        return { ...state, showFeedbackPopup: true, showSubmitPopup: false, showLeaderboard: false }
       } else {
         return { ...state, showFeedbackPopup: false }
       }
