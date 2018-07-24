@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import LoadingSpinner from './LoadingSpinner';
-
 import { fetchLeaderboardData, setLeaderboardPos } from '../actions';
-
-import IconArrowDown from '../assets/images/icon-arrow-down.png';
-
 
 class PopupLeaderboard extends Component {
   componentDidMount() {
     this.props.fetchLeaderboardData();
   }
 
-  renderLeaderboardContent() {
+    renderLeaderboardContent() {
     const { leaderboardData } = this.props.form;
 
     // Loop over leaderboardData
@@ -24,7 +19,7 @@ class PopupLeaderboard extends Component {
       (i < 9) && (playerPos = `0${i + 1}`);
 
       return (
-        <li className='leaderboard-list__entry' key={i}>
+        <li className='leaderboard-list__entry' key={item.id}>
           <span className='leaderboard-list__rank'>{playerPos}</span>
           <span className='leaderboard-list__username'>{item.username}</span>
           <span className='leaderboard-list__score'>{item.score}</span>
@@ -65,7 +60,6 @@ class PopupLeaderboard extends Component {
   }
 };
 
-// Map State from Store into Props
 const mapStateToProps = ({ form }) => {
   return { form };
 };

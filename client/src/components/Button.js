@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import SoundToggle from '../assets/audio/sound-toggle.mp3';
 
+const propTypes = {
+  type: PropTypes.string,
+  linkURL: PropTypes.string,
+  buttonIcon: PropTypes.string,
+  buttonText: PropTypes.string,
+  whenClicked: PropTypes.func
+};
 
 class Button extends Component {
 
@@ -17,7 +24,7 @@ class Button extends Component {
     (whenClicked) && (whenClicked());
   }
 
-  buttonContents() {
+  renderButtonContent() {
     const { type, linkURL, buttonIcon, buttonText, children } = this.props;
     const wrapperClassName = 'sidebar-option__wrapper';
     const textClassName = 'sidebar-option__text';
@@ -55,10 +62,12 @@ class Button extends Component {
     
     return (
       <div className={buttonClass} onClick={() => this.handleClick()}>
-        {this.buttonContents()}
+        {this.renderButtonContent()}
       </div>
-    );
+    )
   }
 };
+
+Button.propTypes = propTypes;
 
 export default Button;

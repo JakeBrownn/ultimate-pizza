@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import packageJson from '../../package.json';
-
 import { 
   usernameChanged, 
   usernameError,
   startGameAnimations,
   startGame  
 } from '../actions';
-
 import WelcomeBackground from '../assets/images/background-welcome-screen.jpg';
-
 
 class WelcomeScreen extends Component {
   

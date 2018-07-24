@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class PopupFeedback extends Component {
-  generateRatingList() {
+  renderRatingList() {
     const numberText = ['One', 'Two', 'Three', 'Four', 'Five'];
 
     return numberText.map((rating, i) => {
@@ -22,7 +22,7 @@ class PopupFeedback extends Component {
           <h2 className='title title--popup'>How would you rate this project out of 5?</h2>
           <form className='feedback-popup__form'>
             <div className='feedback-popup__rating-list'>
-              {this.generateRatingList()}
+              {this.renderRatingList()}
             </div>
             <textarea className='feedback-popup__text-field' placeholder='Tell me why?' />          
             <button className='feedback-popup__submit' type='submit'>Send</button>
@@ -35,6 +35,6 @@ class PopupFeedback extends Component {
 
 const mapStateToProps = ({ toggles }) => {
   return { toggles };
-}
+};
 
 export default connect(mapStateToProps, {})(PopupFeedback);

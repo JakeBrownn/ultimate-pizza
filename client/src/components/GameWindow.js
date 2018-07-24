@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
-
 import WelcomeScreen from './WelcomeScreen';
 import PopupSubmitScore from './PopupSubmitScore';
 import PopupLeaderboard from './PopupLeaderboard';
 import PopupFeedback from './PopupFeedback';
-
 import { incrementClicks, toggleSoundChomp, unlockItemDesc } from '../actions';
-
 import pizza from '../assets/images/image-pixel-pizza.png';
 import soundChompOne from '../assets/audio/sound-chomp-1.mp3';
 import soundChompTwo from '../assets/audio/sound-chomp-2.mp3';
-
 import { itemOne, itemTwo, itemThree } from '../data';
-
 
 class GameWindow extends Component {
 
@@ -41,7 +36,7 @@ class GameWindow extends Component {
     if ((item.cost * 0.25) <= total && (!infoUnlocked.includes(item.title))) {
 
       // Add the item title to the infoUnlocked array
-      this.props.unlockItemDesc(item.title)
+      this.props.unlockItemDesc(item.title);
     }
   }
 
@@ -71,10 +66,9 @@ class GameWindow extends Component {
     return (
       <div className='action-window'>
         {this.renderPopups()}
-
-        { toggles.gameStarted === false && 
+        { toggles.gameStarted === false && (
           <WelcomeScreen />
-        }
+        )}
         <div className={actionBtnClassName}>
           <img className='action-button__image' src={pizza} alt='Pizza' onClick={() => {this.handleClick()}} />
         </div>
@@ -85,11 +79,10 @@ class GameWindow extends Component {
           <span className='user-level__value'>Level 1</span>
         </div>
       </div>
-    );
+    )
   }
 };
 
-// Map State from Store into Props
 const mapStateToProps = ({ counter, toggles, purchased }) => {
   return { counter, toggles, purchased };
 };

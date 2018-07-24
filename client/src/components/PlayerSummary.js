@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
 import PlayerStat from './PlayerStat';
-
 
 class PlayerSummary extends Component {
   render() {
@@ -13,7 +11,7 @@ class PlayerSummary extends Component {
           <PlayerStat category='Total Time Played' />
         </ul>
       </div>
-    );
+    )
   }
 }; 
 

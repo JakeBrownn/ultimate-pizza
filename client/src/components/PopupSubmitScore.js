@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import LoadingSpinner from './LoadingSpinner';
 import PlayerSummary from './PlayerSummary';
-
 import { toggleSubmitPopup, submitScore } from '../actions';
-
 import IconTrophy from '../assets/images/icon-trophy.png';
-
 
 class PopupSubmitScore extends Component {
 
   // When 'Cancel' is clicked
-  submitCancelled(e) {
+  onCancelClick(e) {
     e.preventDefault();
     
     this.props.toggleSubmitPopup();
   }
 
   // When 'Submit Score' is clicked
-  submitConfirmed(e) {
+  onSubmitClick(e) {
     e.preventDefault();
     
     const { form, counter } = this.props;
@@ -35,10 +31,7 @@ class PopupSubmitScore extends Component {
 
   // Render loading spinner
   renderPopupContent() {
-    const { 
-      loading, 
-      submitSuccess
-    } = this.props.form;
+    const { loading, submitSuccess } = this.props.form;
     const Trophy = () => <img className='submit-score__trophy' src={IconTrophy} alt='Trophy' />;
 
     switch(true) {
@@ -80,8 +73,8 @@ class PopupSubmitScore extends Component {
             <p className='submit-score__text'>You will not keep your total slices once submitted.</p>
             <p className='submit-score__text'>Do you want to submit your score?</p>
             <form className='submit-score__buttons-wrapper'>
-              <input className='submit-score__button no' value='Cancel' type='submit' onClick={(e) => this.submitCancelled(e)} />
-              <input className='submit-score__button yes' value='Submit Score' type='submit' onClick={(e) => this.submitConfirmed(e)} />
+              <input className='submit-score__button no' value='Cancel' type='submit' onClick={(e) => this.onCancelClick(e)} />
+              <input className='submit-score__button yes' value='Submit Score' type='submit' onClick={(e) => this.onSubmitClick(e)} />
             </form>
           </React.Fragment>
         );
@@ -99,7 +92,6 @@ class PopupSubmitScore extends Component {
   }
 };
 
-// Map State from Redux Store into Props
 const mapStateToProps = ({ form, counter }) => {
   return { form, counter };
 };

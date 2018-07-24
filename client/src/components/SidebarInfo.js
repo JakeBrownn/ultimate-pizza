@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-
 class SidebarInfo extends Component {
-  sidebarInfoContents() {
+  renderContent() {
     const { title, desc, cost } = this.props.toggles.item;
     const { infoUnlocked } = this.props.purchased;
     const titleClassName = 'sidebar-info__text sidebar-info__text--title';
@@ -40,7 +39,7 @@ class SidebarInfo extends Component {
   render() {
     return (
       <div className='sidebar-info'>
-        {this.sidebarInfoContents()}
+        {this.renderContent()}
       </div>
     );
   }

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
-
 import ShopItem from './ShopItem';
 import SidebarInfo from './SidebarInfo';
 import { itemOne, itemTwo, itemThree } from '../data';
-
 import {
   buyDeliveryMan,
   activateDeliveryMan,
@@ -12,11 +10,9 @@ import {
   activateExtraCheese,
   intervalExtraCheese
 } from '../actions';
-
 import soundPurchase from '../assets/audio/sound-purchase.mp3';
 import IconDeliveryMan from '../assets/images/icon-delivery-man.png';
 import IconExtraCheese from '../assets/images/icon-extra-cheese.png';
-
 
 class Shop extends Component {
   

@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import Button from './Button';
 import SidebarRow from './SidebarRow';
-
 import {
   toggleSoundtrack,
   toggleLeaderboard,
   toggleSubmitPopup,
   toggleFeedbackPopup
 } from '../actions';
-
 import gameSoundtrack from '../assets/audio/soundtrack-main.mp3';
 import IconSoundOn from '../assets/images/icon-sound-on.png';
 import IconSoundOff from '../assets/images/icon-sound-off.png';
 import IconSave from '../assets/images/icon-save.png';
 import IconHeart from '../assets/images/icon-heart.png';
 
-
 class SidebarOptions extends Component {
   
   // Toggle the Soundtrack 
-  handleSoundButton() {
+  soundButtonClick() {
     const { playSoundtrack } = this.props.toggles;
     const soundtrackMusic = document.getElementById('gameSoundtrack');
 
@@ -32,7 +28,7 @@ class SidebarOptions extends Component {
   }
 
   // Toggle contents of the Music button
-  toggleSoundButton() {
+  renderSoundButton() {
     const { playSoundtrack } = this.props.toggles;
     const soundButtonIcon = (playSoundtrack === false ? IconSoundOff : IconSoundOn );
     const soundButtonText = (playSoundtrack === false ? 'Off' : 'On' );
@@ -47,17 +43,17 @@ class SidebarOptions extends Component {
   }
 
   // Toggle Submit Score Popup  
-  displaySubmitPopup() {
+  renderSubmitPopup() {
     this.props.toggleSubmitPopup();
   }
 
   // Toggle Leaderboard Popup    
-  displayLeaderboard() {
+  renderLeaderboard() {
     this.props.toggleLeaderboard();
   }
 
   // Toggle Feedback Popup    
-  displayFeedbackPopup() {
+  renderFeedbackPopup() {
     this.props.toggleFeedbackPopup();
   }
 
@@ -65,27 +61,27 @@ class SidebarOptions extends Component {
     return (
       <div className='sidebar-buttons'>
         <SidebarRow>
-          <Button whenClicked={(e) => this.handleSoundButton(e)}>
-            {this.toggleSoundButton()}
+          <Button whenClicked={(e) => this.soundButtonClick(e)}>
+            {this.renderSoundButton()}
           </Button>
           <Button 
             type='icon' 
             buttonIcon={IconSave}
             buttonText='End Session'
-            whenClicked={() => this.displaySubmitPopup()}
+            whenClicked={() => this.renderSubmitPopup()}
           />
           <Button 
             type='icon' 
             buttonIcon={IconHeart}
             buttonText='Feedback'
-            whenClicked={() => this.displayFeedbackPopup()}
+            whenClicked={() => this.renderFeedbackPopup()}
           />
         </SidebarRow>
         <SidebarRow>
           <Button 
             type='text' 
             className='leaderboard' 
-            whenClicked={() => this.displayLeaderboard()}
+            whenClicked={() => this.renderLeaderboard()}
           >
             Leaderboards
           </Button>

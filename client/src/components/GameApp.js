@@ -1,5 +1,4 @@
 import React from 'react';
-
 import GameWindow from './GameWindow';
 import GameSidebar from './GameSidebar';
 

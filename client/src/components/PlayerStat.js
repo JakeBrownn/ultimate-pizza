@@ -1,6 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const PlayerStat = ({ category, stat }) => {
+const propTypes = {
+  category: PropTypes.string.isRequired,
+};
+
+const PlayerStat = ({ category }) => {
   return (
     <li className='player-summary__item'>
       <span className='player-summary__category'>{category}:</span>
@@ -8,5 +13,7 @@ const PlayerStat = ({ category, stat }) => {
     </li>
   )
 };
+
+PlayerStat.propTypes = propTypes;
 
 export default PlayerStat;
