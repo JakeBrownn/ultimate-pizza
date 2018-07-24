@@ -11,6 +11,11 @@ import soundChompTwo from '../assets/audio/sound-chomp-2.mp3';
 import { itemOne, itemTwo, itemThree } from '../data';
 
 class GameWindow extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
 
   // Handle onClick of Pizza
   handleClick() {
@@ -70,7 +75,7 @@ class GameWindow extends Component {
           <WelcomeScreen />
         )}
         <div className={actionBtnClassName}>
-          <img className='action-button__image' src={pizza} alt='Pizza' onClick={() => {this.handleClick()}} />
+          <img className='action-button__image' src={pizza} alt='Pizza' onClick={this.handleClick} />
         </div>
         <div className='user-score'>
           <span className='user-score__value'>{counter.total} Slices</span>

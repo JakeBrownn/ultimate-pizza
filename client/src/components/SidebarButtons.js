@@ -15,6 +15,11 @@ import IconSave from '../assets/images/icon-save.png';
 import IconHeart from '../assets/images/icon-heart.png';
 
 class SidebarOptions extends Component {
+  constructor(props) {
+    super(props);
+
+    this.soundButtonClick = this.soundButtonClick.bind(this);
+  }
   
   // Toggle the Soundtrack 
   soundButtonClick() {

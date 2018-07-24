@@ -15,6 +15,12 @@ import IconDeliveryMan from '../assets/images/icon-delivery-man.png';
 import IconExtraCheese from '../assets/images/icon-extra-cheese.png';
 
 class Shop extends Component {
+  constructor(props) {
+    super(props);
+
+    this.clickExtraCheese = this.clickExtraCheese.bind(this);
+    this.clickDeliveryMan = this.clickDeliveryMan.bind(this);
+  }
   
   // Play the 'purchase' sound effect
   purchaseSound() {
@@ -24,7 +30,7 @@ class Shop extends Component {
   }
 
   // When Delivery Man ShopItem is clicked
-  handleDeliveryMan() {
+  clickDeliveryMan() {
     const { 
       purchased, 
       counter, 
@@ -41,7 +47,7 @@ class Shop extends Component {
   }
 
   // When Extra Cheese ShopItem is clicked
-  handleExtraCheese() {
+  clickExtraCheese() {
     const { 
       purchased, 
       counter, 
@@ -72,19 +78,19 @@ class Shop extends Component {
             item={itemOne}
             icon={IconDeliveryMan}
             totalPurchased={deliveryMan}
-            triggerAction={() => this.handleDeliveryMan()}
+            triggerAction={this.clickDeliveryMan}
           />
           <ShopItem
             item={itemTwo}
             icon={IconExtraCheese}
             totalPurchased={extraCheese}
-            triggerAction={() => this.handleExtraCheese()}
+            triggerAction={this.clickExtraCheese}
           />
           <ShopItem
             item={itemThree}
             icon={IconDeliveryMan}
             totalPurchased={deliveryMan}
-            triggerAction={() => this.handleDeliveryMan()}
+            triggerAction={this.clickDeliveryMan}
           />
         </ul>
         <SidebarInfo />

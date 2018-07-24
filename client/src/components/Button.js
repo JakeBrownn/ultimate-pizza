@@ -11,6 +11,11 @@ const propTypes = {
 };
 
 class Button extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
 
   // When Button is clicked
   handleClick() {
@@ -61,7 +66,7 @@ class Button extends Component {
     const buttonClass = (`sidebar-option` + (className ? ` sidebar-option--${className}` : ''));
     
     return (
-      <div className={buttonClass} onClick={() => this.handleClick()}>
+      <div className={buttonClass} onClick={this.handleClick}>
         {this.renderButtonContent()}
       </div>
     )
