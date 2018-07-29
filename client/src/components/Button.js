@@ -13,7 +13,6 @@ const propTypes = {
 class Button extends Component {
   constructor(props) {
     super(props);
-
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -51,7 +50,7 @@ class Button extends Component {
           </div>
         );
       case 'link':
-        return <a className={wrapperClassName} href={linkURL} target='_blank'>{children}</a>
+        return <a className={wrapperClassName} href={linkURL} target='_blank'>{children}</a>;
       default:
         return (
           <div className={wrapperClassName}>
@@ -63,7 +62,7 @@ class Button extends Component {
 
   render() {
     const { className } = this.props;
-    const buttonClass = (`sidebar-option` + (className ? ` sidebar-option--${className}` : ''));
+    const buttonClass = ( className ? `sidebar-option sidebar-option--${className}` : 'sidebar-option' );
     
     return (
       <div className={buttonClass} onClick={this.handleClick}>

@@ -13,7 +13,6 @@ import { itemOne, itemTwo, itemThree } from '../data';
 class GameWindow extends Component {
   constructor(props) {
     super(props);
-
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -30,7 +29,7 @@ class GameWindow extends Component {
     this.checkItemDesc(itemThree);
 
     // Alternate between two Chomp sounds
-    ( toggles.chompSound === 1 ) ? soundOne.play() : soundTwo.play();
+    ( toggles.chompSound === 1 ? soundOne.play() : soundTwo.play() );
   }
 
   checkItemDesc(item) {
@@ -46,11 +45,7 @@ class GameWindow extends Component {
   }
 
   renderPopups() {
-    const { 
-      showLeaderboard, 
-      showSubmitPopup, 
-      showFeedbackPopup 
-    } = this.props.toggles;
+    const { showLeaderboard, showSubmitPopup, showFeedbackPopup } = this.props.toggles;
 
     switch(true) {
       case showLeaderboard:
@@ -66,7 +61,7 @@ class GameWindow extends Component {
     
   render() {
     const { counter, toggles } = this.props;
-    const actionBtnClassName = (`action-button action-button--${toggles.actionButton}`);
+    const actionBtnClassName = `action-button action-button--${toggles.actionButton}`;
 
     return (
       <div className='action-window'>

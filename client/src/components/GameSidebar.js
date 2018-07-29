@@ -11,7 +11,7 @@ const propTypes = {
 class GameSidebar extends Component {
   render() {
     const { sidebarClass } = this.props.toggles;
-    const sidebarClassName = (`sidebar__overlay sidebar__overlay--${sidebarClass}`);
+    const sidebarClassName = `sidebar__overlay sidebar__overlay--${sidebarClass}`;
     
     return (
       <div className='sidebar'>
