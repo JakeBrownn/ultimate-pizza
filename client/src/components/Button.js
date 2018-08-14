@@ -29,7 +29,7 @@ class Button extends Component {
     (whenClicked) && (whenClicked());
   }
 
-  renderButtonContent() {
+  renderContent() {
     const { type, linkURL, buttonIcon, buttonText, children } = this.props;
     const wrapperClassName = 'sidebar-option__wrapper';
     const textClassName = 'sidebar-option__text';
@@ -67,7 +67,7 @@ class Button extends Component {
     
     return (
       <div className={buttonClass} onClick={this.handleClick}>
-        {this.renderButtonContent()}
+        {this.renderContent()}
       </div>
     )
   }

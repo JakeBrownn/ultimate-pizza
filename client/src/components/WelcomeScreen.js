@@ -22,8 +22,6 @@ class WelcomeScreen extends Component {
 
     const { playerUsername } = this.props.form;
     const minUserLength = 5;
-
-    // Regex, only alphnumeric
     const inputValidator = /[^\w]|_/g;
 
     switch(true) {

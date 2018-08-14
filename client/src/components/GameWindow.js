@@ -13,7 +13,6 @@ import { itemOne, itemTwo, itemThree } from '../data';
 class GameWindow extends Component {
   constructor(props) {
     super(props);
-
     this.handleClick = this.handleClick.bind(this);
   }
 

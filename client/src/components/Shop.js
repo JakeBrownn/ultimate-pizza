@@ -17,7 +17,6 @@ import IconExtraCheese from '../assets/images/icon-extra-cheese.png';
 class Shop extends Component {
   constructor(props) {
     super(props);
-
     this.clickExtraCheese = this.clickExtraCheese.bind(this);
     this.clickDeliveryMan = this.clickDeliveryMan.bind(this);
   }

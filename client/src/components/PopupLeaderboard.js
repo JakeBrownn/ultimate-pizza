@@ -8,7 +8,7 @@ class PopupLeaderboard extends Component {
     this.props.fetchLeaderboardData();
   }
 
-    renderLeaderboardContent() {
+  renderContent() {
     const { leaderboardData } = this.props.form;
 
     // Loop over leaderboardData
@@ -44,8 +44,7 @@ class PopupLeaderboard extends Component {
     } 
 
     // Display loading spinner by default
-    return <LoadingSpinner />
-
+    return <LoadingSpinner />;
   }
 
   render() {    
@@ -53,7 +52,7 @@ class PopupLeaderboard extends Component {
       <div className='leaderboard'>
         <div className='leaderboard__wrapper'>
           <h2 className='title title--popup'>The Leaderboards</h2>
-          {this.renderLeaderboardContent()}
+          {this.renderContent()}
         </div>
       </div>
     );

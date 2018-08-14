@@ -29,8 +29,7 @@ class PopupSubmitScore extends Component {
     this.props.submitScore(player);
   }
 
-  // Render loading spinner
-  renderPopupContent() {
+  renderContent() {
     const { loading, submitSuccess } = this.props.form;
     const Trophy = () => <img className='submit-score__trophy' src={IconTrophy} alt='Trophy' />;
 
@@ -85,7 +84,7 @@ class PopupSubmitScore extends Component {
     return (
       <div className='submit-score'>
         <div className='submit-score__wrapper'>
-          {this.renderPopupContent()}
+          {this.renderContent()}
         </div>
       </div>
     );
