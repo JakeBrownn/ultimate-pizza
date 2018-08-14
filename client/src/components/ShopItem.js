@@ -15,7 +15,7 @@ class ShopItem extends Component {
     const itemOwnedString = 'shop-item__owned';
 
     // Toggle class if item title is in the infoUnlocked array 
-    const itemOwnedClassName = ( !infoUnlocked.includes(item.title) ? `${itemOwnedString} ${itemOwnedString}--na`: `${itemOwnedString}`);
+    const itemOwnedClassName = ( !infoUnlocked.includes(item.title) ? `${itemOwnedString} ${itemOwnedString}--na`: `${itemOwnedString}` );
 
     return (
       <li 
@@ -36,4 +36,4 @@ const mapStateToProps = ({ counter, purchased }) => {
   return { counter, purchased };
 }
 
-export default connect(mapStateToProps, {toggleItemInfo})(ShopItem);
+export default connect(mapStateToProps, { toggleItemInfo })(ShopItem);
