@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import {
   USERNAME_CHANGED,
   SUBMIT_SCORE,
@@ -26,7 +25,7 @@ export const submitScore = (player) => async (dispatch) => {
 
   // If User Score has failed to submit
   } catch(error) {
-    console.log('nope!');
+    console.log(error);
   }
 };
 
@@ -46,4 +45,4 @@ export const fetchLeaderboardData = () => async (dispatch) => {
   const res = await axios.get('/api/leaderboard');
 
   dispatch({ type: LEADERBOARD_DATA, payload: res.data });
-}
+};

@@ -4,7 +4,6 @@ import {
   ACTIVATE_EXTRA_CHEESE,
   INTERVAL_EXTRA_CHEESE 
 } from '../actions/types';
-
 import { itemOne, itemTwo } from '../data';
 
 const INITIAL_STATE = {

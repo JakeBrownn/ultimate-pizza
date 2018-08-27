@@ -29,11 +29,12 @@ class ShopItem extends Component {
       </li>
     )
   }
-}
+};
 
-// Map State from Store into Props
 const mapStateToProps = ({ counter, purchased }) => {
   return { counter, purchased };
-}
+};
 
-export default connect(mapStateToProps, { toggleItemInfo })(ShopItem);
+export default connect(mapStateToProps, { 
+  toggleItemInfo 
+})(ShopItem);

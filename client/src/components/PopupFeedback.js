@@ -37,4 +37,4 @@ const mapStateToProps = ({ toggles }) => {
   return { toggles };
 };
 
-export default connect(mapStateToProps, null)(PopupFeedback);
+export default connect(mapStateToProps)(PopupFeedback);

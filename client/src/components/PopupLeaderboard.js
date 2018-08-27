@@ -16,8 +16,10 @@ class PopupLeaderboard extends Component {
       let playerPos = i + 1;
 
       // Prepend '0' if Player Rank is less than 10
-      (i < 9) && (playerPos = `0${i + 1}`);
-
+      if (i < 9) {
+        playerPos = `0${i + 1}`
+      }
+      
       return (
         <li className='leaderboard-list__entry' key={item.id}>
           <span className='leaderboard-list__rank'>{playerPos}</span>

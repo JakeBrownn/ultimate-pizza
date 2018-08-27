@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
-  category: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired
 };
 
 const PlayerStat = ({ category }) => {

@@ -12,7 +12,6 @@ class GameSidebar extends Component {
   render() {
     const { sidebarClass } = this.props.toggles;
     const sidebarClassName = `sidebar__overlay sidebar__overlay--${sidebarClass}`;
-    
     return (
       <div className='sidebar'>
         <div className={sidebarClassName}></div>
@@ -21,7 +20,7 @@ class GameSidebar extends Component {
       </div>
     )
   }
-}
+};
 
 const mapStateToProps = ({ toggles }) => {
   return { toggles };

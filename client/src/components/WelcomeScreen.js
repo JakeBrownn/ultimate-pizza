@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../actions';
 import packageJson from '../../package.json';
-import { 
-  usernameChanged, 
-  usernameError,
-  startGameAnimations,
-  startGame  
-} from '../actions';
 import WelcomeBackground from '../assets/images/background-welcome-screen.jpg';
 
 class WelcomeScreen extends Component {
@@ -24,7 +19,7 @@ class WelcomeScreen extends Component {
     const minUserLength = 5;
     const inputValidator = /[^\w]|_/g;
 
-    switch(true) {
+    switch (true) {
 
       // If Username is not entered
       case (playerUsername.length === 0):
@@ -66,7 +61,6 @@ class WelcomeScreen extends Component {
       welcomeMessageClass,
       blueBackground
     } = this.props.toggles;
-
     return (
       <div className={`welcome-screen welcome-screen--${welcomeScreen}`} onSubmit={(e) => this.handleFormSubmit(e)}>
         <div className={`welcome-screen__animate-wrapper welcome-screen__animate-wrapper--${welcomeScreenContent}`}>
@@ -94,18 +88,12 @@ class WelcomeScreen extends Component {
         </div>
         <div className={`welcome-screen__blue-backdrop ${blueBackground}`}></div>
       </div>
-    );
+    )
   }
 };
 
-// Map State from Store into Props
 const mapStateToProps = ({ toggles, form }) => {
   return { toggles, form };
 };
 
-export default connect(mapStateToProps, {
-  usernameChanged,
-  usernameError,
-  startGameAnimations,
-  startGame
-})(WelcomeScreen);
+export default connect(mapStateToProps, actions)(WelcomeScreen);

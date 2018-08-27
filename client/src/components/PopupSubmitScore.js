@@ -33,7 +33,7 @@ class PopupSubmitScore extends Component {
     const { loading, submitSuccess } = this.props.form;
     const Trophy = () => <img className='submit-score__trophy' src={IconTrophy} alt='Trophy' />;
 
-    switch(true) {
+    switch (true) {
 
       // Show loading animation whilst Score is submitting
       case loading:

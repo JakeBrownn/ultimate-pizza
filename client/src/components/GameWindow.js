@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
+import* as actions from '../actions';
 import WelcomeScreen from './WelcomeScreen';
 import PopupSubmitScore from './PopupSubmitScore';
 import PopupLeaderboard from './PopupLeaderboard';
 import PopupFeedback from './PopupFeedback';
-import { incrementClicks, toggleSoundChomp, unlockItemDesc } from '../actions';
 import pizza from '../assets/images/image-pixel-pizza.png';
 import soundChompOne from '../assets/audio/sound-chomp-1.mp3';
 import soundChompTwo from '../assets/audio/sound-chomp-2.mp3';
@@ -21,7 +21,7 @@ class GameWindow extends Component {
     const { toggles, toggleSoundChomp, incrementClicks } = this.props;
     const soundOne = new Audio(soundChompOne);
     const soundTwo = new Audio(soundChompTwo);
-    
+
     toggleSoundChomp();
     incrementClicks();
     this.checkItemDesc(itemOne);
@@ -46,8 +46,7 @@ class GameWindow extends Component {
 
   renderPopups() {
     const { showLeaderboard, showSubmitPopup, showFeedbackPopup } = this.props.toggles;
-
-    switch(true) {
+    switch (true) {
       case showLeaderboard:
         return <PopupLeaderboard />;
       case showSubmitPopup:
@@ -62,7 +61,6 @@ class GameWindow extends Component {
   render() {
     const { counter, toggles } = this.props;
     const actionBtnClassName = `action-button action-button--${toggles.actionButton}`;
-
     return (
       <div className='action-window'>
         {this.renderPopups()}
@@ -87,8 +85,4 @@ const mapStateToProps = ({ counter, toggles, purchased }) => {
   return { counter, toggles, purchased };
 };
 
-export default connect(mapStateToProps, {
-  incrementClicks,
-  toggleSoundChomp,
-  unlockItemDesc
-})(GameWindow);
+export default connect(mapStateToProps, actions)(GameWindow);

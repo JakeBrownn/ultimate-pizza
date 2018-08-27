@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../actions';
 import Button from './Button';
 import SidebarRow from './SidebarRow';
-import {
-  toggleSoundtrack,
-  toggleLeaderboard,
-  toggleSubmitPopup,
-  toggleFeedbackPopup
-} from '../actions';
 import gameSoundtrack from '../assets/audio/soundtrack-main.mp3';
 import IconSoundOn from '../assets/images/icon-sound-on.png';
 import IconSoundOff from '../assets/images/icon-sound-off.png';
@@ -101,14 +96,8 @@ class SidebarOptions extends Component {
   }
 };
 
-// Map State from Redux Store into Props
 const mapStateToProps = ({ toggles }) => {
   return { toggles };
 };
 
-export default connect(mapStateToProps, {
-  toggleSoundtrack,
-  toggleLeaderboard,
-  toggleSubmitPopup,
-  toggleFeedbackPopup
-})(SidebarOptions);
+export default connect(mapStateToProps, actions)(SidebarOptions);

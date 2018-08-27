@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
+import * as actions from '../actions';
+import { itemOne, itemTwo, itemThree } from '../data';
 import ShopItem from './ShopItem';
 import SidebarInfo from './SidebarInfo';
-import { itemOne, itemTwo, itemThree } from '../data';
-import {
-  buyDeliveryMan,
-  activateDeliveryMan,
-  buyExtraCheese,
-  activateExtraCheese,
-  intervalExtraCheese
-} from '../actions';
 import soundPurchase from '../assets/audio/sound-purchase.mp3';
 import IconDeliveryMan from '../assets/images/icon-delivery-man.png';
 import IconExtraCheese from '../assets/images/icon-extra-cheese.png';
@@ -50,16 +44,14 @@ class Shop extends Component {
     const { 
       purchased, 
       counter, 
-      buyExtraCheese, 
-      activateExtraCheese,
       intervalExtraCheese
     } = this.props;
 
     // If purchase is successful
     if (itemTwo.cost <= counter.total && purchased.extraCheese < 3) {
       this.purchaseSound();
-      buyExtraCheese();
-      activateExtraCheese();
+      this.props.buyExtraCheese();
+      this.props.activateExtraCheese();
 
       // Add Slices on interval of set on Extra Cheese ShopItem
       setInterval(() => intervalExtraCheese(), itemTwo.intervalTime);
@@ -98,15 +90,8 @@ class Shop extends Component {
   }
 };
 
-// Map State from Redux Store into Props
 const mapStateToProps = ({ counter, purchased }) => {
   return { counter, purchased };
 };
 
-export default connect(mapStateToProps, {
-  buyDeliveryMan,
-  activateDeliveryMan,
-  buyExtraCheese,
-  activateExtraCheese,
-  intervalExtraCheese
-})(Shop);
+export default connect(mapStateToProps, actions)(Shop);
