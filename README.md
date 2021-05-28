@@ -4,6 +4,13 @@ It's Pizza time! How many slices can you get?
 ---
 
 ## :computer: Get Started
+Pre-requisits: 
+- Must be on Node v10 or below
+
+Install deps:
+- `$ npm install` - Install server deps
+- `$ cd client && npm install` - Install client deps
+
 Local commands:
 - `$ npm run game` - Run the game,
 - `$ npm run dev` - Develop and run the Server & Client,
